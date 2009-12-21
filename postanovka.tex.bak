@@ -1,0 +1,51 @@
+
+\section{ѕостановка задачи}
+
+
+ƒаны системы дифференциальных уравнений, описывающих состо€ние некоторой модели до переключени€ и после:
+\begin{equation}
+\left[
+\begin{aligned}
+    \left\{
+		    \begin{aligned}
+		        &\dot x^{(1)} = A^{(1)}(t)x^{(1)}+B^{(1)}(t)u^{(1)}(t)+C^{(1)}(t)f(t);\\
+		        &x(t_0)\in\mathcal{E}(x_0,X_0)=\mathcal{X}^0;\\
+		        &u(t)^{(1)}\in\mathcal{E}(p(t)^{(1)},P(t)^{(1)});\\
+		        &f(t)^{(1)}\in\mathcal{E}(w(t)^{(1)},W(t)^{(1)});\\
+		    \end{aligned}
+    \right.\\
+    \\
+    \left\{
+		    \begin{aligned}
+		        &\dot x^{(2)} = A^{(2)}(t)x^{(2)}+B^{(2)}(t)u^{(2)}(t)+C^{(2)}(t)f(t)^{(2)};\\
+		        &x(t_H)\in\mathcal{X}^{(1)}(t_H,t_0);\\
+		        &u(t)^{(2)}\in\mathcal{E}(p(t)^{(2)},P(t)^{(2)});\\
+		        &f(t)^{(2)}\in\mathcal{E}(w(t)^{(2)},W(t)^{(2)});\\
+		    \end{aligned}
+    \right.
+\end{aligned}
+\right.
+\label{eq:mainsystem}
+\end{equation}
+где $A(t)\in \mathbb{R}^{n\times n},\,B(t)\in \mathbb{R}^{n\times m},\,C(t)\in \mathbb{R}^{n\times k};\;\;A(t),B(t),C(t) \in  C[t_0,t_1]$, ${u(t),f(t)^{(i)}\in \mathcal{P}^{(i)}[t_0^{(i)},t_1^{(i)}]\subset conv(\mathbb{R}^m),\; i=\{1,2\}}$, где $\mathcal{P}^{(i)}[t_0^{(i)},t_1^{(i)}]$ - класс измеримых на $[t_0^{(i)},t_1^{(i)}]$ функций. ¬ момент времени ${\tau=t_1^{(1)}=t_0^{(2)}}$ при пересечении наперед известной гиперплоскости $H=\{x\in\mathbb R^n\colon \langle x,c \rangle=\gamma\}$, $||\, c ||=1$ происходит переключение систем. ѕри переходе $A(t),B(t),C(t)$ могут претерпевать разрыв первого рода, это известные параметры, $f(t)$ - неизвестна€ функци€, область значений которой ограничена $k$-мерной эллиптической областью.
+ƒл€ решени€ задачи существенно, чтобы система удовлетвор€ла свойству односторонней проницаемости при переходе через плоскость $\mathcal{H}$, то есть
+чтобы система равенств
+\begin{equation}
+\left\{
+\begin{aligned}
+&\langle \dot x,c \rangle = 0;\\
+&\langle x,c \rangle - \gamma = 0
+\end{aligned}
+\right.
+\label{lbl_perehod}
+\end{equation}
+оставалась несовместной.
+
+Ќеобходимо построить множество достижимости $\mathcal {X}[t,t_0]$ в классе допустимых управле\-ний $\mathcal{P}$ дл€ момента времени $t > t_0$ и начального множества $\mathcal{X}^0$.
+
+\begin{define}
+ћножеством достижимости $\mathcal {X}[t,t_0]$  задачи  \eqref{eq:mainsystem} называетс€ пучок траекторий 
+$\mathcal {X}[t,t_0]=\{x(t,t_0)\mid\exists u(\cdot):\;\forall v(\cdot),x(t_0,t_0)\in\mathcal{X}_0 \}$
+\end{define}
+
+{\color{blue}  ласс допустимых мне пока не совсем €сен: $ u(t),u(t,x(t)) \in \Ell{p(t),P(t)}, \Rightarrow u(t,x(t,{\color{red}v(\cdot)},u(\cdot)))$}
