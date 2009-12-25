@@ -3,17 +3,17 @@ Type=TeXnicCenterProjectSessionInformation
 Version=2
 
 [SessionInfo]
-ActiveTab=0
+ActiveTab=2
 FrameCount=3
-ActiveFrame=1
+ActiveFrame=0
 
 [Frame0]
 Columns=1
 Rows=1
 Flags=2
-ShowCmd=2
+ShowCmd=3
 MinPos.x=0
-MinPos.y=761
+MinPos.y=754
 MaxPos.x=-4
 MaxPos.y=-23
 NormalPos.left=217
@@ -24,23 +24,23 @@ Class=CLatexEdit
 Document=task2.tex
 
 [Frame0_Row0]
-cyCur=648
+cyCur=762
 cyMin=10
 
 [Frame0_Col0]
-cxCur=1095
+cxCur=1374
 cxMin=10
 
 [Frame0_View0,0]
-Cursor.row=10
-Cursor.column=33
+Cursor.row=0
+Cursor.column=0
 TopSubLine=0
 
 [Frame1]
 Columns=1
 Rows=1
-Flags=2
-ShowCmd=3
+Flags=0
+ShowCmd=1
 MinPos.x=-1
 MinPos.y=-1
 MaxPos.x=-4
@@ -53,17 +53,17 @@ Class=CLatexEdit
 Document=primer.tex
 
 [Frame1_Row0]
-cyCur=762
+cyCur=489
 cyMin=10
 
 [Frame1_Col0]
-cxCur=1374
+cxCur=1120
 cxMin=10
 
 [Frame1_View0,0]
 Cursor.row=213
 Cursor.column=0
-TopSubLine=204
+TopSubLine=214
 
 [Frame2]
 Columns=1
