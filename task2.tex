@@ -5,7 +5,7 @@
 \usepackage[english,russian]{babel} % для переносов
 \usepackage{cmap} % Для поиска в пдф
 \usepackage{mvkrep}
-\usepackage[dvips]{graphicx}
+%\usepackage[dvips]{graphicx}
 \usepackage{amssymb,amsmath}
 \usepackage{geometry}
 \usepackage[usenames]{color} % для выделения слов разными цветами в тексте
@@ -14,9 +14,12 @@
 \renewcommand{\refname}{Список литературы}
 \renewcommand{\contentsname}{Оглавление}
 \renewcommand{\figurename}{Рисунок}
+
+\newcommand{\cmnt}[1]{{\color{blue} #1}}
 \newcommand{\Ell}[1]{\mathcal{E}(#1)}
 \newcommand{\ts}[1]{\left\langle #1 \right\rangle}
 \newcommand{\intd}[2]{ \int\limits_{#1}^{#2} }
+
 
 \begin{document}
 %\newcommand{\grad}{\bigtriangledown}

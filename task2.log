@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2009.12.1)  14 DEC 2009 16:43
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2009.12.1)  9 JAN 2010 22:41
 entering extended mode
 **D:/Users/seliv/Desktop/постановка/гибридные*системы/task2.tex
 ("D:/Users/seliv/Desktop/постановка/гибридные системы/task2.tex"
@@ -66,36 +66,12 @@ Package: cmap 2008/03/06 v1.0h CMap support: searchable PDF
 \c@propose=\count88
 \c@define=\count89
 )
-("D:\Program Files\MiKTeX 2.8\tex\latex\graphics\graphicx.sty"
-Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
-
-("D:\Program Files\MiKTeX 2.8\tex\latex\graphics\keyval.sty"
-Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
-\KV@toks@=\toks16
-)
-("D:\Program Files\MiKTeX 2.8\tex\latex\graphics\graphics.sty"
-Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
-
-("D:\Program Files\MiKTeX 2.8\tex\latex\graphics\trig.sty"
-Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
-)
-("D:\Program Files\MiKTeX 2.8\tex\latex\00miktex\graphics.cfg"
-File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
-)
-Package graphics Info: Driver file: dvips.def on input line 91.
-
-("D:\Program Files\MiKTeX 2.8\tex\latex\graphics\dvips.def"
-File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
-))
-\Gin@req@height=\dimen104
-\Gin@req@width=\dimen105
-)
 ("D:\Program Files\MiKTeX 2.8\tex\latex\amsfonts\amssymb.sty"
 Package: amssymb 2009/06/22 v3.00
 
 ("D:\Program Files\MiKTeX 2.8\tex\latex\amsfonts\amsfonts.sty"
 Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
-\@emptytoks=\toks17
+\@emptytoks=\toks16
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
@@ -111,12 +87,12 @@ Package: amstext 2000/06/29 v2.01
 
 ("D:\Program Files\MiKTeX 2.8\tex\latex\ams\math\amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0
-\@emptytoks=\toks18
-\ex@=\dimen106
+\@emptytoks=\toks17
+\ex@=\dimen104
 ))
 ("D:\Program Files\MiKTeX 2.8\tex\latex\ams\math\amsbsy.sty"
 Package: amsbsy 1999/11/29 v1.2d
-\pmbraise@=\dimen107
+\pmbraise@=\dimen105
 )
 ("D:\Program Files\MiKTeX 2.8\tex\latex\ams\math\amsopn.sty"
 Package: amsopn 1999/12/14 v2.01 operator names
@@ -133,7 +109,7 @@ LaTeX Info: Redefining \dots on input line 382.
 LaTeX Info: Redefining \cdots on input line 467.
 \Mathstrutbox@=\box26
 \strutbox@=\box27
-\big@size=\dimen108
+\big@size=\dimen106
 LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 \macc@depth=\count95
@@ -141,27 +117,31 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 \dotsspace@=\muskip10
 \c@parentequation=\count97
 \dspbrk@lvl=\count98
-\tag@help=\toks19
+\tag@help=\toks18
 \row@=\count99
 \column@=\count100
 \maxfields@=\count101
-\andhelp@=\toks20
-\eqnshift@=\dimen109
-\alignsep@=\dimen110
-\tagshift@=\dimen111
-\tagwidth@=\dimen112
-\totwidth@=\dimen113
-\lineht@=\dimen114
-\@envbody=\toks21
+\andhelp@=\toks19
+\eqnshift@=\dimen107
+\alignsep@=\dimen108
+\tagshift@=\dimen109
+\tagwidth@=\dimen110
+\totwidth@=\dimen111
+\lineht@=\dimen112
+\@envbody=\toks20
 \multlinegap=\skip44
 \multlinetaggap=\skip45
-\mathdisplay@stack=\toks22
+\mathdisplay@stack=\toks21
 LaTeX Info: Redefining \[ on input line 2666.
 LaTeX Info: Redefining \] on input line 2667.
 )
 ("D:\Program Files\MiKTeX 2.8\tex\latex\geometry\geometry.sty"
 Package: geometry 2008/12/21 v4.2 Page Geometry
 
+("D:\Program Files\MiKTeX 2.8\tex\latex\graphics\keyval.sty"
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks22
+)
 ("D:\Program Files\MiKTeX 2.8\tex\generic\oberdiek\ifpdf.sty"
 Package: ifpdf 2009/04/10 v2.0 Provides the ifpdf switch (HO)
 Package ifpdf Info: pdfTeX in pdf mode detected.
@@ -173,10 +153,10 @@ Package ifvtex Info: VTeX not detected.
 \Gm@cnth=\count102
 \Gm@cntv=\count103
 \c@Gm@tempcnt=\count104
-\Gm@bindingoffset=\dimen115
-\Gm@wd@mp=\dimen116
-\Gm@odd@mp=\dimen117
-\Gm@even@mp=\dimen118
+\Gm@bindingoffset=\dimen113
+\Gm@wd@mp=\dimen114
+\Gm@odd@mp=\dimen115
+\Gm@even@mp=\dimen116
 \Gm@dimlist=\toks23
 
 ("D:\Program Files\MiKTeX 2.8\tex\latex\geometry\geometry.cfg"))
@@ -198,20 +178,20 @@ LaTeX Font Info:    Try loading font information for T2A+cmr on input line 3.
 ("D:\Program Files\MiKTeX 2.8\tex\latex\cyrillic\t2acmr.fd"
 File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 )<<t2a.cmap>>)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
 
 *geometry auto-detecting driver*
 *geometry detected driver: pdftex*
@@ -257,13 +237,13 @@ driver: pdftex
 ("D:\Program Files\MiKTeX 2.8\tex\context\base\supp-pdf.tex"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count106
-\scratchdimen=\dimen119
+\scratchdimen=\dimen117
 \scratchbox=\box28
 \nofMPsegments=\count107
 \nofMParguments=\count108
 \everyMPshowfont=\toks24
 \MPscratchCnt=\count109
-\MPscratchDim=\dimen120
+\MPscratchDim=\dimen118
 \MPnumerator=\count110
 \everyMPtoPDFconversion=\toks25
 ) ("D:\Users\seliv\Desktop\постановка\гибридные системы\primer.tex"<<ot1.cmap>>
@@ -286,48 +266,42 @@ Overfull \hbox (47.82321pt too wide) detected at line 111
  []
 
 [2] [3]
-Overfull \hbox (16.52414pt too wide) detected at line 228
+Overfull \hbox (25.73119pt too wide) detected at line 221
 [] []
  []
 
 [4]
-! Extra \right.
-\rbrace ->\delimiter "5267309 
-                              
-l.243 ...athcal{X}_0)-\frac{\|\ell\|^2}{4}\right\}
-                                                     \bigg\}\bigg\}.
-I'm ignoring a \right that had no matching \left.
-
-
-Overfull \hbox (19.6628pt too wide) detected at line 245
+Overfull \hbox (28.66281pt too wide) detected at line 239
 [] []
  []
 
-) [5] ("D:\Users\seliv\Desktop\постановка\гибридные системы\task2.aux") ) 
+[5]) [6] ("D:\Users\seliv\Desktop\постановка\гибридные системы\task2.aux") ) 
 Here is how much of TeX's memory you used:
- 3149 strings out of 495108
- 38976 string characters out of 3179900
- 103087 words of memory out of 3000000
- 6284 multiletter control sequences out of 15000+200000
- 10712 words of font info for 35 fonts, out of 3000000 for 9000
+ 2994 strings out of 495108
+ 36835 string characters out of 3179900
+ 99116 words of memory out of 3000000
+ 6127 multiletter control sequences out of 15000+200000
+ 14935 words of font info for 48 fonts, out of 3000000 for 9000
  198 hyphenation exceptions out of 8191
  27i,23n,24p,1009b,208s stack positions out of 5000i,500n,10000p,200000b,50000s
- <D:\U
-sers\seliv\Local Settings\Application Data\MiKTeX\2.8\fonts\pk\ljfour\unknown\u
-nknown\dpi600\larm1200.pk> <D:\Users\seliv\Local Settings\Application Data\MiKT
-eX\2.8\fonts\pk\ljfour\lh\lh-t2a\dpi600\labx1728.pk><D:/Program Files/MiKTeX 2.
-8/fonts/type1/public/amsfonts/cm/cmex10.pfb><D:/Program Files/MiKTeX 2.8/fonts/
-type1/public/amsfonts/cm/cmmi12.pfb><D:/Program Files/MiKTeX 2.8/fonts/type1/pu
-blic/amsfonts/cm/cmmi8.pfb><D:/Program Files/MiKTeX 2.8/fonts/type1/public/amsf
-onts/cm/cmr12.pfb><D:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/c
-mr6.pfb><D:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmr8.pfb><D
-:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/Progra
-m Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmsy8.pfb><D:/Program Files/M
-iKTeX 2.8/fonts/type1/public/amsfonts/symbols/msam10.pfb><D:/Program Files/MiKT
-eX 2.8/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on task2.pdf (5 pages, 141931 bytes).
+ <D
+:\Users\seliv\Local Settings\Application Data\MiKTeX\2.8\fonts\pk\ljfour\lh\lh-
+t2a\dpi600\labx1440.pk> <D:\Users\seliv\Local Settings\Application Data\MiKTeX\
+2.8\fonts\pk\ljfour\unknown\unknown\dpi600\larm1200.pk> <D:\Users\seliv\Local S
+ettings\Application Data\MiKTeX\2.8\fonts\pk\ljfour\lh\lh-t2a\dpi600\labx1728.p
+k><D:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmex10.pfb><D:/Pr
+ogram Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmmi12.pfb><D:/Program Fi
+les/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmmi8.pfb><D:/Program Files/MiKTe
+X 2.8/fonts/type1/public/amsfonts/cm/cmr12.pfb><D:/Program Files/MiKTeX 2.8/fon
+ts/type1/public/amsfonts/cm/cmr6.pfb><D:/Program Files/MiKTeX 2.8/fonts/type1/p
+ublic/amsfonts/cm/cmr8.pfb><D:/Program Files/MiKTeX 2.8/fonts/type1/public/amsf
+onts/cm/cmsy10.pfb><D:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/
+cmsy8.pfb><D:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts/symbols/msam
+10.pfb><D:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts/symbols/msbm10.
+pfb>
+Output written on task2.pdf (6 pages, 155533 bytes).
 PDF statistics:
- 141 PDF objects out of 1000 (max. 8388607)
+ 169 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
