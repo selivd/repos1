@@ -93,19 +93,21 @@ x^{(2,1)}(t,\tau,x,u,v)=&G_1(t,\tau)G_2(\tau,t_1)x+G_1(t,\tau)\int\limits_{t_1}^
 \end{equation}
 
 Нам необходимо, чтобы момент $\tau$ в этих выражениях удовлетворял условию пересечения, так чтобы $\ts{x(\tau),c}=\gamma$.
-Поскольку $\mathcal{X}[t,t_0]=\{x\mid V(t,x)\leqslant 0\}, \forall t\in[t_0,t_1]$, то достаточно ввести штрафующий член $ \left(\ts{x(\tau),c}-\gamma\right)^2$ в выражение для $V(t,x)$, тем самым обеспечивая  для $\mathcal{X}[t,t_0]$ включение только тех траекторий, которые удовлетворяют нашим двум системам и условию на момент переключения.
+Поскольку $\mathcal{X}[t,t_0]=\{x\mid V(t,x)\leqslant 0\}, \forall t\in[t_0,t_1]$, то достаточно ввести штрафующий член $ \left(\ts{x(\tau),c}-\gamma\right)^2$ в выражение для $V(t,x)$, тем самым обеспечивая  для $\mathcal{X}[t,t_0]$ включение только тех траекторий, которые удовлетворяют нашим двум системам и условию на момент переключения. 
+
+Поскольку мы рассматриваем задачу в классе программных управлений, мы не можем строить управление в зависимости от текущего состояния системы, а только заранее  его определять. Поэтому, в формуле для $V(t,x)$ нельзя проводить оптимизацию отдельно для ''до'' и ''после'', так как момент переключения $\tau$ не известен заранее.
 $$
-V(t,x)=\min_{u_1 \in\mathcal{P}_1}\max_{v_1\in\mathcal{W}_1}\min_{u_2\in \mathcal{P}_2}\max_{v_2\in\mathcal{W}_2}\max_{\tau}\left\{ d^2(x_0{\mid_{x(t)=x}},\mathcal{X}_0) + \left(\ts{x(\tau),c}-\gamma\right)^2 \right\}.
+V(t,x)=\min_{u_1,u_2\in\mathcal{P}}\max_{v_1,v_2\in\mathcal{W}}\max_{\tau}\left\{ d^2(x_0{\mid_{x(t)=x}},\mathcal{X}_0) + \left(\ts{x(\tau),c}-\gamma\right)^2 \right\}.
 %V(t,x)=\min_{u_1\in \mathcal{P}_1}\max_{v_1\in\mathcal{W}_1}\left\{ 
 $$
 
 Пока примем $\gamma=0$. Для линеаризации условия на переключение сделаем подстановку
 $$
-\ts{x(\tau),c}^2\equiv\max_\mu \left\{\mu \ts{x(\tau),c} - \frac{\mu^2}{4}\right\},
+\ts{x,c}^2\equiv\max_\mu \left\{\mu \ts{x,c} - \frac{\mu^2}{4}\right\},
 $$
 и, используя \eqref{eq:valued2}, имеем
 $$
-V(t,x)=\min_{u_1 \in\mathcal{P}_1}\max_{v_1\in\mathcal{W}_1}\min_{u_2\in \mathcal{P}_2}\max_{v_2\in\mathcal{W}_2}\max_{\tau}\left\{
+V(t,x)=\min_{u_1,u_2 \in\mathcal{P}}\max_{v_1,v_2\in\mathcal{W}}\max_{\tau}\left\{
 \max_{\ell}\max_{\mu} \left\{\ts{\ell,x_0\mid_{x(t)=x}} +\mu\ts{x(\tau),c}-\frac{\mu^2}{4}- \rho(\ell\mid\mathcal{X}_0)-\frac{\|\ell\|^2}{4}
 \right\}\right\}.
 $$
@@ -114,49 +116,48 @@ $$
 
 $$
 \begin{gathered}
- V(t,x)=\min_{u_1 \in\mathcal{P}_1}\max_{v_1\in\mathcal{W}_1}\min_{u_2\in \mathcal{P}_2}\max_{v_2\in\mathcal{W}_2}\min_{\tau\in[t_0,t]} \max_{\ell}\max_{\mu} \{  \\
+ V(t,x)=\min_{u_1,u_2}\max_{v_1,v_2}\min_{\tau\in[t_0,t]} \max_{\ell}\max_{\mu} \{  \\
  \ts{\ell,G_1(t_0,\tau)G_2(\tau,t)x} + \int\limits_t^\tau \ts{\ell,G_1(t_0,\tau)G_2(\tau,s)\left[B_2(s)u_2(s)+C_2(s)v_2(s)\right]}\,ds+ \\ 
  + \int\limits_\tau^{t_0} \ts{\ell,G_1(t_0,s)\left[B_1(s)u_1(s)+C_1(s)v_1(s)\right]}\,ds + \mu\ts{c,G_2(\tau,t)x}+ \\
  + \mu\int\limits_t^\tau \ts{c,G_2(\tau,s)\left[B_2(s)u_2(s)+C_2(s)v_2(s)\right]}\,ds-\\
  - \frac{\mu^2}{4} - \rho(\ell\mid\mathcal{X}_0)-\frac{\|\ell\|^2}{4}  \}
 \end{gathered}
 $$
-Сгруппируем слагаемые \cmnt{Изменено: теперь $\tilde{S}$ -столбец}
+Сгруппируем слагаемые 
 $$
 \begin{aligned}
 \tilde{S}(\tau,t)&= G_2^T(\tau,t)G_1^T(t_0,\tau)\ell + \mu G_2^T(\tau,t) c ,\\
 \tilde{S}_1(t_0,\tau)&=G_1^T(t_0,\tau)\ell ,
 \end{aligned}
 $$
-получим
+имеем
 \begin{equation}
 \label{eq:big_valuef}
 \begin{gathered}
- V(t,x)=\min_{u_1 \in\mathcal{P}_1}\max_{v_1\in\mathcal{W}_1}\min_{u_2\in \mathcal{P}_2}\max_{v_2\in\mathcal{W}_2}\min_{\tau\in[t_0,t]} \max_{\ell}\max_{\mu} \{  \\
+ V(t,x)=\min_{u_1,u_2}\max_{v_1,v_2}\min_{\tau\in[t_0,t]} \max_{\ell}\max_{\mu} \{  \\
   \tilde{S}^T(\tau,t)x + \int\limits_t^\tau \tilde{S}^T(\tau,s)\left[B_2(s)u_2(s)+C_2(s)v_2(s)\right]\,ds+ \\ 
  + \int\limits_\tau^{t_0} \tilde{S}^T_1(t_0,s)\left[B_1(s)u_1(s)+C_1(s)v_1(s)\right]\,ds - \\
  - \frac{\mu^2}{4} - \rho(\ell\mid\mathcal{X}_0)-\frac{\|\ell\|^2}{4}  \}
 \end{gathered}
 \end{equation}
 
-
-Чтобы эффективно вычислять множества достижимости используется прием, который позволяет заменить поиск множества допустимых траекторий вычислением опорной функции к этому множетсву. Для перехода к опорным функциям требуется менять местами порядок минимумов и максимумов в \eqref{eq:big_valuef}, а для этого необходимо выполнение условий теоремы минимакса. Поэтому дальнейшие преобразования выполняются с целью обеспечения этих условий. Одним из достаточных условий перестановки является линейность по минимизирующему или максимизирующему параметру. Наша цель состоим в том, чтобы перенести операции минимума по $u_1,u_2$ и максимума по $v_1,v_2$ внутрь выражения функции цены, тем самым сводя минимизацию/максимизацию на пространстве функций  к минимизации/максимизации на евклидовом пространстве. Первыми меняются местами $\max_{v_2}\min_\tau(\cdot)=\min_\tau\max_{v_2}(\cdot)$. Для примера, рассмотрим функционал
+Чтобы эффективно вычислять множества достижимости используется прием, который позволяет заменить поиск множества допустимых траекторий вычислением опорной функции к этому множетсву. Для перехода к опорным функциям требуется менять местами порядок минимумов и максимумов в \eqref{eq:big_valuef}, а для этого необходимо выполнение условий теоремы минимакса. Поэтому дальнейшие преобразования выполняются с целью обеспечения этих условий. Одним из достаточных условий перестановки является линейность по минимизирующему или максимизирующему параметру. Наша цель состоим в том, чтобы перенести операции минимума по $u_1,u_2$ и максимума по $v_1,v_2$ внутрь выражения функции цены, тем самым сводя минимизацию/максимизацию на функциональном пространстве $\mathcal{P},\mathcal{W}$  к поиску экстремумов для выпуклых(вогнутых) функций. Первыми меняются местами $\max_{v_1,v_2}\min_\tau(\cdot)=\min_\tau\max_{v_1,v_2}(\cdot)$. Для примера, сначала рассмотрим функционал
 $$
 T(\tau,v(s))=\int\limits_t^{\tau}v(s)ds 
 $$
-Легко видеть, что $T(\tau,v(s))$, являясь линейным по $v$, не является таковым по $\tau$. Для этого, вместо $\tau$ возьмем функцию  $\tau(w)=\phi(w)$ и преобразуем 
+Легко видеть, что $T(\tau,v(s))$, являясь линейным по $v$, не является таковым по $\tau$. Тогда вместо $\tau$ возьмем функцию  $\tau(w)=\phi(w)$ и преобразуем 
 $$
 T(\phi(w),v(s))=\int\limits_{t_0}^t \phi(w)dw \int\limits_t^{w}v(s)ds.
 $$
-Мы подразумеваем здесь, что $\phi(w)-\delta(w)$.
+Мы подразумеваем здесь, что $\phi(w)=\delta(w)$.
 Теперь функционал $T(\phi,v)$ является линейным по всем аргументам. 
 
-Таким же образом мы поступим с $V(t,x)$:
+Аналогично поступим с $V(t,x)$:
 $$
 \begin{gathered}
- V(t,x)=\min_{u_1 \in\mathcal{P}_1}\max_{v_1\in\mathcal{W}_1}\min_{u_2\in \mathcal{P}_2}\max_{v_2\in\mathcal{W}_2}\min_{\phi(w)} \max_{\ell}\max_{\mu}\int\limits_{t_0}^t \phi(w)\bigg\{  \\
-  \tilde{S}^T(w,t)x + \int\limits_t^w \tilde{S}^T(w,s)\left[B_2(s)u_2(s)+C_2(s)v_2(s)\right]\,ds+  \\
- + \int\limits_w^{t_0} \tilde{S}^T_1(t_0,s)\left[B_1(s)u_1(s)+C_1(s)v_1(s)\right]\,ds - \\
+ V(t,x)=\min_{u_1,u_2}\max_{v_1,v_2}\min_{\phi(w)} \max_{\ell(w)}\max_{\mu(w)}\intd{t_0}{t} \phi(w)\bigg\{  \\
+  \tilde{S}^T(w,t)x + \intd{t}{w} \tilde{S}^T(w,s)\left[B_2(s)u_2(s)+C_2(s)v_2(s)\right]\,ds+  \\
+ + \intd{w}{t_0} \tilde{S}^T_1(t_0,s)\left[B_1(s)u_1(s)+C_1(s)v_1(s)\right]\,ds - \\
  - \frac{\mu^2}{4} - \rho(\ell\mid\mathcal{X}_0)-\frac{\|\ell\|^2}{4}  \bigg\}\,dw,
 \end{gathered}
 $$
@@ -173,72 +174,49 @@ $$
 и делая замену переменных
 $$
 \begin{aligned}
-S(t_0,t_1)&=\intd{t_0}{t_1}\phi(w)\tilde{S}(w,t_1)\,dw=\int\limits^{t_1}_{t_0}\phi(w)\left\{  G^T_1(t_0,w)G^T_2(w,t)\ell + \mu G_2^T(w,t)c \right\}\,dw, \\
-S_1(t_0,t_1)&=\intd{t_0}{t_1}\phi(w)\tilde{S}_1(t_0,w)\,dw,=\intd{t_1}{t_0}\phi(w)\left\{ G^T_1(t_0,w)  \ell \right\}\,dw,
+S(t_0,t_1)&=\intd{t_0}{t_1}\phi(w)\tilde{S}(w,t_1)\,dw=\int\limits^{t_0}_{t_1}\phi(w)\left\{  G^T_1(t_0,w)G^T_2(w,t)\ell(w) + \mu(w) G_2^T(w,t)c \right\}\,dw, \\
+S_1(t_0,t_1)&=\intd{t_0}{t_1}\phi(w)\tilde{S}_1(t_0,w)\,dw,=\intd{t_0}{t_1}\phi(w)\left\{ G^T_1(t_0,w)  \ell(w) \right\}\,dw,\\
+K(\ell,\mu,\mathcal{X}_0)&=\intd{t_0}{t} \phi(w)\left[\frac{\mu(w)^2}{4} + \rho(\ell(w)\mid\mathcal{X}_0) + \frac{\|\ell(w)\|^2}{4} \right]\,dw
 \end{aligned}
 $$
 придем к 
 \begin{equation}
 \label{eq:value_w}
 \begin{gathered}
- V(t,x)=\min_{u_1 \in\mathcal{P}_1}\max_{v_1\in\mathcal{W}_1}\min_{u_2\in \mathcal{P}_2}\max_{v_2\in\mathcal{W}_2}\min_{\phi(w)} \max_{\ell(w)}\max_{\mu(w)} \bigg\{  \\
+ V(t,x)=\min_{u_1,u_2}\max_{v_1,v_2}\min_{\phi(w)} \max_{\ell(w)}\max_{\mu(w)} \bigg\{  \\
   S^T(t_0,t)x + \intd{t}{t_0} S^T(t_0,s)\left[B_2(s)u_2(s)+C_2(s)v_2(s)\right]\,ds+  \\
  + \intd{t}{t_0} S^T_1(s,t)\left[B_1(s)u_1(s)+C_1(s)v_1(s)\right]\,ds - \\
- - \frac{\mu^2}{4} - \rho(\ell\mid\mathcal{X}_0)-\frac{\|\ell\|^2}{4}  \bigg\}.
+ - K(\ell,\mu,\mathcal{X}_0)  \bigg\},
 \end{gathered}
 \end{equation}
+где $K(\ell,\mu,\mathcal{X}_0)$ -- выпуклая функция.
 
 Будем искать опорную функцию к множеству достижимости $\mathcal{X}[t,\mathcal{X}_0]$, определяемому по найденному выше выражению \eqref{eq:value_w} для $V(t,x)$. 
-Пользуясь линейностью по $\phi(w)$, теперь можно переставить
+Пользуясь линейностью по $\phi$, теперь можно переставить
 $$
-\max_{v_2\in\mathcal{W}_2}\min_{\phi(w)} \max_{\ell(w)}\max_{\mu(w)} (\cdot)=\min_{\phi(w)} \max_{\ell(w)}\max_{\mu(w)}\max_{v_2\in\mathcal{W}_2}(\cdot),
+\max_{v_1,v_2}\min_{\phi} \max_{\ell}\max_{\mu} (\cdot)=\min_{\phi} \max_{\ell}\max_{\mu}\max_{v_1,v_2}(\cdot),
 $$
-тогда получим
+тогда
 $$
 \begin{gathered}
- V(t,x)=\min_{u_1 \in\mathcal{P}_1}\max_{v_1\in\mathcal{W}_1}\min_{u_2\in \mathcal{P}_2}\min_{\phi(w)} \max_{\ell(w)}\max_{\mu(w)} \bigg\{  \\
+ V(t,x)=\min_{u_1,u_2}\min_{\phi} \max_{\ell}\max_{\mu} \bigg\{  \\
   S^T(t_0,t)x + \intd{t}{t_0} S^T(t_0,s)B_2(s)u_2(s)\,ds + \intd{t}{t_0}\rho(S^T(t_0,s)\mid C_2(s)\mathcal{W}_2(s)) \,ds \\
- + \intd{t}{t_0} S^T_1(s,t)\left[B_1(s)u_1(s)+C_1(s)v_1(s)\right]\,ds - \\
- - \frac{\mu^2}{4} - \rho(\ell\mid\mathcal{X}_0)-\frac{\|\ell\|^2}{4}  \bigg\}.
+ + \intd{t}{t_0} S^T_1(s,t)B_1(s)u_1(s)+ \intd{t}{t_0}\rho(S^T_1(s,t)\mid C_1(s)\mathcal{W}_1)\,ds - \\
+ - K(\ell,\mu,\mathcal{X}_0)  \bigg\}.
 \end{gathered}
 $$
-Далее, мы хотим заменить $\min_{u_2}(\cdot)$ опорной функцией, но полученное нами выражение уже не является вогнутым по $\ell,\mu$. Чтобы исправить ситуацию, мы прибегаем к овыпуклению нужных членов и получаем 
-$$
-\begin{gathered}
- V(t,x)=\min_{u_1 \in\mathcal{P}_1}\max_{v_1\in\mathcal{W}_1}\min_{\phi(w)} \max_{\ell(w)}\max_{\mu(w)} \bigg\{  \\
-  S^T(t_0,t)x - \intd{t_0}{t} \rho(S(t_0,s)\mid B_2(s)\mathcal{P}_2(s))\,ds+\intd{t}{t_0} S^T_1(s,t)\left[B_1(s)u_1(s)+C_1(s)v_1(s)\right]\,ds \\
-   - \mbox{conv}\left\{ -\intd{t}{t_0}\rho(S(t_0,s)\mid C_2(s)\mathcal{W}_2(s)) \,ds + \frac{\mu^2}{4} + \rho(\ell\mid\mathcal{X}_0)+\frac{\|\ell\|^2}{4}\right\}   \bigg\}.
-\end{gathered}
-$$
-Аналогично, $\max_{v_1}$ переставляется также как и $\max_{v_2}$, имеем
+Далее, мы хотим поменять $\min_{u_1,u_2}(\cdot)$ на опорную функцию, но полученное выше выражение уже не является вогнутым по $\ell,\mu$. Поэтому, мы прибегаем к овыпуклению нужных членов и наконец получаем 
 
-$$
-\begin{gathered}
- V(t,x)=\min_{u_1 \in\mathcal{P}_1}\min_{\phi(w)} \max_{\ell(w)}\max_{\mu(w)} \bigg\{  \\
-  S^T(t_0,t)x - \intd{t_0}{t} S^T_1(s,t)B_1(s)u_1(s)\,ds +\intd{t}{t_0}\rho(S_1(s,t)\mid C_1(s)\mathcal{W}_1(s))\,ds - \intd{t_0}{t} \rho(S(t_0,s)\mid B_2(s)\mathcal{P}_2(s))\,ds\\
-  - \mbox{conv}\left\{ -\intd{t}{t_0}\rho(S(t_0,s)\mid C_2(s)\mathcal{W}_2(s)) \,ds + \frac{\mu^2}{4} + \rho(\ell\mid\mathcal{X}_0)+\frac{\|\ell\|^2}{4}\right\}   \bigg\}.
-\end{gathered}
-$$
-
-
-Опять сталкиваемся с ситуацией овыпукления:
-$$
-\begin{gathered}
- V(t,x)=\min_{\phi(w)} \max_{\ell(w)}\max_{\mu(w)} \bigg\{  \\
-  S^T(t_0,t)x - \intd{t_0}{t} \rho(S_1(s,t)\mid B_1(s)\mathcal{P}_1(s))\,ds - \intd{t_0}{t} \rho(S(t_0,s)\mid B_2(s)\mathcal{P}_2(s))\,ds + \\ +\mbox{conc} 	\bigg\{\intd{t}{t_0}\rho(S_1(s,t)\mid C_1(s)\mathcal{W}_1(s))\,ds -\\
-  - \mbox{conv}\left\{ -\intd{t}{t_0}\rho(S(t_0,s)\mid C_2(s)\mathcal{W}_2(s)) \,ds + \frac{\mu^2}{4} + \rho(\ell\mid\mathcal{X}_0)+\frac{\|\ell\|^2}{4}\right\}   \bigg\}\bigg\},
-\end{gathered}
-$$
-и наконец
 $$
 \begin{gathered}
 \label{eq:V-fin}
- V(t,x)=\min_{\phi(w)} \max_{\ell(w)}\max_{\mu(w)} \bigg\{  \\
-  S^T(t_0,t)x - \intd{t_0}{t} \rho(S_1(s,t)\mid B_1(s)\mathcal{P}_1(s))\,ds - \intd{t_0}{t} \rho(S(t_0,s)\mid B_2(s)\mathcal{P}_2(s))\,ds + \\ +\mbox{conc} 	\bigg\{\intd{t}{t_0}\rho(S_1(s,t)\mid C_1(s)\mathcal{W}_1(s))\,ds + \intd{t}{t_0}\rho(S(t_0,s)\mid C_2(s)\mathcal{W}_2(s)) \,ds - \frac{\mu^2}{4} - \rho(\ell\mid\mathcal{X}_0)-\frac{\|\ell\|^2}{4}\bigg\}   \bigg\}\bigg\}.
+ V(t,x)=\min_{\phi} \max_{\ell}\max_{\mu} \bigg\{  \\
+  S^T(t_0,t)x - \intd{t_0}{t} \rho(S_1(s,t)\mid B_1(s)\mathcal{P}_1(s))\,ds - \intd{t_0}{t} \rho(S(t_0,s)\mid B_2(s)\mathcal{P}_2(s))\,ds - \\ - \mbox{conv}\left\{ -\intd{t}{t_0}\rho(S_1(s,t)\mid C_1(s)\mathcal{W}_1(s))\,ds-\intd{t}{t_0}\rho(S(t_0,s)\mid C_2(s)\mathcal{W}_2(s)) \,ds + K(\ell,\mu,\mathcal{X}_0)  \right\} \bigg\}.
 \end{gathered}
 $$
 
-\cmnt{То, что я хотел показать сейчас}
+
+
 \subsection{Проблема явного выражения $\ell(w),\mu(w)$}
 
 Выражение стоящее под знаком $\min\max$ в \eqref{eq:V-fin} является линейной функцией по $\tau(w)$  \cmnt{(лемма о интегрировании овыпукления)}
