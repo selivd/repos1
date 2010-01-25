@@ -205,7 +205,7 @@ $$
  - K(\ell,\mu,\mathcal{X}_0)  \bigg\}.
 \end{gathered}
 $$
-Далее, мы хотим поменять $\min_{u_1,u_2}(\cdot)$ на опорную функцию, но полученное выше выражение уже не является вогнутым по $\ell,\mu$. Поэтому, мы прибегаем к овыпуклению нужных членов и наконец получаем 
+Далее, мы хотим поменять $\min_{u_1,u_2}(\cdot)$ на опорную функцию, но полученное выше выражение уже не является вогнутым по $\ell,\mu$. Поэтому, мы прибегаем к овыпуклению нужных членов приходим к 
 
 $$
 \begin{gathered}
@@ -215,24 +215,13 @@ $$
 \end{gathered}
 $$
 
+И наконец
 
 
-\subsection{Проблема явного выражения $\ell(w),\mu(w)$}
-
-Выражение стоящее под знаком $\min\max$ в \eqref{eq:V-fin} является линейной функцией по $\tau(w)$  \cmnt{(лемма о интегрировании овыпукления)}
-
-
-\cmnt{Я пытаюсь взять производную по $\mu$}
-
-Произодная от опорной функции элипсоида 
 $$
-\frac{d}{d\mu}\rho(\ell(\mu)\mid\Ell{q,Q})=\frac{d}{d\ell}(\ts{\ell,q}+\ts{\ell,Q\ell}^\frac12)\frac{d\ell}{d\mu}=\left( q+\frac{\ell^TQ}{\ts{\ell,Q\ell}^{\frac12}}\right)\frac{d\ell}{d\mu}
+\begin{gathered}
+\label{eq:V-fin}
+ V(t,x)=\min_{\phi} \max_{\ell}\max_{\mu} \bigg\{  \\
+  S^T(t_0,t)x - \intd{t_0}{t} \rho(S_1(s,t)\mid B_1(s)\mathcal{P}_1(s))\,ds - \intd{t_0}{t} \rho(S(t_0,s)\mid B_2(s)\mathcal{P}_2(s))\,ds - \\ - \mbox{conv}\left\{ \intd{t_0}{t}\rho(S_1(s,t)\mid C_1(s)\mathcal{W}_1(s))\,ds+\intd{t_0}{t}\rho(S(t_0,s)\mid C_2(s)\mathcal{W}_2(s)) \,ds + K(\ell,\mu,\mathcal{X}_0)  \right\} \bigg\}.
+\end{gathered}
 $$
-
-Для краткости обозначим $\Ell{\tilde{q},\tilde{Q}}=\Ell{B_2q,B^T_2QB_2}=B_2\mathcal{P}_2)$, тогда 
-\begin{align}
-	\frac{d}{d\mu}\intd{t_0}{t} \rho(S(t_0,s)\mid B_2(s)\mathcal{P}_2(s))\,ds = \\
-	\intd{t_0}{t}\left(\tilde{q}+\frac{S(t_0,s)Q^T}{\ts{S(t_0,s),\tilde{Q}S(t_0,s)}^{\frac12}}\right)\, \cdot \left(\intd {t_0} s \phi(w)G^T_2c(w,t)dw\right)ds
-\end{align}
-
-Затем нужно как-то взять производную по $\mu$ для $\mbox{conv}(\cdot)$. Я пока затрудняюсь это сделать в $\mathbb{R}^n$. И здесь, наверное, как раз можно сначала посчитать $\mbox{conv}(\cdot)$ конкретно для примера. Но я пока здесь остановился. Производную беру, чтобы на основании выпуклости (линейности) найти единственный минимум. 

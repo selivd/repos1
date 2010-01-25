@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=pdflatex 2009.10.12)  24 JAN 2010 00:40
+This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=pdflatex 2009.10.12)  25 JAN 2010 22:54
 entering extended mode
 **C:/Documents*and*Settings/One/Рабочий*стол/Дипломная/task2.tex
 ("C:/Documents and Settings/One/Рабочий стол/Дипломная/task2.tex"
@@ -244,51 +244,51 @@ driver: pdftex
 \MPscratchDim=\dimen118
 \MPnumerator=\count110
 \everyMPtoPDFconversion=\toks25
-) (primer.tex<<ot1.cmap>><<oml.cmap>><<oms.cmap>><<omx.cmap>>
-LaTeX Font Info:    Try loading font information for U+msa on input line 5.
+) (prim2p.tex<<ot1.cmap>><<oml.cmap>><<oms.cmap>><<omx.cmap>>
+LaTeX Font Info:    Try loading font information for U+msa on input line 2.
 
 ("C:\Program Files\MiKTeX 2.7\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 5.
+LaTeX Font Info:    Try loading font information for U+msb on input line 2.
 
 ("C:\Program Files\MiKTeX 2.7\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
+)
+
+LaTeX Warning: Reference `eq:primer_sys' on page 1 undefined on input line 10.
+
 ) [1
 
 {C:/Documents and Settings/All Users/Application Data/MiKTeX/2.7/pdftex/config/
-pdftex.map}]
-Overfull \hbox (7.49149pt too wide) detected at line 113
-\OML/cmm/m/it/12 V\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t; x\OT1/cmr/m/n/12 ) = [] 
-[] [] [] \OML/cmm/m/it/12 :
- []
+pdftex.map}] (task2.aux)
 
-[2] [3] [4]) [5] (task2.aux) ) 
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 2973 strings out of 95112
- 34452 string characters out of 1181675
- 97138 words of memory out of 1500000
- 6116 multiletter control sequences out of 110000
- 14935 words of font info for 48 fonts, out of 3000000 for 5000
+ 2937 strings out of 95112
+ 33929 string characters out of 1181675
+ 92086 words of memory out of 1500000
+ 6098 multiletter control sequences out of 110000
+ 9906 words of font info for 34 fonts, out of 3000000 for 5000
  198 hyphenation exceptions out of 8191
- 27i,23n,24p,1057b,208s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Documents and Settings\All Users\Application
- Data\MiKTeX\2.7\fonts\pk\ljfour\lh\lh-t2a\dpi600\labx1440.pk> <C:\Documents an
-d Settings\All Users\Application Data\MiKTeX\2.7\fonts\pk\ljfour\public\ams\dpi
-720\msam10.pk> <C:\Documents and Settings\All Users\Application Data\MiKTeX\2.7
-\fonts\pk\ljfour\public\ams\dpi720\msbm10.pk> <C:\Documents and Settings\All Us
-ers\Application Data\MiKTeX\2.7\fonts\pk\ljfour\unknown\unknown\dpi600\larm1200
-.pk> <C:\Documents and Settings\All Users\Application Data\MiKTeX\2.7\fonts\pk\
-ljfour\lh\lh-t2a\dpi600\labx1728.pk><C:/Program Files/MiKTeX 2.7/fonts/type1/bl
-uesky/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.7/fonts/type1/bluesky/cm/cmmi12.
-pfb><C:/Program Files/MiKTeX 2.7/fonts/type1/bluesky/cm/cmmi8.pfb><C:/Program F
-iles/MiKTeX 2.7/fonts/type1/bluesky/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.7/f
-onts/type1/bluesky/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.7/fonts/type1/bluesky
-/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.7/fonts/type1/bluesky/cm/cmsy10.pfb><C:
-/Program Files/MiKTeX 2.7/fonts/type1/bluesky/cm/cmsy8.pfb>
-Output written on task2.pdf (5 pages, 101155 bytes).
+ 27i,10n,24p,415b,157s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Documents and Settings\All Users\Application Data\MiKTeX\2.7\fonts\pk\lj
+four\public\ams\dpi720\msbm10.pk> <C:\Documents and Settings\All Users\Applicat
+ion Data\MiKTeX\2.7\fonts\pk\ljfour\lh\lh-t2a\dpi600\labx1200.pk> <C:\Documents
+ and Settings\All Users\Application Data\MiKTeX\2.7\fonts\pk\ljfour\unknown\unk
+nown\dpi600\larm1200.pk><C:/Program Files/MiKTeX 2.7/fonts/type1/bluesky/cm/cme
+x10.pfb><C:/Program Files/MiKTeX 2.7/fonts/type1/bluesky/cm/cmmi12.pfb><C:/Prog
+ram Files/MiKTeX 2.7/fonts/type1/bluesky/cm/cmmi6.pfb><C:/Program Files/MiKTeX 
+2.7/fonts/type1/bluesky/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.7/fonts/type1/b
+luesky/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.7/fonts/type1/bluesky/cm/cmr6.pf
+b><C:/Program Files/MiKTeX 2.7/fonts/type1/bluesky/cm/cmr8.pfb><C:/Program File
+s/MiKTeX 2.7/fonts/type1/bluesky/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.7/fon
+ts/type1/bluesky/cm/cmsy8.pfb>
+Output written on task2.pdf (1 page, 59215 bytes).
 PDF statistics:
- 170 PDF objects out of 1000 (max. 8388607)
+ 106 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,0 +1,27 @@
+
+$$
+\begin{gathered}
+\label{eq:V-fin}
+ V(t,x)=\min_{\phi} \max_{\ell}\max_{\mu} \bigg\{  \\
+  S^T(t_0,t)x - \intd{t_0}{t} \rho(S_1(s,t)\mid B_1(s)\mathcal{P}_1(s))\,ds - \intd{t_0}{t} \rho(S(t_0,s)\mid B_2(s)\mathcal{P}_2(s))\,ds - \\ - \mbox{conv}\left\{ \intd{t_0}{t}\rho(S_1(s,t)\mid C_1(s)\mathcal{W}_1(s))\,ds+\intd{t_0}{t}\rho(S(t_0,s)\mid C_2(s)\mathcal{W}_2(s)) \,ds + K(\ell,\mu,\mathcal{X}_0)  \right\} \bigg\}.
+\end{gathered}
+$$
+
+–ассмотрим теперь поиск выражени€ под conv дл€ выражени€ \eqref{eq:primer_sys}. 
+
+
+ћножества $C_1\mathcal{W}_1$ и $C_2\mathcal{W}_2$ принимают вид $\begin{pmatrix} v\\0 \end{pmatrix}, v\in[\tilde{\beta^{(1)}_1},\tilde{\beta^{(1)}_2}]=\mbox{Comp}(\mathbb{R}^1)$, тогда  дл€ некоторого $\tilde{\ell}(s)$
+$$
+\rho(\tilde{\ell}(s),\begin{pmatrix} v\\0 \end{pmatrix})=\sup_{v(s)\in C_1\mathcal{W}_1(s)} (\tilde{\ell}_1(s) v ) = \tilde{\ell}_1\cdot\left\{\begin{aligned} \tilde{\beta_1},\;\tilde{\ell_1}(s) < 0\\ \tilde{\beta_2},\;\tilde{\ell_1}(s)>0\end{aligned}\right.
+$$  
+» тогда интегралы от опорных функций вычисл€ютс€ как
+$$
+\intd{t_0}{t}\rho(S_1(s,t)\mid C_1\mathcal{W}_1(s))\,ds=\tilde{\beta_1}^{(1)}\intd{T_{<}}{} S_1(t_0,s)\,ds+\tilde{\beta_2}^{(1)}\intd{T_{>}}{}S_1(t_0,s)\,ds,
+$$
+
+$$
+\intd{t_0}{t}\rho(S(t_0,s)\mid C_2\mathcal{W}_2(s))\,ds= \tilde{\beta_1}^{(2)}\intd{T_{<}}{} S(t_0,s)\,ds+\tilde{\beta_2}^{(2)}\intd{T_{>}}{}S(t_0,s)\,ds,
+$$
+
+где $T_{<}$ -- промежуток времени, на котором $S(t_0,s)<0$ или $S_1(s,t)<0$; и $T_{>}$ -- промежуток, где $S(t_0,s)>0$ или $S_1(s,t)>0$. “ак как $S(t_0,s)$ и $S_1(s,t)$ -- непрерывные или кусочно-непрерывные, найти промежутки $T_{>}$ и $T_{<}$ несложно.
+
