@@ -3,37 +3,58 @@ $$
 \begin{gathered}
 \label{eq:V-fin}
  V(t,x)=\min_{\phi} \max_{\ell}\max_{\mu} \bigg\{  \\
-  S^T(t_0,t)x - \intd{t_0}{t} \rho(S_1(s,t)\mid B_1(s)\mathcal{P}_1(s))\,ds - \intd{t_0}{t} \rho(S(t_0,s)\mid B_2(s)\mathcal{P}_2(s))\,ds - \\ - \mbox{conv}\left\{ \intd{t_0}{t}\rho(S_1(s,t)\mid C_1(s)\mathcal{W}_1(s))\,ds+\intd{t_0}{t}\rho(S(t_0,s)\mid C_2(s)\mathcal{W}_2(s)) \,ds + K(\ell,\mu,\mathcal{X}_0)  \right\} \bigg\}.
+  S^T(t_0,t)x - \intd{t_0}{t} \rho(S_1(s,t)\mid B_1(s)\mathcal{P}_1(s))\,ds - \intd{t_0}{t} \rho(S(t_0,s)\mid B_2(s)\mathcal{P}_2(s))\,ds - \\ - \mbox{conv}\left\{ -\intd{t_0}{t}\rho(-S_1(s,t)\mid C_1(s)\mathcal{W}_1(s))\,ds-\intd{t_0}{t}\rho(-S(t_0,s)\mid C_2(s)\mathcal{W}_2(s)) \,ds + K(\ell,\mu,\mathcal{X}_0)  \right\} \bigg\}.
 \end{gathered}
 $$
 
 
 Далнейшие рассуждения относятся к задаче \eqref{eq:primer_sys}. Рассмотрим теперь выражение под conv($\cdot$).
 
-\cmnt{\\(сомнение: а может ли оно быть невыпуклым?)}
 
-Множества $C_1\mathcal{W}_1$ и $C_2\mathcal{W}_2$ принимают вид $\begin{pmatrix} v\\0 \end{pmatrix}, v\in[\tilde{\beta_1},\tilde{\beta_2}]=\mbox{Comp}(\mathbb{R}^1)$, тогда  для некоторого $\tilde{\ell}\in\mathbb{R}^2$
+Множества $C_1\mathcal{W}_1$ и $C_2\mathcal{W}_2$ принимают вид $\begin{pmatrix} v\\0 \end{pmatrix}, 
+v\in[\tilde{\beta_1},\tilde{\beta_2}]=\mbox{Comp}(\mathbb{R}^1)$, тогда  для некоторого $\tilde{\ell}\in\mathbb{R}^2$
+
 $$
 \rho(\tilde{\ell},\begin{pmatrix} v\\0 \end{pmatrix})=\sup_{v\in C_1\mathcal{W}_1(s)} (\tilde{\ell}_1 v ) = \tilde{\ell}_1\cdot\left\{\begin{aligned} \tilde{\beta_1},\;\tilde{\ell_1} < 0\\ \tilde{\beta_2},\;\tilde{\ell_1}>0\end{aligned}\right.
 $$  
+
 И тогда интегралы от опорных функций вычисляются как
+
 $$
-\intd{t_0}{t}\rho(S_1(s,t)\mid C_1\mathcal{W}_1(s))\,ds=\tilde{\beta_1}^{(1)}\intd{T^{(1)}_{<}}{} S_1(t_0,s)\,ds+\tilde{\beta_2}^{(1)}\intd{T^{(1)}_{>}}{}S_1(t_0,s)\,ds,
+\intd{t_0}{t}\rho(-S_1(s,t)\mid C_1\mathcal{W}_1(s))\,ds=\tilde{\beta_1}^{(1)}\intd{T^{(1)}_{>}}{} S_1(t_0,s)_1\,ds+\tilde{\beta_2}^{(1)}\intd{T^{(1)}_{<}}{}S_1(t_0,s)_1\,ds,
 $$
 
 $$
-\intd{t_0}{t}\rho(S(t_0,s)\mid C_2\mathcal{W}_2(s))\,ds= \tilde{\beta_1}^{(2)}\intd{T^{(2)}_{<}}{} S(t_0,s)\,ds+\tilde{\beta_2}^{(2)}\intd{T^{(2)}_{>}}{}S(t_0,s)\,ds,
+\intd{t_0}{t}\rho(-S(t_0,s)\mid C_2\mathcal{W}_2(s))\,ds= \tilde{\beta_1}^{(2)}\intd{T^{(2)}_{>}}{} S(t_0,s)_1\,ds+\tilde{\beta_2}^{(2)}\intd{T^{(2)}_{<}}{}S(t_0,s)_1\,ds,
 $$
 
-где $T^{(1)}_{<},T^{(2)}_{<}$ -- промежутки времени, на которых $S_1(s,t)<0$, $S(t_0,s)<0$ соответственно;  $T^{(1)}_{>},T^{(2)}_{>}$ -- промежутки, где $S_1(s,t)>0$, $S(t_0,s)>0$ соответственно.  Концы этих отрезков находятся из уравнений 
+где $T^{(1)}_{<},T^{(2)}_{<}$ -- промежутки времени, на которых $S_1(s,t)_1<0$, $S(t_0,s)_1<0$ соответственно;  $T^{(1)}_{>},T^{(2)}_{>}$ -- промежутки, где $S_1(s,t)_1>0$, $S(t_0,s)_1>0$ соответственно.  Концы этих отрезков находятся из уравнений 
 $$
-	S_1(s,t)=\intd{t_0}{t_1}\phi(w)\left\{ G^T_1(t_0,w)  \ell(w) \right\}\,dw=0;
+	S_1(s,t)_1=\intd{s}{t}\phi(w)\left\{ G^T_1(t_0,w) \ell(w) \right\}_1 \,dw=0;
 $$
 $$
-  S(t_0,s)=\int\limits^{t_0}_{t_1}\phi(w)\left\{  G^T_1(t_0,w)G^T_2(w,t)\ell(w) + \mu(w) G_2^T(w,t)c \right\}\,dw=0
+  S(t_0,s)_1=\intd{t_0}{s}\phi(w)\left\{ G^T_1(t_0,w) G^T_2(w,t)\ell(w) + \mu(w) G_2^T(w,t)c \right\}_1\,dw=0,
+$$
+где $t_0<s<t$. Также из условий задачи $\tilde{\beta_1}^{(2)}=\tilde{\beta_1}^{(1)}=\beta_1$ и $\tilde{\beta_2}^{(1)}=\tilde{\beta_2}^{(2)}=\beta_2$.
+
+Для $s\in[t_0,t]$ множества $B_1\mathcal{P}_1$ и $B_2\mathcal{P}_2$ имеют вид $\begin{pmatrix}0 \\ u \end{pmatrix}$, где $u(s)\in\mathcal{R}^1$ принадлежит первому либо второму семейству управлений.
+Тогда аналогично
+$$
+\intd{t_0}{t}\supfn{S_1(s,t)}{B_1\mathcal{P}_1}ds=\intd{t_0}{t}S_1(s,t)_2\cdot\left\{\begin{aligned}&\alpha_1,\;S_1(s,t)_2<0,\\ &\alpha_2,\;S_1(s,t)_2>0 \end{aligned} \right.\;ds=
+$$
+$$
+=\alpha_1\intd{T^{(1)}_{<}}{}S_1(s,t)_2\,ds+\alpha_2\intd{T^{(1)}_{>}}{}S_1(s,t)_2\,ds
 $$
 
+$$
+\intd{t_0}{t}\supfn{S(t_0,s)}{B_2\mathcal{P}_2}ds=\intd{t_0}{t}S(t_0,s)_2\cdot\left\{\begin{aligned}&\alpha_1,\;S(t_0,s)_2<0,\\ &\alpha_2,\;S(t_0,s)_2>0 \end{aligned} \right.\;ds=
+$$
+$$
+=\alpha_1\intd{T^{(2)}_{<}}{}S(t_0,s)_2\,ds+\alpha_2\intd{T^{(2)}_{>}}{}S(t_0,s)_2\,ds,
+$$
+где $\alpha_1,\alpha_2$ -- ограничения на управление, $\alpha_1\leqslant u(s)\leqslant \alpha_2$, $T^{(1)}_{<},T^{(2)}_{<}$ -- множества отрезков времени, где $S_1(s,t)_2<0, S(t_0,s)_2<0$; $T^{(1)}_{>},T^{(2)}_{>}$ -- множество отрезков времени, где 
+$S_1(s,t)_2>0, S(t_0,s)_2>0$.
 
+Можем использовать равенство $S(t_0,s)=S(t_0,t)-S(s,t)$, если потребуется.
 
-\cmnt{Так как $S(t_0,s)$ и $S_1(s,t)$ -- непрерывные или кусочно-непрерывные, найти промежутки $T_{>}$ и $T_{<}$ несложно.}
-
+\cmnt{ }

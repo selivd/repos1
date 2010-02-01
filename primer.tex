@@ -27,7 +27,8 @@
 			\right.\\
 			\\
 			&\mathcal{H}=\{x\in \mathbb{R}^2: x_1=0\}\mbox{--- гиперплоскость};\\
-			&u(\cdot)\in[-\alpha_1,\alpha_2]=\mathcal{P}[t_0,t_1],\;v(\cdot)\in[-\beta_1,\beta_2]\in\mathcal{W}[t_0,t_1];\\
+			&u^{(1)}=u^{(2)}=u(\cdot)\in[-\alpha_1,\alpha_2]=\mathcal{P}[t_0,t_1];\\
+			&v^{(1)}=v^{(2)}=v(\cdot)\in[-\beta_1,\beta_2]\in\mathcal{W}[t_0,t_1];\\
 			&\gamma,\mu,\alpha_1,\alpha_2,\beta_1,\beta_2 > 0\mbox{--- некоторые константы};\\
 			&\tau \mbox{ --- момент  переключения, при пересечении гиперплоскости}.\\
 \end{aligned}
@@ -205,23 +206,19 @@ $$
  - K(\ell,\mu,\mathcal{X}_0)  \bigg\}.
 \end{gathered}
 $$
-Далее, мы хотим поменять $\min_{u_1,u_2}(\cdot)$ на опорную функцию, но полученное выше выражение уже не является вогнутым по $\ell,\mu$. Поэтому, мы прибегаем к овыпуклению нужных членов приходим к 
+Далее, мы хотим поменять $\min_{u_1,u_2}(\cdot)$ на опорную функцию, но полученное выше выражение уже не является вогнутым по $\ell,\mu$. Поэтому, мы прибегаем к овыпуклению нужных членов и приходим к 
 
 $$
 \begin{gathered}
-\label{eq:V-fin}
+%\label{eq:V-fin}
  V(t,x)=\min_{\phi} \max_{\ell}\max_{\mu} \bigg\{  \\
   S^T(t_0,t)x - \intd{t_0}{t} \rho(S_1(s,t)\mid B_1(s)\mathcal{P}_1(s))\,ds - \intd{t_0}{t} \rho(S(t_0,s)\mid B_2(s)\mathcal{P}_2(s))\,ds - \\ - \mbox{conv}\left\{ -\intd{t}{t_0}\rho(S_1(s,t)\mid C_1(s)\mathcal{W}_1(s))\,ds-\intd{t}{t_0}\rho(S(t_0,s)\mid C_2(s)\mathcal{W}_2(s)) \,ds + K(\ell,\mu,\mathcal{X}_0)  \right\} \bigg\}.
 \end{gathered}
 $$
 
-И наконец
+Далее используется равенство
+$$
+\max_{x\in\mathcal{X}}\intd{t_0}{t_1}\ts{\ell,x}ds=\max_{x\in\mathcal{X}}\intd{t_1}{t_0}\ts{-\ell,x}ds=\intd{t_1}{t_0}\rho(-\ell\mid\mathcal{X})ds,\;\mathcal{X}\in\mbox{Comp}(\mathbb{H}).
+$$
 
-%
-%$$
-%\begin{gathered}
-%\label{eq:V-fin}
-% V(t,x)=\min_{\phi} \max_{\ell}\max_{\mu} \bigg\{  \\
-%  S^T(t_0,t)x - \intd{t_0}{t} \rho(S_1(s,t)\mid B_1(s)\mathcal{P}_1(s))\,ds - \intd{t_0}{t} \rho(S(t_0,s)\mid B_2(s)\mathcal{P}_2(s))\,ds - \\ - \mbox{conv}\left\{ \intd{t_0}{t}\rho(S_1(s,t)\mid C_1(s)\mathcal{W}_1(s))\,ds+\intd{t_0}{t}\rho(S(t_0,s)\mid C_2(s)\mathcal{W}_2(s)) \,ds + K(\ell,\mu,\mathcal{X}_0)  \right\} \bigg\}.
-%\end{gathered}
-%$$
+И тогда
