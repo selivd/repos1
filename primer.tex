@@ -84,7 +84,7 @@ V(t,x)=\min_{u(\cdot)}\max_{v(\cdot)}\sup_{\ell}\left(\ts{\ell,x_0} - \rho(\ell\
 $$
 x^{(2)}(t,x,u,v)=G_2(t,t_1)x+\int\limits_{t_1}^t G_2(t,s)\left[B_2(s)u_2(s)+C_2(s)v_2(s)\right]ds,\mbox{при}\, \tau\leqslant t \leqslant t_1,
 $$
- и после:
+ и после для $t\leqslant \tau$:
 \begin{equation}
 \label{eq:solvex0}
 \begin{aligned}
@@ -175,7 +175,7 @@ $$
 и делая замену переменных
 $$
 \begin{aligned}
-S(t_0,t_1)&=\intd{t_0}{t_1}\phi(w)\tilde{S}(w,t_1)\,dw=\int\limits^{t_0}_{t_1}\phi(w)\left\{  G^T_1(t_0,w)G^T_2(w,t)\ell(w) + \mu(w) G_2^T(w,t)c \right\}\,dw, \\
+S(t_0,t_1)&=\intd{t_0}{t_1}\phi(w)\tilde{S}(w,t_1)\,dw=\int\limits^{t_0}_{t_1}\phi(w)\left\{  G^T_2(w,t)G^T_1(t_0,w)\ell(w) + \mu(w) G_2^T(w,t)c \right\}\,dw, \\
 S_1(t_0,t_1)&=\intd{t_0}{t_1}\phi(w)\tilde{S}_1(t_0,w)\,dw,=\intd{t_0}{t_1}\phi(w)\left\{ G^T_1(t_0,w)  \ell(w) \right\}\,dw,\\
 K(\ell,\mu,\mathcal{X}_0)&=\intd{t_0}{t} \phi(w)\left[\frac{\mu(w)^2}{4} + \rho(\ell(w)\mid\mathcal{X}_0) + \frac{\|\ell(w)\|^2}{4} \right]\,dw
 \end{aligned}

@@ -55,6 +55,26 @@ $$
 где $\alpha_1,\alpha_2$ -- ограничени€ на управление, $\alpha_1\leqslant u(s)\leqslant \alpha_2$, $T^{(1)}_{<},T^{(2)}_{<}$ -- множества отрезков времени, где $S_1(s,t)_2<0, S(t_0,s)_2<0$; $T^{(1)}_{>},T^{(2)}_{>}$ -- множество отрезков времени, где 
 $S_1(s,t)_2>0, S(t_0,s)_2>0$.
 
-ћожем использовать равенство $S(t_0,s)=S(t_0,t)-S(s,t)$, если потребуетс€.
+\begin{propose}
+$$
+\mbox{Conv}_{\ell}\intd{t_0}{t} f(\ell(s),s)ds=\intd{t_0}{t} \mbox{Conv}_{\ell(s)} f(\ell(s),s) ds
+$$
+\end{propose}
 
-\cmnt{ }
+ѕо определению выпуклой оболочки 
+$$
+\forall F_1(s),F_2(s)\in \mbox{Conv}\{\mathcal{F}\} \Rightarrow \alpha F_1(t)+(1-\alpha)F_2(t)\in \mbox(Conv)\{\mathcal{F}\}
+$$
+ѕусть $F_1(s)=\intd{t_0}{t}f(\ell_1(s),s)ds$,  $F_2(s)=\intd{t_0}{t}f(\ell_2(s),s)ds$, $\ell_1(s),\ell_2(s)\in \mathcal{L}$.
+“огда 
+$$
+\alpha F_1(t)+(1-\alpha)F_2(t)=\alpha\intd{t_0}{t}f(\ell_1(s),s)ds+(1-\alpha)\intd{t_0}{t}f(\ell_2(s),s)ds=
+$$
+$$
+=\intd{t_0}{t}\left[\alpha f(\ell_1(s),s)+(1-\alpha)f(\ell_2(s),s)\right]ds=\intd{t_0}{t}\mbox{Conv}_{\ell(s)}\{f(\ell(s),s)\}ds 
+$$
+
+{\centering $\blacksquare$}
+
+\cmnt{ƒалее € сталкиваюсь с проблемой вычислени€ conv. ѕолучаетс€, что если conv загон€ть под интеграл по ds, то остаетс€ неделимый $K(\ell,\mu)=\intd{w_0}{w}(\cdots)$. ≈сли двигатьс€ по пути разделени€ временных инервалов $T_{<},T_{>}$, есть вариант помен€ть местами $conv ( \intd{t_0}{t}\intd{w_0}{w}(\cdots)+K) = \intd{w_0}{w}conv( \intd{t_0}{t}(\cdots)+\ldots )$. “огда есть надежда работать конкретно с каждыsм $\ell(w)$, а $\intd{t_0}{t}G_2(t_0,w)G_1(w,t)ds\rightarrow f(w)$, так как $G_1(s,t),G_2(s,t)$--известны, может быть, это будет разумно.  » если раздел€ть по отрезкам времени, где $S(s,t)>0$, то делать это уже по $w$, а не по $s$ (там, где вычисл€ем conv). —ейчас хочу дописать, что получитс€. ƒругой вариант - вычисление сопр€женной функции.}
+  
