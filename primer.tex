@@ -197,12 +197,16 @@ $$
 $$
 \max_{v_1,v_2}\min_{\phi} \max_{\ell}\max_{\mu} (\cdot)=\min_{\phi} \max_{\ell}\max_{\mu}\max_{v_1,v_2}(\cdot),
 $$
+и
+$$
+\max_{v(\cdot)}\intd{t}{t_0}f(v(s))ds=\max_{v(\cdot)}\intd{t_0}{t}-f(v(s))ds=\intd{t_0}{t}\max_{v(s)}[-f(v(s))]ds
+$$
 тогда
 $$
 \begin{gathered}
  V(t,x)=\min_{u_1,u_2}\min_{\phi} \max_{\ell}\max_{\mu} \bigg\{  \\
-  S^T(t_0,t)x + \intd{t}{t_0} S^T(t_0,s)B_2(s)u_2(s)\,ds + \intd{t}{t_0}\rho(S^T(t_0,s)\mid C_2(s)\mathcal{W}_2(s)) \,ds \\
- + \intd{t}{t_0} S^T_1(s,t)B_1(s)u_1(s)+ \intd{t}{t_0}\rho(S^T_1(s,t)\mid C_1(s)\mathcal{W}_1)\,ds - \\
+  S^T(t_0,t)x + \intd{t}{t_0} S^T(t_0,s)B_2(s)u_2(s)\,ds + \intd{t_0}{t}\rho(-S^T(t_0,s)\mid C_2(s)\mathcal{W}_2(s)) \,ds \\
+ + \intd{t}{t_0} S^T_1(s,t)B_1(s)u_1(s)+ \intd{t_0}{t}\rho(-S^T_1(s,t)\mid C_1(s)\mathcal{W}_1)\,ds - \\
  - K(\ell,\mu,\mathcal{X}_0)  \bigg\}.
 \end{gathered}
 $$
@@ -212,13 +216,13 @@ $$
 \begin{gathered}
 %\label{eq:V-fin}
  V(t,x)=\min_{\phi} \max_{\ell}\max_{\mu} \bigg\{  \\
-  S^T(t_0,t)x - \intd{t_0}{t} \rho(S_1(s,t)\mid B_1(s)\mathcal{P}_1(s))\,ds - \intd{t_0}{t} \rho(S(t_0,s)\mid B_2(s)\mathcal{P}_2(s))\,ds - \\ - \mbox{conv}\left\{ -\intd{t}{t_0}\rho(S_1(s,t)\mid C_1(s)\mathcal{W}_1(s))\,ds-\intd{t}{t_0}\rho(S(t_0,s)\mid C_2(s)\mathcal{W}_2(s)) \,ds + K(\ell,\mu,\mathcal{X}_0)  \right\} \bigg\}.
+  S^T(t_0,t)x - \intd{t_0}{t} \rho(S_1(s,t)\mid B_1(s)\mathcal{P}_1(s))\,ds - \intd{t_0}{t} \rho(S(t_0,s)\mid B_2(s)\mathcal{P}_2(s))\,ds - \\ - \mbox{conv}\left\{ -\intd{-t_0}{t}\rho(-S_1(s,t)\mid C_1(s)\mathcal{W}_1(s))\,ds-\intd{t_0}{t}\rho(-S(t_0,s)\mid C_2(s)\mathcal{W}_2(s)) \,ds + K(\ell,\mu,\mathcal{X}_0)  \right\} \bigg\}.
 \end{gathered}
 $$
-
-Далее используется равенство
-$$
-\max_{x\in\mathcal{X}}\intd{t_0}{t_1}\ts{\ell,x}ds=\max_{x\in\mathcal{X}}\intd{t_1}{t_0}\ts{-\ell,x}ds=\intd{t_1}{t_0}\rho(-\ell\mid\mathcal{X})ds,\;\mathcal{X}\in\mbox{Comp}(\mathbb{H}).
-$$
-
-И тогда
+%
+%Далее используется равенство
+%$$
+%\max_{x\in\mathcal{X}}\intd{t_0}{t_1}\ts{\ell,x}ds=\max_{x\in\mathcal{X}}\intd{t_1}{t_0}\ts{-\ell,x}ds=\intd{t_1}{t_0}\rho(-\ell\mid\mathcal{X})ds,\;\mathcal{X}\in\mbox{Comp}(\mathbb{H}).
+%$$
+%
+%И тогда

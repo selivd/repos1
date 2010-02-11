@@ -4,8 +4,8 @@ Version=2
 
 [SessionInfo]
 ActiveTab=0
-FrameCount=3
-ActiveFrame=2
+FrameCount=4
+ActiveFrame=3
 
 [Frame0]
 Columns=1
@@ -32,8 +32,8 @@ cxCur=1094
 cxMin=10
 
 [Frame0_View0,0]
-Cursor.row=0
-Cursor.column=0
+Cursor.row=25
+Cursor.column=37
 TopSubLine=0
 
 [Frame1]
@@ -61,11 +61,40 @@ cxCur=1119
 cxMin=10
 
 [Frame1_View0,0]
-Cursor.row=0
-Cursor.column=0
-TopSubLine=228
+Cursor.row=11
+Cursor.column=24
+TopSubLine=0
 
 [Frame2]
+Columns=1
+Rows=1
+Flags=0
+ShowCmd=1
+MinPos.x=-1
+MinPos.y=-1
+MaxPos.x=-4
+MaxPos.y=-30
+NormalPos.left=88
+NormalPos.top=116
+NormalPos.right=1052
+NormalPos.bottom=409
+Class=CLatexEdit
+Document=prim2p.tex
+
+[Frame2_Row0]
+cyCur=238
+cyMin=10
+
+[Frame2_Col0]
+cxCur=935
+cxMin=10
+
+[Frame2_View0,0]
+Cursor.row=0
+Cursor.column=0
+TopSubLine=0
+
+[Frame3]
 Columns=1
 Rows=1
 Flags=2
@@ -74,23 +103,23 @@ MinPos.x=-1
 MinPos.y=-1
 MaxPos.x=-4
 MaxPos.y=-30
-NormalPos.left=66
-NormalPos.top=87
-NormalPos.right=1052
-NormalPos.bottom=376
+NormalPos.left=0
+NormalPos.top=0
+NormalPos.right=964
+NormalPos.bottom=293
 Class=CLatexEdit
-Document=prim2p.tex
+Document=postanovka.tex
 
-[Frame2_Row0]
+[Frame3_Row0]
 cyCur=417
 cyMin=10
 
-[Frame2_Col0]
+[Frame3_Col0]
 cxCur=1053
 cxMin=10
 
-[Frame2_View0,0]
+[Frame3_View0,0]
 Cursor.row=44
-Cursor.column=2
-TopSubLine=48
+Cursor.column=166
+TopSubLine=36
 

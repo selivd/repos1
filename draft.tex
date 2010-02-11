@@ -1,0 +1,19 @@
+\begin{propose}
+$$
+\mbox{Conv}_{\ell}\intd{t_0}{t} f(\ell(s),s)ds=\intd{t_0}{t} \mbox{Conv}_{\ell(s)} f(\ell(s),s) ds
+$$
+\end{propose}
+
+По определению выпуклой оболочки 
+$$
+\forall F_1(s),F_2(s)\in \mbox{Conv}\{\mathcal{F}\} \Rightarrow \alpha F_1(t)+(1-\alpha)F_2(t)\in \mbox(Conv)\{\mathcal{F}\}
+$$
+Пусть $F_1(s)=\intd{t_0}{t}f(\ell_1(s),s)ds$,  $F_2(s)=\intd{t_0}{t}f(\ell_2(s),s)ds$, $\ell_1(s),\ell_2(s)\in \mathcal{L}$.
+Тогда 
+$$
+\alpha F_1(t)+(1-\alpha)F_2(t)=\alpha\intd{t_0}{t}f(\ell_1(s),s)ds+(1-\alpha)\intd{t_0}{t}f(\ell_2(s),s)ds=
+$$
+$$
+=\intd{t_0}{t}\left[\alpha f(\ell_1(s),s)+(1-\alpha)f(\ell_2(s),s)\right]ds=\intd{t_0}{t}\mbox{Conv}_{\ell(s)}\{f(\ell(s),s)\}ds 
+$$
+{\centering $\blacksquare$}
