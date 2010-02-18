@@ -70,52 +70,193 @@ $$ -- противоречие,\\
 Остается единственный вариант, который и доказывает утверждение.
 {\centering $\blacksquare$}
 
-Далнейшие рассуждения относятся к задаче \eqref{eq:primer_sys}. Рассмотрим теперь выражение под conv($\cdot$).
+
+%Далнейшие рассуждения относятся к задаче\eqref{eq:primer_sys}. Рассмотрим теперь выражение под conv($\cdot$).
+
+Рассмотрим примеры в $\mathbb{R}^1$
+
+Пример 1.
+
+\begin{equation}
+\label{eq:prim1}
+\left\{
+\begin{aligned}
+	&\left[
+		\begin{aligned}
+				&\dot x=2u+v;\\
+				&\dot x=u;\\
+		\end{aligned}
+	 \right.\\
+	&u\in[0,1];\\
+	&v\in[0,1];\\
+	&\mathcal{X}_0=\{x\in[-2,-1]\};\\
+	&t\in[0,4];\\
+	&H=\{x=0\}.
+\end{aligned}
+\right.
+\end{equation}
+
+Пример 2.
+
+\begin{equation}
+\label{eq:prim2}
+\left\{
+\begin{aligned}
+&\left[
+	\begin{aligned}
+			&\dot x=u;\\
+			&\dot x=2u+v;\\
+	\end{aligned}
+\right.\\
+&u\in[0,1];\\
+&v\in[0,1];\\
+&\mathcal{X}_0=\{x\in[-2,-1]\};\\
+&t\in[0,4];\\
+&H=\{x=0\}.
+\end{aligned}
+\right.
+\end{equation}
+
+Начальные условия для \eqref{eq:prim1} и \eqref{eq:prim2} одинаковы.
+Функция цены для задач \eqref{eq:prim1} и \eqref{eq:prim2}.
+$$
+V(t,x)=\min_{u}\max_{v}\max_{\tau}
+\max_{\ell}\max_{\mu} \left\{\ts{\ell,x_0\mid_{x(t)=x}} - \rho(\ell\mid\mathcal{X}_0)-\frac{\|\ell\|^2}{4}+\mu\ts{x(\tau),c}-\frac{\mu^2}{4}
+\right\}.
+$$
+ 
+В одномерном случае, если рассматривать отрезок $[\alpha,\beta]$ как эллипсоид $\Ell{q,Q}$, то $q=\frac{\beta+\alpha}{2},\;Q=\left(\frac{\beta-\alpha}{2}\right)^2$.
+Тогда 
+
+$$
+\supfn{\ell}{\Ell(q,Q)}=\ts{\ell,q}+\ts{\ell,Q\ell}^{\frac12}=\ell\cdot q + \mid\ell\mid\sqrt{Q}.
+$$
 
 
-Множества $C_1\mathcal{W}_1$ и $C_2\mathcal{W}_2$ принимают вид $\begin{pmatrix} v\\0 \end{pmatrix}, 
-v\in[\tilde{\beta_1},\tilde{\beta_2}]=\mbox{Comp}(\mathbb{R}^1)$, тогда  для некоторого $\tilde{\ell}\in\mathbb{R}^2$
-
+Поскольку в уравнениях примеров \eqref{eq:prim1} и \eqref{eq:prim2} фундаментальные матрицы $G(t,t_0)\equiv I$, то можно написать
 $$
-\rho(\tilde{\ell},\begin{pmatrix} v\\0 \end{pmatrix})=\sup_{v\in C_1\mathcal{W}_1(s)} (\tilde{\ell}_1 v ) = \tilde{\ell}_1\cdot\left\{\begin{aligned} \tilde{\beta_1},\;\tilde{\ell_1} < 0\\ \tilde{\beta_2},\;\tilde{\ell_1}>0\end{aligned}\right.
-$$  
-
-И тогда интегралы от опорных функций вычисляются как
-
+V(t,x)=\min_{u}\max_{v}\min_{\tau}
+\max_{\ell}\max_{\mu} \big\{
+\ell\cdot x+\intd{t}{\tau}\ell\cdot[B_2u_2+v_2]ds+\intd{\tau}{t_0}\ell\cdot[B_1u_1+v_1]ds - 
 $$
-\intd{t_0}{t}\rho(-S_1(s,t)\mid C_1\mathcal{W}_1(s))\,ds=-\tilde{\beta_1}^{(1)}\intd{T^{(1)}_{>}}{} S_1(t_0,s)_1\,ds-\tilde{\beta_2}^{(1)}\intd{T^{(1)}_{<}}{}S_1(t_0,s)_1\,ds,
+$$
+- (\ell\cdot x_0+\mid \ell \mid \sqrt{X_0}) -\frac{\ell^2}{4}+\mu\big[ x+ \intd{t}{\tau}[B_2u_2+v_2]ds\big]-\frac{\mu^2}{4}
+\big\}.
 $$
 
-$$
-\intd{t_0}{t}\rho(-S(t_0,s)\mid C_2\mathcal{W}_2(s))\,ds= -\tilde{\beta_1}^{(2)}\intd{T^{(2)}_{>}}{} S(t_0,s)_1\,ds-\tilde{\beta_2}^{(2)}\intd{T^{(2)}_{<}}{}S(t_0,s)_1\,ds,
-$$
-
-где $T^{(1)}_{<},T^{(2)}_{<}$ -- промежутки времени, на которых $S_1(s,t)_1<0$, $S(t_0,s)_1<0$ соответственно;  $T^{(1)}_{>},T^{(2)}_{>}$ -- промежутки, где $S_1(s,t)_1>0$, $S(t_0,s)_1>0$ соответственно.  Концы этих отрезков находятся из уравнений 
-$$
-	S_1(s,t)_1=\intd{s}{t}\phi(w)\left\{ G^T_1(t_0,w) \ell(w) \right\}_1 \,dw=0;
-$$
-$$
-  S(t_0,s)_1=\intd{t_0}{s}\phi(w)\left\{ G^T_1(t_0,w) G^T_2(w,t)\ell(w) + \mu(w) G_2^T(w,t)c \right\}_1\,dw=0,
-$$
-где $t_0<s<t$. Также из условий задачи $\tilde{\beta_1}^{(2)}=\tilde{\beta_1}^{(1)}=\beta_1$ и $\tilde{\beta_2}^{(1)}=\tilde{\beta_2}^{(2)}=\beta_2$.
-
-Для $s\in[t_0,t]$ множества $B_1\mathcal{P}_1$ и $B_2\mathcal{P}_2$ имеют вид $\begin{pmatrix}0 \\ u \end{pmatrix}$, где $u(s)\in\mathcal{R}^1$ принадлежит первому либо второму семейству управлений.
-Тогда аналогично
-$$
-\intd{t_0}{t}\supfn{S_1(s,t)}{B_1\mathcal{P}_1}ds=\intd{t_0}{t}S_1(s,t)_2\cdot\left\{\begin{aligned}&\alpha_1,\;S_1(s,t)_2<0,\\ &\alpha_2,\;S_1(s,t)_2>0 \end{aligned} \right.\;ds=
-$$
-$$
-=\alpha_1\intd{T^{(1)}_{<}}{}S_1(s,t)_2\,ds+\alpha_2\intd{T^{(1)}_{>}}{}S_1(s,t)_2\,ds
-$$
+Здесь $\mathcal{X}_0=\Ell{x_0,X_0}$, для \eqref{eq:prim1} $v_2\equiv 0$, для \eqref{eq:prim2} $v_1\equiv 0$. Если сократить, то получим
+для \eqref{eq:prim1}:
 
 $$
-\intd{t_0}{t}\supfn{S(t_0,s)}{B_2\mathcal{P}_2}ds=\intd{t_0}{t}S(t_0,s)_2\cdot\left\{\begin{aligned}&\alpha_1,\;S(t_0,s)_2<0,\\ &\alpha_2,\;S(t_0,s)_2>0 \end{aligned} \right.\;ds=
+V(t,x)=\min_{u}\max_{v}\min_{\tau}
+\max_{\ell}\max_{\mu} \big\{
+(\ell+\mu) x+\intd{t}{\tau}(\ell+\mu) B_2u_2ds+\intd{\tau}{t_0}\ell B_1u_1ds + \intd{\tau}{t_0}\ell v_1 ds - 
 $$
 $$
-=\alpha_1\intd{T^{(2)}_{<}}{}S(t_0,s)_2\,ds+\alpha_2\intd{T^{(2)}_{>}}{}S(t_0,s)_2\,ds,
+- (\ell\cdot x_0+\mid \ell \mid \sqrt{X_0}) -\frac{\ell^2}{4} - \frac{\mu^2}{4}
+\big\}.
 $$
-где $\alpha_1,\alpha_2$ -- ограничения на управление, $\alpha_1\leqslant u(s)\leqslant \alpha_2$, $T^{(1)}_{<},T^{(2)}_{<}$ -- множества отрезков времени, где $S_1(s,t)_2<0, S(t_0,s)_2<0$; $T^{(1)}_{>},T^{(2)}_{>}$ -- множество отрезков времени, где 
-$S_1(s,t)_2>0, S(t_0,s)_2>0$.
 
-%\cmnt{Далее я сталкиваюсь с проблемой вычисления conv. Получается, что если conv загонять под интеграл по ds, то остается неделимый $K(\ell,\mu)=\intd{w_0}{w}(\cdots)$. Если двигаться по пути разделения временных инервалов $T_{<},T_{>}$, есть вариант поменять местами $conv ( \intd{t_0}{t}\intd{w_0}{w}(\cdots)+K) = \intd{w_0}{w}conv( \intd{t_0}{t}(\cdots)+\ldots )$. Тогда есть надежда работать конкретно с каждыsм $\ell(w)$, а $\intd{t_0}{t}G_2(t_0,w)G_1(w,t)ds\rightarrow f(w)$, так как $G_1(s,t),G_2(s,t)$--известны, может быть, это будет разумно.  И если разделять по отрезкам времени, где $S(s,t)>0$, то делать это уже по $w$, а не по $s$ (там, где вычисляем conv). Сейчас хочу дописать, что получится. Другой вариант - вычисление сопряженной функции.}
-  
+Для \eqref{eq:prim2}
+
+$$
+V(t,x)=\min_{u}\max_{v}\min_{\tau}
+\max_{\ell}\max_{\mu} \big\{
+(\ell+\mu) x+\intd{t}{\tau}(\ell+\mu) B_2u_2ds+ \intd{t}{\tau}(\ell+\mu)v_2ds +  \intd{\tau}{t_0}\ell B_1u_1ds  - 
+$$
+$$
+- (\ell\cdot x_0+\mid \ell \mid \sqrt{X_0}) -\frac{\ell^2}{4} - \frac{\mu^2}{4}
+\big\}.
+$$
+
+
+Эти выражения не являются выпуклыми по $\tau$, чтобы можно было переставлять $\max_{v}\min_{\tau}$. Поэтому прибегаем к функции распределения $\phi(w)$.
+$\phi(w)$ -- функция ограниченной вариации.
+
+$$
+\intd{t_0}{t}d\phi(w)=1.
+$$
+
+
+Обозначим 
+$$
+S_2(t_0,s)=\intd{t_0}{s}\ell(w)+\mu(w) d\phi(w)
+$$
+$$
+S_1(s,t)=\intd{s}{t}\ell(w) d\phi(w)
+$$
+
+%Переставим где нужно интегралы по $ds$ и $d\phi(w)$ и придем
+%
+%$$
+%V(t,x)=\min_{u}\max_{v}\min_{\phi(w)}
+%\max_{\ell(w)}\max_{\mu(w)} \big\{
+%S_2(t_0,t) x+\intd{t}{t_0}S_2(t_0,s) [B_2u_2 + v_2] ds+\intd{t}{t_0}S_1(s,t) [B_1u_1+v_1] ds + \intd{\tau}{t_0}\ell v_1 ds - 
+%$$
+%$$
+%- (\ell\cdot x_0+\mid \ell \mid \sqrt{X_0}) -\frac{\ell^2}{4} - \frac{\mu^2}{4}
+%\big\}.
+%$$
+%
+
+Тогда приходим к найденному ранее выражению \eqref{eq:V-fin}. Использую формулу вычисления опорной функции для множеств из $\mathbb{R}^1$ запишем 
+
+$$
+\begin{gathered}
+\label{eq:V-fin}
+ V(t,x)=\min_{\phi} \max_{\ell}\max_{\mu} \bigg\{  \\
+  S_2(t_0,t)x - \intd{t_0}{t} S_1(s,t)p_1 + \mid S_1(s,t) \mid \sqrt{P_1} ds - \intd{t_0}{t} S_2(t_0,s)p_2 + \mid S_2(t_0,s) \mid \sqrt{P_2}\,ds - \\ - \mbox{conv}\bigg\{ \intd{t_0}{t} S_1(s,t)w_1 - \mid\ S_1(s,t) \mid \sqrt{W_1}\,ds -\intd{t_0}{t} S(t_0,s)w_2 - \mid S(t_0,s)\mid \sqrt{W_2}\,ds + \\
+  + \intd{t_0}{t} \frac{\ell^2(w)}{4}+\frac{\mu^2(w)}{4}+ \ell(w) x_0+\mid \ell(w) \mid \sqrt{X_0} d\phi(w))  \bigg\} \bigg\}.
+\end{gathered}
+$$
+ 
+
+
+
+
+
+%
+%Множества $C_1\mathcal{W}_1$ и $C_2\mathcal{W}_2$ принимают вид $\begin{pmatrix} v\\0 \end{pmatrix}, 
+%v\in[\tilde{\beta_1},\tilde{\beta_2}]=\mbox{Comp}(\mathbb{R}^1)$, тогда  для некоторого $\tilde{\ell}\in\mathbb{R}^2$
+%
+%$$
+%\rho(\tilde{\ell},\begin{pmatrix} v\\0 \end{pmatrix})=\sup_{v\in C_1\mathcal{W}_1(s)} (\tilde{\ell}_1 v ) = \tilde{\ell}_1\cdot\left\{\begin{aligned} \tilde{\beta_1},\;\tilde{\ell_1} < 0\\ \tilde{\beta_2},\;\tilde{\ell_1}>0\end{aligned}\right.
+%$$  
+%
+%И тогда интегралы от опорных функций вычисляются как
+%
+%$$
+%\intd{t_0}{t}\rho(-S_1(s,t)\mid C_1\mathcal{W}_1(s))\,ds=-\tilde{\beta_1}^{(1)}\intd{T^{(1)}_{>}}{} S_1(t_0,s)_1\,ds-\tilde{\beta_2}^{(1)}\intd{T^{(1)}_{<}}{}S_1(t_0,s)_1\,ds,
+%$$
+%
+%$$
+%\intd{t_0}{t}\rho(-S(t_0,s)\mid C_2\mathcal{W}_2(s))\,ds= -\tilde{\beta_1}^{(2)}\intd{T^{(2)}_{>}}{} S(t_0,s)_1\,ds-\tilde{\beta_2}^{(2)}\intd{T^{(2)}_{<}}{}S(t_0,s)_1\,ds,
+%$$
+%
+%где $T^{(1)}_{<},T^{(2)}_{<}$ -- промежутки времени, на которых $S_1(s,t)_1<0$, $S(t_0,s)_1<0$ соответственно;  $T^{(1)}_{>},T^{(2)}_{>}$ -- промежутки, где $S_1(s,t)_1>0$, $S(t_0,s)_1>0$ соответственно.  Концы этих отрезков находятся из уравнений 
+%$$
+%	S_1(s,t)_1=\intd{s}{t}\phi(w)\left\{ G^T_1(t_0,w) \ell(w) \right\}_1 \,dw=0;
+%$$
+%$$
+%  S(t_0,s)_1=\intd{t_0}{s}\phi(w)\left\{ G^T_1(t_0,w) G^T_2(w,t)\ell(w) + \mu(w) G_2^T(w,t)c \right\}_1\,dw=0,
+%$$
+%где $t_0<s<t$. Также из условий задачи $\tilde{\beta_1}^{(2)}=\tilde{\beta_1}^{(1)}=\beta_1$ и $\tilde{\beta_2}^{(1)}=\tilde{\beta_2}^{(2)}=\beta_2$.
+%
+%Для $s\in[t_0,t]$ множества $B_1\mathcal{P}_1$ и $B_2\mathcal{P}_2$ имеют вид $\begin{pmatrix}0 \\ u \end{pmatrix}$, где $u(s)\in\mathcal{R}^1$ принадлежит первому либо второму семейству управлений.
+%Тогда аналогично
+%$$
+%\intd{t_0}{t}\supfn{S_1(s,t)}{B_1\mathcal{P}_1}ds=\intd{t_0}{t}S_1(s,t)_2\cdot\left\{\begin{aligned}&\alpha_1,\;S_1(s,t)_2<0,\\ &\alpha_2,\;S_1(s,t)_2>0 \end{aligned} \right.\;ds=
+%$$
+%$$
+%=\alpha_1\intd{T^{(1)}_{<}}{}S_1(s,t)_2\,ds+\alpha_2\intd{T^{(1)}_{>}}{}S_1(s,t)_2\,ds
+%$$
+%
+%$$
+%\intd{t_0}{t}\supfn{S(t_0,s)}{B_2\mathcal{P}_2}ds=\intd{t_0}{t}S(t_0,s)_2\cdot\left\{\begin{aligned}&\alpha_1,\;S(t_0,s)_2<0,\\ &\alpha_2,\;S(t_0,s)_2>0 \end{aligned} \right.\;ds=
+%$$
+%$$
+%=\alpha_1\intd{T^{(2)}_{<}}{}S(t_0,s)_2\,ds+\alpha_2\intd{T^{(2)}_{>}}{}S(t_0,s)_2\,ds,
+%$$
+%где $\alpha_1,\alpha_2$ -- ограничения на управление, $\alpha_1\leqslant u(s)\leqslant \alpha_2$, $T^{(1)}_{<},T^{(2)}_{<}$ -- множества отрезков времени, где $S_1(s,t)_2<0, S(t_0,s)_2<0$; $T^{(1)}_{>},T^{(2)}_{>}$ -- множество отрезков времени, где 
+%$S_1(s,t)_2>0, S(t_0,s)_2>0$.
+%

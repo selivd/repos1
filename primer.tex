@@ -146,38 +146,38 @@ $$
 $$
 T(\tau,v(s))=\int\limits_t^{\tau}v(s)ds 
 $$
-Легко видеть, что $T(\tau,v(s))$, являясь линейным по $v$, не является таковым по $\tau$. Тогда вместо $\tau$ возьмем функцию  $\tau(w)=\phi(w)$ и преобразуем 
+Легко видеть, что $T(\tau,v(s))$, являясь линейным по $v$, не является таковым по $\tau$. Тогда вместо $\tau$ возьмем функцию ограниченной вариации $\tau(w)=\phi(w)$  и преобразуем 
 $$
-T(\phi(w),v(s))=\int\limits_{t_0}^t \phi(w)dw \int\limits_t^{w}v(s)ds.
+T(\phi(w),v(s))=\int\limits_{t_0}^t d\phi(w) \int\limits_t^{w}v(s)ds.
 $$
-Мы подразумеваем здесь, что $\phi(w)=\delta(w)$.
+
 Теперь функционал $T(\phi,v)$ является линейным по всем аргументам. 
 
 Аналогично поступим с $V(t,x)$:
 $$
 \begin{gathered}
- V(t,x)=\min_{u_1,u_2}\max_{v_1,v_2}\min_{\phi(w)} \max_{\ell(w)}\max_{\mu(w)}\intd{t_0}{t} \phi(w)\bigg\{  \\
+ V(t,x)=\min_{u_1,u_2}\max_{v_1,v_2}\min_{\phi(w)} \max_{\ell(w)}\max_{\mu(w)}\intd{t_0}{t} d\phi(w)\bigg\{  \\
   \tilde{S}^T(w,t)x + \intd{t}{w} \tilde{S}^T(w,s)\left[B_2(s)u_2(s)+C_2(s)v_2(s)\right]\,ds+  \\
  + \intd{w}{t_0} \tilde{S}^T_1(t_0,s)\left[B_1(s)u_1(s)+C_1(s)v_1(s)\right]\,ds - \\
- - \frac{\mu^2}{4} - \rho(\ell\mid\mathcal{X}_0)-\frac{\|\ell\|^2}{4}  \bigg\}\,dw,
+ - \frac{\mu^2}{4} - \rho(\ell\mid\mathcal{X}_0)-\frac{\|\ell\|^2}{4}  \bigg\},
 \end{gathered}
 $$
 Поскольку мы здесь воспользовались перестановкой 
-$$\int\max_{\ell,\mu} f(w,\ell,\mu) dw = \max_{\ell(w),\mu(w)}\int f(w,\ell(w),\mu(w))dw,$$
+$$\int\max_{\ell,\mu} f(w,\ell,\mu) d\phi(w) = \max_{\ell(w),\mu(w)}\int f(w,\ell(w),\mu(w))d\phi(w)$$
 $\ell,\mu$ теперь функции от $w$, $\ell=\ell(w)$ и $\mu=\mu(w)$.
 Можно заметить, что от $w$ зависят только переменные $\tilde{S},\tilde{S}_1$ и пределы интегрирования. Поменяем порядок интегрирования, чтобы собрать вместе члены, зависящие от $w$. Применяя правила замены
 $$
-\int\limits_{t_0}^t dw\int\limits_t^w ds(\cdot) =\int\limits_t^{t_0} ds \int\limits_{t_0}^s dw (\cdot),
+\int\limits_{t_0}^t d\phi(w) \int\limits_t^w ds(\cdot) =\int\limits_t^{t_0} ds \int\limits_{t_0}^s d\phi(w) (\cdot),
 $$
 $$
-\int\limits_{t_0}^t dw\int\limits_w^{t_0} ds(\cdot) =\int\limits_t^{t_0} ds \int\limits_{s}^t dw (\cdot),
+\int\limits_{t_0}^t d\phi(w) \int\limits_w^{t_0} ds(\cdot) =\int\limits_t^{t_0} ds \int\limits_{s}^t d\phi(w) (\cdot),
 $$
 и делая замену переменных
 $$
 \begin{aligned}
-S(t_0,t_1)&=\intd{t_0}{t_1}\phi(w)\tilde{S}(w,t_1)\,dw=\int\limits^{t_0}_{t_1}\phi(w)\left\{  G^T_2(w,t)G^T_1(t_0,w)\ell(w) + \mu(w) G_2^T(w,t)c \right\}\,dw, \\
-S_1(t_0,t_1)&=\intd{t_0}{t_1}\phi(w)\tilde{S}_1(t_0,w)\,dw,=\intd{t_0}{t_1}\phi(w)\left\{ G^T_1(t_0,w)  \ell(w) \right\}\,dw,\\
-K(\ell,\mu,\mathcal{X}_0)&=\intd{t_0}{t} \phi(w)\left[\frac{\mu(w)^2}{4} + \rho(\ell(w)\mid\mathcal{X}_0) + \frac{\|\ell(w)\|^2}{4} \right]\,dw
+S(t_0,t_1)&=\intd{t_0}{t_1}\tilde{S}(w,t_1)\,d\phi(w)=\int\limits^{t_0}_{t_1}\left\{  G^T_2(w,t)G^T_1(t_0,w)\ell(w) + \mu(w) G_2^T(w,t)c \right\}\,d\phi(w), \\
+S_1(t_0,t_1)&=\intd{t_0}{t_1}\tilde{S}_1(t_0,w)\,d\phi(w),=\intd{t_0}{t_1}\left\{ G^T_1(t_0,w)  \ell(w) \right\}\,d\phi(w),\\
+K(\ell,\mu,\mathcal{X}_0)&=\intd{t_0}{t} \left[\frac{\mu(w)^2}{4} + \rho(\ell(w)\mid\mathcal{X}_0) + \frac{\|\ell(w)\|^2}{4} \right]\,d\phi(w)
 \end{aligned}
 $$
 придем к 
