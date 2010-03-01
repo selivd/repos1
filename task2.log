@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2009.12.1)  18 FEB 2010 16:21
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2009.12.1)  1 MAR 2010 16:09
 entering extended mode
 **D:/Users/seliv/Desktop/гибридные*системы/repos1/task2.tex
 ("D:/Users/seliv/Desktop/гибридные системы/repos1/task2.tex"
@@ -250,62 +250,74 @@ driver: pdftex
 \MPscratchDim=\dimen118
 \MPnumerator=\count110
 \everyMPtoPDFconversion=\toks25
-) ("D:\Users\seliv\Desktop\гибридные системы\repos1\prim2p.tex"<<ot1.cmap>><<om
-l.cmap>><<oms.cmap>><<omx.cmap>>
-LaTeX Font Info:    Try loading font information for U+msa on input line 2.
+) ("D:\Users\seliv\Desktop\гибридные системы\repos1\postanovka.tex"<<ot1.cmap>>
+<<oml.cmap>><<oms.cmap>><<omx.cmap>>
+LaTeX Font Info:    Try loading font information for U+msa on input line 6.
 
 ("D:\Program Files\MiKTeX 2.8\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 2.
+LaTeX Font Info:    Try loading font information for U+msb on input line 6.
 
 ("D:\Program Files\MiKTeX 2.8\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
-)
+))
+("D:\Users\seliv\Desktop\гибридные системы\repos1\primer.tex" [1
+
+{D:/Users/All Users/Application Data/MiKTeX/2.8/pdftex/config/pdftex.map}] [2]
+Overfull \hbox (7.49149pt too wide) detected at line 114
+\OML/cmm/m/it/12 V\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t; x\OT1/cmr/m/n/12 ) = [] 
+[] [] [] \OML/cmm/m/it/12 :
+ []
+
+[3] [4]
+Overfull \hbox (2.45235pt too wide) detected at line 221
+[] []
+ []
+
+[5]) ("D:\Users\seliv\Desktop\гибридные системы\repos1\prim2p.tex"
 Overfull \hbox (0.60507pt too wide) detected at line 8
 [] []
  []
 
-[1
-
-{D:/Users/All Users/Application Data/MiKTeX/2.8/pdftex/config/pdftex.map}]
-[2]
+[6] [7]
 Overfull \hbox (14.72098pt too wide) in paragraph at lines 173--175
 []\T2A/cmr/m/n/12 Эти вы-ра-же-ния не яв-ля-ют-ся вы-пук-лы-ми по $\OML/cmm/m/i
 t/12 $\T2A/cmr/m/n/12 , что-бы мож-но бы-ло пе-ре-став-лять $[][] [][]$.
  []
 
-[3]) [4] ("D:\Users\seliv\Desktop\гибридные системы\repos1\task2.aux")
+[8]) [9] ("D:\Users\seliv\Desktop\гибридные системы\repos1\task2.aux")
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 2964 strings out of 495108
- 36321 string characters out of 3179900
- 97148 words of memory out of 3000000
- 6113 multiletter control sequences out of 15000+200000
- 10776 words of font info for 35 fonts, out of 3000000 for 9000
+ 2983 strings out of 495108
+ 36753 string characters out of 3179900
+ 104220 words of memory out of 3000000
+ 6122 multiletter control sequences out of 15000+200000
+ 12401 words of font info for 37 fonts, out of 3000000 for 9000
  198 hyphenation exceptions out of 8191
- 27i,16n,24p,413b,163s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 27i,23n,24p,1052b,208s stack positions out of 5000i,500n,10000p,200000b,50000s
  <D:\Users\seliv\Local Settings\Application Data\MiKTeX\2.8\fonts\pk\ljfour\l
 h\lh-t2a\dpi600\lati1200.pk> <D:\Users\seliv\Local Settings\Application Data\Mi
 KTeX\2.8\fonts\pk\ljfour\lh\lh-t2a\dpi600\labx1200.pk> <D:\Users\seliv\Local Se
 ttings\Application Data\MiKTeX\2.8\fonts\pk\ljfour\unknown\unknown\dpi600\larm1
-200.pk><D:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmex10.pfb><
-D:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmmi12.pfb><D:/Progr
-am Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmmi6.pfb><D:/Program Files/
-MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmmi8.pfb><D:/Program Files/MiKTeX 2.
-8/fonts/type1/public/amsfonts/cm/cmr12.pfb><D:/Program Files/MiKTeX 2.8/fonts/t
-ype1/public/amsfonts/cm/cmr6.pfb><D:/Program Files/MiKTeX 2.8/fonts/type1/publi
-c/amsfonts/cm/cmr8.pfb><D:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts
-/cm/cmsy10.pfb><D:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmsy
-8.pfb><D:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts/symbols/msam10.p
-fb><D:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-
-Output written on task2.pdf (4 pages, 147784 bytes).
+200.pk> <D:\Users\seliv\Local Settings\Application Data\MiKTeX\2.8\fonts\pk\ljf
+our\lh\lh-t2a\dpi600\labx1728.pk><D:/Program Files/MiKTeX 2.8/fonts/type1/publi
+c/amsfonts/cm/cmex10.pfb><D:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfon
+ts/cm/cmmi12.pfb><D:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cm
+mi6.pfb><D:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmmi8.pfb><
+D:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmr12.pfb><D:/Progra
+m Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmr6.pfb><D:/Program Files/Mi
+KTeX 2.8/fonts/type1/public/amsfonts/cm/cmr8.pfb><D:/Program Files/MiKTeX 2.8/f
+onts/type1/public/amsfonts/cm/cmsy10.pfb><D:/Program Files/MiKTeX 2.8/fonts/typ
+e1/public/amsfonts/cm/cmsy8.pfb><D:/Program Files/MiKTeX 2.8/fonts/type1/public
+/amsfonts/symbols/msam10.pfb><D:/Program Files/MiKTeX 2.8/fonts/type1/public/am
+sfonts/symbols/msbm10.pfb>
+Output written on task2.pdf (9 pages, 198062 bytes).
 PDF statistics:
- 151 PDF objects out of 1000 (max. 8388607)
+ 232 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
