@@ -1,41 +1,5 @@
 
-\section{Пример}
-
-Заданы системы дифференциальных уравнений, описывающих состояние некоторой модели до переключения и после:
-\begin{equation}
-\left\{
-\begin{aligned}
-			%\begin{aligned}
-			&\left[
-			\begin{aligned}
-			    &\left\{
-					    \begin{aligned}
-					        &\dot x_1^{(1)} = x_2^{(1)}+v^{(1)}(t);\\
-					        &\dot x_2^{(1)} = u^{(1)}(t);\\
-					        &x(t_0)\in\mathcal{X}_0=\{x\in \mathbb{R}^2:(x_1-2)^2+(x_2-1)^2\leqslant1\};\\
-					    \end{aligned}
-			    \right.\\
-			    \\
-			    &\left\{
-					    \begin{aligned}
-					        &\dot x_1^{(2)} = x_2^{(2)}+v^{(2)}(t);\\
-					        &\dot x_2^{(2)} = -\gamma x_1 -\mu x_2 + u^{(2)}(t);\\
-					        &x(\tau)\in\mathcal{X}^{(1)}[\tau,t_0]\cap\mathcal{H},\tau\leqslant t\leqslant t_1;
-					    \end{aligned}
-					\right.\\
-			\end{aligned}
-			\right.\\
-			\\
-			&\mathcal{H}=\{x\in \mathbb{R}^2: x_1=0\}\mbox{--- гиперплоскость};\\
-			&u^{(1)}=u^{(2)}=u(\cdot)\in[-\alpha_1,\alpha_2]=\mathcal{P}[t_0,t_1];\\
-			&v^{(1)}=v^{(2)}=v(\cdot)\in[-\beta_1,\beta_2]\in\mathcal{W}[t_0,t_1];\\
-			&\gamma,\mu,\alpha_1,\alpha_2,\beta_1,\beta_2 > 0\mbox{--- некоторые константы};\\
-			&\tau \mbox{ --- момент  переключения, при пересечении гиперплоскости}.\\
-\end{aligned}
-\right.
-\label{eq:primer_sys}
-\end{equation}
-
+\section{Общая теоретическая часть}
 
 Для поиска множества $\mathcal{X}[t,t_0]$ будем использовать функцию цены
 $$
@@ -45,6 +9,8 @@ $$
 
 где $d(x_0,\mathcal{X}_0)$ - расстояние между точкой $x_0$ и множеством $\mathcal{X}_0$, определяемое метрикой
 $d(x,\mathcal{X})=\min_{y\in\mathcal{X}} \|x-y\|$.
+Такой выбор вызван следующими причинами. Мы ищем множество $\mathcal{X}[t,\mathcal{X}_0]$ всех таких точек, что  для $\forall x^*(t)\in\mathcal{X}[t,\mathcal{X}_0]$ можно заранее подобрать некоторое управление $u^*(\cdot)$ и некоторое подмножество $\{x^*(t_0)\}\in\mathcal{X}_0$ так, чтобы при любой помехе $v(\cdot)$ гарантировать вхождение $x^*(t)\in \{x(t,u^*(\cdot),\{x^*(t_0)\})\}_{\forall v(\cdot)}$. В рассматриваемой здесь задаче кроме помехи $v(\cdot)$ появляется другой неизвестный параметр $\tau(u,v)$ -- момент переключения, в который меняется динамика системы, что приводит к существенному усложениню задачи.
+
 
 Пусть $\phi(x)=d^2(x_0,\mathcal{X}_0)$, сопряженная к ней:
 $$
@@ -80,11 +46,11 @@ V(t,x)=\min_{u(\cdot)}\max_{v(\cdot)}\sup_{\ell}\left(\ts{\ell,x_0} - \rho(\ell\
 
 Найдем выражения для поиска $x_0\mid_{x(t_1)=x}$.
 Пусть траектория точки в момент $t_1$ известна $x(t_1)=x$.
-Идя в обратном времени, найдем её значение в момент $t\leqslant t_1$ при известных $B(s),C(s),u(s),v(s)$ до переключения:
+Идя в обратном времени, найдем её значение в момент $\tau\leqslant t\leqslant t_1$ при известных $B(s),C(s),u(s),v(s)$ до переключения:
 $$
 x^{(2)}(t,x,u,v)=G_2(t,t_1)x+\int\limits_{t_1}^t G_2(t,s)\left[B_2(s)u_2(s)+C_2(s)v_2(s)\right]ds,\mbox{при}\, \tau\leqslant t \leqslant t_1,
 $$
- и после для $t\leqslant \tau$:
+ и после для $t_0\leqslant t\leqslant \tau$:
 \begin{equation}
 \label{eq:solvex0}
 \begin{aligned}
@@ -93,22 +59,24 @@ x^{(2,1)}(t,\tau,x,u,v)=&G_1(t,\tau)G_2(\tau,t_1)x+G_1(t,\tau)\int\limits_{t_1}^
 \end{aligned}
 \end{equation}
 
-Нам необходимо, чтобы момент $\tau$ в этих выражениях удовлетворял условию пересечения, так чтобы $\ts{x(\tau),c}=\gamma$.
-Поскольку $\mathcal{X}[t,t_0]=\{x\mid V(t,x)\leqslant 0\}, \forall t\in[t_0,t_1]$, то достаточно ввести штрафующий член $ \left(\ts{x(\tau),c}-\gamma\right)^2$ в выражение для $V(t,x)$, тем самым обеспечивая  для $\mathcal{X}[t,t_0]$ включение только тех траекторий, которые удовлетворяют нашим двум системам и условию на момент переключения. 
+Нам необходимо, чтобы момент $\tau$ в этих выражениях удовлетворял условию на переключение, так чтобы $\ts{x(\tau),c}=\gamma$.
+Поскольку $d^2(x,\mathcal{X})\geqslant 0$, то $V(x,t)\geqslant 0$. Тогда если $\mathcal{X}[t,t_0]=\{x\mid V(t,x)\leqslant 0\}, \forall t\in[t_0,t_1]$, то достаточно ввести штрафующий член $ \left(\ts{x(\tau),c}-\gamma\right)^2$ в выражение для $V(t,x)$, тем самым обеспечивая  для $\mathcal{X}[t,t_0]$ включение только тех траекторий, которые удовлетворяют нашим двум системам и условию на момент переключения. 
 
-Поскольку мы рассматриваем задачу в классе программных управлений, мы не можем строить управление в зависимости от текущего состояния системы, а только заранее  его определять. Поэтому, в формуле для $V(t,x)$ нельзя проводить оптимизацию отдельно для ''до'' и ''после'', так как момент переключения $\tau$ не известен заранее.
+Так как мы рассматриваем задачу в классе программных управлений, мы не можем строить управление в зависимости от текущего состояния системы, а должны определять его заранее. Поэтому, в формуле для $V(t,x)$ нельзя искать отдельно $\min_{u^{(i)}}\max_{v^{(i)}}$ для каждой из подсистем  ''до'' и ''после'', так как момент переключения $\tau$ не известен заранее. Это означает, что выбираемое управление не может меняться в зависимости от $\tau$. Поскольку в общем случае ограничения на управления для разных подсистем различны, то выбираемое заранее управление должно удовлетворять обоим ограничениям $[ u^*(\cdot)\in\mathcal{P}^{(1)}]\wedge[u^*(\cdot)\in\mathcal{P}^{(2)}] $. 
+Поэтому справедливо положить $u(t)\in\mathcal{P}[\mathcal{T}]=\min\{\mathcal{P}^{(1)}[\mathcal{T}],\mathcal{P}^{(2)}[\mathcal{T}]\}$ для множества $\mathcal{T}$ такого, что $\mathcal{T}=\cup_{v,u} \tau(v,u)\subseteq [t_0,t]$. Мы будем рассматривать задачу для  $\mathcal{P}[t_0,t]=\mathcal{P}^{(1)}[t_0,t]=\mathcal{P}^{(2)}[t_0,t]$.
+
 $$
-V(t,x)=\min_{u_1,u_2\in\mathcal{P}}\max_{v_1,v_2\in\mathcal{W}}\max_{\tau}\left\{ d^2(x_0{\mid_{x(t)=x}},\mathcal{X}_0) + \left(\ts{x(\tau),c}-\gamma\right)^2 \right\}.
+V(t,x)=\min_{u_1,u_2\in\mathcal{P}}\max_{v_1,v_2\in\mathcal{W}}\min_{\tau}\left\{ d^2(x_0{\mid_{x(t)=x}},\mathcal{X}_0) + \left(\ts{x(\tau),c}-\gamma\right)^2 \right\}.
 %V(t,x)=\min_{u_1\in \mathcal{P}_1}\max_{v_1\in\mathcal{W}_1}\left\{ 
 $$
-
+Это значит, что искомое множество $\mathcal{X}[t,\mathcal{X}_0]$ в классе программных управлений содержит только те траектории, которые при любой допустимой помехе $v_1(\cdot),v_2(\cdot)$ и при любом $\tau(v,\cdot)$ гарантированно могут попасть на множество $\mathcal{X}[t,\mathcal{X}_0]$
 Пока примем $\gamma=0$. Для линеаризации условия на переключение сделаем подстановку
 $$
 \ts{x,c}^2\equiv\max_\mu \left\{\mu \ts{x,c} - \frac{\mu^2}{4}\right\},
 $$
 и, используя \eqref{eq:valued2}, имеем
 $$
-V(t,x)=\min_{u_1,u_2 \in\mathcal{P}}\max_{v_1,v_2\in\mathcal{W}}\max_{\tau}\left\{
+V(t,x)=\min_{u_1,u_2 \in\mathcal{P}}\max_{v_1,v_2\in\mathcal{W}}\min_{\tau}\left\{
 \max_{\ell}\max_{\mu} \left\{\ts{\ell,x_0\mid_{x(t)=x}} +\mu\ts{x(\tau),c}-\frac{\mu^2}{4}- \rho(\ell\mid\mathcal{X}_0)-\frac{\|\ell\|^2}{4}
 \right\}\right\}.
 $$
@@ -151,6 +119,11 @@ $$
 T(\phi(w),v(s))=\int\limits_{t_0}^t d\phi(w) \int\limits_t^{w}v(s)ds.
 $$
 
+Мы заменили множество $\tau$ более широким множеством функций $\phi(w)$. Условием нормировки \cmnt{(или одним из)} для этих функций служит следующее выражение
+$$
+\intd{t_0}{t}d\phi(w)=1.
+$$
+
 Теперь функционал $T(\phi,v)$ является линейным по всем аргументам. 
 
 Аналогично поступим с $V(t,x)$:
@@ -165,17 +138,49 @@ $$
 Поскольку мы здесь воспользовались перестановкой 
 $$\int\max_{\ell,\mu} f(w,\ell,\mu) d\phi(w) = \max_{\ell(w),\mu(w)}\int f(w,\ell(w),\mu(w))d\phi(w)$$
 $\ell,\mu$ теперь функции от $w$, $\ell=\ell(w)$ и $\mu=\mu(w)$.
+
+\begin{propose}
+$$
+\max_{x(\cdot)}\intd{t_0}{t} f(x(s))ds =\intd{t_0}{t}\max_{x(s)} f(x(s)) ds 
+$$
+\end{propose}
+
+Пусть 
+$$
+x^*(\cdot) = \arg\max_{x(\cdot)} \intd{t_0}{t} f(x(s))ds
+$$
+$$
+x^\circ(\cdot):  \intd{t_0}{t}f(x^\circ(s))=\intd{t_0}{t}\max_{x(s)} f(x(s)) ds.
+$$
+Предположим, что $x^*(\cdot)\neq x^\circ(\cdot)$ и $\intd{t_0}{t} f(x^*(s))ds \neq \intd{t_0}{t}f(x^\circ(s)) ds$.\\
+Тогда для выражения $m(s)=f(x^*(s))-f(x^\circ(s))$ можно указать непересекающиеся отрезки $T_<,T_>,T_=$, на которых выполняются неравенства
+$$
+\forall s\in T_<:\, m(s) < 0,\; \forall s\in T_>:\, m(s)>0,\; \forall s\in T_=:\, m(s)=0.
+$$
+Для $T_>$ получаем, что
+$$
+\forall s\in T_> : f(x^*(s))>f(x^\circ(s))=max_{x(s)}f(x(s)
+$$ -- противоречие.\\
+Для $T_<$ получаем, что 
+$$
+max_{x(\cdot)}\intd{T_<}{}f(x(s))ds=\intd{T_<}{}f(x^*(s))ds < \intd{T_<}{}f(x^\circ(s))ds 
+$$ -- противоречие.\\
+Остается единственный вариант, который и доказывает утверждение.
+{\centering $\blacksquare$}
+
+
+
 Можно заметить, что от $w$ зависят только переменные $\tilde{S},\tilde{S}_1$ и пределы интегрирования. Поменяем порядок интегрирования, чтобы собрать вместе члены, зависящие от $w$. Применяя правила замены
 $$
-\int\limits_{t_0}^t d\phi(w) \int\limits_t^w ds(\cdot) =\int\limits_t^{t_0} ds \int\limits_{t_0}^s d\phi(w) (\cdot),
+\intd{t_0}{t} d\phi(w) \intd{t}{w} ds(\cdot) =\intd{t}{t_0} ds \intd{t_0}{s} d\phi(w) (\cdot),
 $$
 $$
-\int\limits_{t_0}^t d\phi(w) \int\limits_w^{t_0} ds(\cdot) =\int\limits_t^{t_0} ds \int\limits_{s}^t d\phi(w) (\cdot),
+\intd{t_0}{t} d\phi(w) \intd{w}{t_0} ds(\cdot) =\intd{t}{t_0} ds \intd{s}{t} d\phi(w) (\cdot),
 $$
 и делая замену переменных
 $$
 \begin{aligned}
-S(t_0,t_1)&=\intd{t_0}{t_1}\tilde{S}(w,t_1)\,d\phi(w)=\int\limits^{t_0}_{t_1}\left\{  G^T_2(w,t)G^T_1(t_0,w)\ell(w) + \mu(w) G_2^T(w,t)c \right\}\,d\phi(w), \\
+S(t_0,t_1)&=\intd{t_0}{t_1}\tilde{S}(w,t_1)\,d\phi(w)=\intd{t_0}{t_1}\left\{  G^T_2(w,t)G^T_1(t_0,w)\ell(w) + \mu(w) G_2^T(w,t)c \right\}\,d\phi(w), \\
 S_1(t_0,t_1)&=\intd{t_0}{t_1}\tilde{S}_1(t_0,w)\,d\phi(w),=\intd{t_0}{t_1}\left\{ G^T_1(t_0,w)  \ell(w) \right\}\,d\phi(w),\\
 K(\ell,\mu,\mathcal{X}_0)&=\intd{t_0}{t} \left[\frac{\mu(w)^2}{4} + \rho(\ell(w)\mid\mathcal{X}_0) + \frac{\|\ell(w)\|^2}{4} \right]\,d\phi(w)
 \end{aligned}
@@ -212,17 +217,3 @@ $$
 $$
 Далее, мы хотим поменять $\min_{u_1,u_2}(\cdot)$ на опорную функцию, но полученное выше выражение уже не является вогнутым по $\ell,\mu$. Поэтому, мы прибегаем к овыпуклению нужных членов и приходим к 
 
-$$
-\begin{gathered}
-%\label{eq:V-fin}
- V(t,x)=\min_{\phi} \max_{\ell}\max_{\mu} \bigg\{  \\
-  S^T(t_0,t)x - \intd{t_0}{t} \rho(S_1(s,t)\mid B_1(s)\mathcal{P}_1(s))\,ds - \intd{t_0}{t} \rho(S(t_0,s)\mid B_2(s)\mathcal{P}_2(s))\,ds - \\ - \mbox{conv}\left\{ -\intd{-t_0}{t}\rho(-S_1(s,t)\mid C_1(s)\mathcal{W}_1(s))\,ds-\intd{t_0}{t}\rho(-S(t_0,s)\mid C_2(s)\mathcal{W}_2(s)) \,ds + K(\ell,\mu,\mathcal{X}_0)  \right\} \bigg\}.
-\end{gathered}
-$$
-%
-%Далее используется равенство
-%$$
-%\max_{x\in\mathcal{X}}\intd{t_0}{t_1}\ts{\ell,x}ds=\max_{x\in\mathcal{X}}\intd{t_1}{t_0}\ts{-\ell,x}ds=\intd{t_1}{t_0}\rho(-\ell\mid\mathcal{X})ds,\;\mathcal{X}\in\mbox{Comp}(\mathbb{H}).
-%$$
-%
-%И тогда

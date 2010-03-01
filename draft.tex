@@ -23,3 +23,40 @@ $$
 
 %\cmnt{ƒалее € сталкиваюсь с проблемой вычислени€ conv. ѕолучаетс€, что если conv загон€ть под интеграл по ds, то остаетс€ неделимый $K(\ell,\mu)=\intd{w_0}{w}(\cdots)$. ≈сли двигатьс€ по пути разделени€ временных инервалов $T_{<},T_{>}$, есть вариант помен€ть местами $conv ( \intd{t_0}{t}\intd{w_0}{w}(\cdots)+K) = \intd{w_0}{w}conv( \intd{t_0}{t}(\cdots)+\ldots )$. “огда есть надежда работать конкретно с каждыsм $\ell(w)$, а $\intd{t_0}{t}G_2(t_0,w)G_1(w,t)ds\rightarrow f(w)$, так как $G_1(s,t),G_2(s,t)$--известны, может быть, это будет разумно.  » если раздел€ть по отрезкам времени, где $S(s,t)>0$, то делать это уже по $w$, а не по $s$ (там, где вычисл€ем conv). —ейчас хочу дописать, что получитс€. ƒругой вариант - вычисление сопр€женной функции.}
   
+
+\subsection{ѕример 2D}
+«аданы системы дифференциальных уравнений, описывающих состо€ние некоторой модели до переключени€ и после:
+\begin{equation}
+\left\{
+\begin{aligned}
+			%\begin{aligned}
+			&\left[
+			\begin{aligned}
+			    &\left\{
+					    \begin{aligned}
+					        &\dot x_1^{(1)} = x_2^{(1)}+v^{(1)}(t);\\
+					        &\dot x_2^{(1)} = u^{(1)}(t);\\
+					        &x(t_0)\in\mathcal{X}_0=\{x\in \mathbb{R}^2:(x_1-2)^2+(x_2-1)^2\leqslant1\};\\
+					    \end{aligned}
+			    \right.\\
+			    \\
+			    &\left\{
+					    \begin{aligned}
+					        &\dot x_1^{(2)} = x_2^{(2)}+v^{(2)}(t);\\
+					        &\dot x_2^{(2)} = -\gamma x_1 -\mu x_2 + u^{(2)}(t);\\
+					        &x(\tau)\in\mathcal{X}^{(1)}[\tau,t_0]\cap\mathcal{H},\tau\leqslant t\leqslant t_1;
+					    \end{aligned}
+					\right.\\
+			\end{aligned}
+			\right.\\
+			\\
+			&\mathcal{H}=\{x\in \mathbb{R}^2: x_1=0\}\mbox{--- гиперплоскость};\\
+			&u^{(1)}=u^{(2)}=u(\cdot)\in[-\alpha_1,\alpha_2]=\mathcal{P}[t_0,t_1];\\
+			&v^{(1)}=v^{(2)}=v(\cdot)\in[-\beta_1,\beta_2]\in\mathcal{W}[t_0,t_1];\\
+			&\gamma,\mu,\alpha_1,\alpha_2,\beta_1,\beta_2 > 0\mbox{--- некоторые константы};\\
+			&\tau \mbox{ --- момент  переключени€, при пересечении гиперплоскости}.\\
+\end{aligned}
+\right.
+\label{eq:primer_sys}
+\end{equation}
+

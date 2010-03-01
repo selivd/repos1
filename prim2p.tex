@@ -9,12 +9,12 @@ $$
 
 \begin{propose}
 $$
-\conv\intd{t_0}{t} f(x(t))dt =\intd{t_0}{t}\conv f(x(t)) dt 
+\conv_{x(\cdot}}\intd{t_0}{t} f(x(t))dt =\intd{t_0}{t}\conv_{x(t)} f(x(t)) dt 
 $$
 \end{propose}
 Примем 
 $$
-conv(f)=f^{**}
+\conv(f)=f^{**}
 $$
 Тогда 
 $$
@@ -41,34 +41,6 @@ $$
 {\centering $\blacksquare$}
 
 
-\begin{propose}
-$$
-\max_{x(\cdot)}\intd{t_0}{t} f(x(s))ds =\intd{t_0}{t}\max_{x(s)} f(x(s)) ds 
-$$
-\end{propose}
-
-Пусть 
-$$
-x^*(\cdot) = \arg\max_{x(\cdot)} \intd{t_0}{t} f(x(s))ds
-$$
-$$
-x^\circ(\cdot):  \intd{t_0}{t}f(x^\circ(s))=\intd{t_0}{t}\max_{x(s)} f(x(s)) ds.
-$$
-Предположим, что $x^*(\cdot)\neq x^\circ(\cdot)$ и $\intd{t_0}{t} f(x^*(s))ds \neq \intd{t_0}{t}f(x^\circ(s)) ds$.\\
-Тогда для выражения $m(s)=f(x^*(s))-f(x^\circ(s))$ можно указать непересекающиеся отрезки $T_<,T_>,T_=$, на которых выполняются неравенства
-$$
-\forall s\in T_<:\, m(s) < 0,\; \forall s\in T_>:\, m(s)>0,\; \forall s\in T_=:\, m(s)=0.
-$$
-Для $T_>$ получаем, что
-$$
-\forall s\in T_> : f(x^*(s))>f(x^\circ(s))=max_{x(s)}f(x(s)
-$$ -- противоречие,\\
-Для $T_<$ получаем, что 
-$$
-max_{x(\cdot)}\intd{T_<}{}f(x(s))ds=\intd{T_<}{}f(x^*(s))ds < \intd{T_<}{}f(x^\circ(s))ds 
-$$ -- противоречие,\\
-Остается единственный вариант, который и доказывает утверждение.
-{\centering $\blacksquare$}
 
 
 %Далнейшие рассуждения относятся к задаче\eqref{eq:primer_sys}. Рассмотрим теперь выражение под conv($\cdot$).
