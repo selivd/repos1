@@ -4,8 +4,8 @@ Version=2
 
 [SessionInfo]
 ActiveTab=0
-FrameCount=6
-ActiveFrame=3
+FrameCount=7
+ActiveFrame=5
 
 [Frame0]
 Columns=1
@@ -32,8 +32,8 @@ cxCur=1094
 cxMin=10
 
 [Frame0_View0,0]
-Cursor.row=30
-Cursor.column=14
+Cursor.row=32
+Cursor.column=0
 TopSubLine=0
 
 [Frame1]
@@ -61,9 +61,9 @@ cxCur=1119
 cxMin=10
 
 [Frame1_View0,0]
-Cursor.row=23
-Cursor.column=2
-TopSubLine=3
+Cursor.row=255
+Cursor.column=68
+TopSubLine=284
 
 [Frame2]
 Columns=1
@@ -90,15 +90,15 @@ cxCur=935
 cxMin=10
 
 [Frame2_View0,0]
-Cursor.row=223
-Cursor.column=0
-TopSubLine=235
+Cursor.row=5
+Cursor.column=24
+TopSubLine=0
 
 [Frame3]
 Columns=1
 Rows=1
-Flags=2
-ShowCmd=3
+Flags=0
+ShowCmd=1
 MinPos.x=-1
 MinPos.y=-1
 MaxPos.x=-4
@@ -111,17 +111,17 @@ Class=CLatexEdit
 Document=postanovka.tex
 
 [Frame3_Row0]
-cyCur=417
+cyCur=238
 cyMin=10
 
 [Frame3_Col0]
-cxCur=1053
+cxCur=935
 cxMin=10
 
 [Frame3_View0,0]
-Cursor.row=0
-Cursor.column=0
-TopSubLine=0
+Cursor.row=32
+Cursor.column=56
+TopSubLine=12
 
 [Frame4]
 Columns=1
@@ -150,13 +150,13 @@ cxMin=10
 [Frame4_View0,0]
 Cursor.row=22
 Cursor.column=0
-TopSubLine=13
+TopSubLine=15
 
 [Frame5]
 Columns=1
 Rows=1
-Flags=0
-ShowCmd=1
+Flags=2
+ShowCmd=3
 MinPos.x=-1
 MinPos.y=-1
 MaxPos.x=-4
@@ -169,15 +169,44 @@ Class=CLatexEdit
 Document=sopr.tex
 
 [Frame5_Row0]
-cyCur=238
+cyCur=368
 cyMin=10
 
 [Frame5_Col0]
-cxCur=935
+cxCur=1053
 cxMin=10
 
 [Frame5_View0,0]
-Cursor.row=0
-Cursor.column=0
+Cursor.row=7
+Cursor.column=23
 TopSubLine=0
+
+[Frame6]
+Columns=1
+Rows=1
+Flags=0
+ShowCmd=1
+MinPos.x=-1
+MinPos.y=-1
+MaxPos.x=-4
+MaxPos.y=-30
+NormalPos.left=0
+NormalPos.top=0
+NormalPos.right=964
+NormalPos.bottom=293
+Class=CLatexEdit
+Document=mvkrep.sty
+
+[Frame6_Row0]
+cyCur=238
+cyMin=10
+
+[Frame6_Col0]
+cxCur=935
+cxMin=10
+
+[Frame6_View0,0]
+Cursor.row=46
+Cursor.column=60
+TopSubLine=33
 

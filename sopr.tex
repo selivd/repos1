@@ -1,0 +1,46 @@
+\subsection{Сопряженные функции}
+
+Найдем двойное сопряжение для функции
+$$
+f(x)=x^2-\alpha \norma{x}
+$$
+
+В $\mathbb{R}^1$ имеем 
+
+$$
+f^{**}(x)=
+\left\{ 
+\begin{aligned}
+\left(\norma{x}-\frac{\alpha}{2}\right)^2 - \frac{\alpha^2}{4},\; &\norma{x}>\frac{\alpha}{2}\\
+{- \frac{\alpha^2}{4}}\;\;\;\;\;\;,\;\;\;&\mbox{иначе}\\
+\end{aligned}
+\right.
+$$
+
+\twinimage{age0}{ale0}{7}{Функция и её двойное сопряжение в $\mathbb{R}^1$}
+
+В пространстве $\mathbb{R}^n$  
+Рассмотрим функцию
+\begin{equation}
+\label{fun:f1n}
+f(x)=\sum\limits_{i=1}^{n}x_i^2-\alpha\norma{x_i}
+%\|x\|^2-\alpha\norma{x}=
+\end{equation}
+$$
+f^*(y)=\sup_{x}\left( \ts{x,y} - f(x)\right) = \sup_{x}\left(\sum\limits_{i=1}^{n}x_i y_i -    \sum\limits_{i=1}^{n}x_i^2-\alpha\norma{x_i} \right)=
+$$
+$$
+=\sup_{x\in D}\left(\sum\limits_{i=1}^{n}x_i y_i-x_i^2+\norma{x_i}\right)
+$$
+\cmnt{(Предположение)\\}
+Если область $D$ такая, что $D(x_i)$ не зависит от $D(x_j)$ $\forall i,j \le n$, то справедливо 
+$$
+\sup_{x}\sum\limits_i (\cdot)=\sum\limits_i\sup_{x_i}(\cdot)
+$$
+Это верно  для $D=\mathbb{R}^n$
+Тогда 
+$$
+\sup_{x}\left(\sum\limits_{i=1}^{n}x_i y_i-x_i^2+\norma{x_i}\right)=\sum\limits_{i=1}^{n}\sup_{x_i} \left(x_i y_i - x_i^2+\alpha\norma{x_i}\right)
+$$
+И мы приходим к уже полученному результату в $\mathbb{R}^1$ для каждого $i$. Аналогично вычисляем $f^{**}$.
+Таким образом, в $\mathbb{R}^n$ для функции \eqref{fun:f1n} вычисление $\conv$ сводится к ряду простых операций в $\mathbb{R}^1$. Если же $D=\Ell(q,Q)$ - то полученный результат становиться не верным. Но рассматриваемое применение к этому случаю относиться не будет ($\forall \ell\in\mathbb{R}^n$)
