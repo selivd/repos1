@@ -12,7 +12,8 @@ $d(x,\mathcal{X})=\min_{y\in\mathcal{X}} \|x-y\|$.
 Такой выбор вызван следующими причинами. Мы ищем множество $\mathcal{X}[t,\mathcal{X}_0]$ всех таких точек, что  для $\forall x^*(t)\in\mathcal{X}[t,\mathcal{X}_0]$ можно заранее подобрать некоторое управление $u^*(\cdot)$ и некоторое подмножество $\{x^*(t_0)\}\in\mathcal{X}_0$ так, чтобы при любой помехе $v(\cdot)$ гарантировать вхождение $x^*(t)\in \{x(t,u^*(\cdot),\{x^*(t_0)\})\}_{\forall v(\cdot)}$. В рассматриваемой здесь задаче кроме помехи $v(\cdot)$ появляется другой неизвестный параметр $\tau(u,v)$ -- момент переключения, в который меняется динамика системы, что приводит к существенному усложениню задачи.
 
 
-Пусть $\phi(x)=d^2(x_0,\mathcal{X}_0)$, сопряженная к ней:
+Пусть $\phi(x)=d^2(x_0,\mathcal{X}_0)$. Так как $\mathcal{X}_0$ -- по условию задачи выпуклое множество, то операция двойного сопряжения приводит к тождественному результату. Поэтому удобно выразить $V(x,t)$ через двойное сопряжение функции расстояния $d^2(x,\mathcal{X}_0)$. 
+
 $$
 \phi^{*}(\ell)=\sup_{x}( \ts{x,\ell} -  d^2(x,\mathcal{X}_0)) = \rho(\ell\mid\mathcal{X}_0)+\frac{\|\ell\|^2}{4},
 $$
@@ -119,7 +120,7 @@ $$
 T(\phi(w),v(s))=\int\limits_{t_0}^t d\phi(w) \int\limits_t^{w}v(s)ds.
 $$
 
-Мы заменили множество $\tau$ более широким множеством функций $\phi(w)$. Условием нормировки \cmnt{(или одним из)} для этих функций служит следующее выражение
+Мы заменили множество $\tau$ более широким множеством функций $\phi(w)$. Условием нормировки для этих функций служит следующее выражение
 $$
 \intd{t_0}{t}d\phi(w)=1.
 $$
@@ -216,4 +217,47 @@ $$
 \end{gathered}
 $$
 Далее, мы хотим поменять $\min_{u_1,u_2}(\cdot)$ на опорную функцию, но полученное выше выражение уже не является вогнутым по $\ell,\mu$. Поэтому, мы прибегаем к овыпуклению нужных членов и приходим к 
+
+
+$$
+\begin{gathered}
+\label{eq:V-fin}
+ V(t,x)=\min_{\phi} \max_{\ell}\max_{\mu} \bigg\{  \\
+  S^T(t_0,t)x - \intd{t_0}{t} \rho(S_1(s,t)\mid B_1(s)\mathcal{P}_1(s))\,ds - \intd{t_0}{t} \rho(S(t_0,s)\mid B_2(s)\mathcal{P}_2(s))\,ds - \\ - \mbox{conv}\left\{ -\intd{t_0}{t}\rho(-S_1(s,t)\mid C_1(s)\mathcal{W}_1(s))\,ds-\intd{t_0}{t}\rho(-S(t_0,s)\mid C_2(s)\mathcal{W}_2(s)) \,ds + K(\ell,\mu,\mathcal{X}_0)  \right\} \bigg\}.
+\end{gathered}
+$$
+
+\begin{propose}
+$$
+\conv_{x(\cdot)}\intd{t_0}{t} f(x(t))dt =\intd{t_0}{t}\conv_{x(t)} f(x(t)) dt 
+$$
+\end{propose}
+Примем 
+$$
+\conv(f)=f^{**}
+$$
+Тогда 
+$$
+\left(\intd{t_0}{t} f(x(s))ds\right)^*(\ell(t))=\max_{x(\cdot)}\left( \ts{\ell,x}_{L_2}-\intd{t_0}{t}f(x(s))ds\right)
+$$
+$$
+\left(\intd{t_0}{t} f(x(t))dt\right)^{**}(y(t))=\max_{\ell(\cdot)}\left(\ts{y,\ell}_{L_2}-\max_{x(\cdot)}\left( \ts{\ell,x}_{L_2}-\intd{t_0}{t}f(x(s))ds\right)\right)=
+$$
+$$
+=\max_{\ell(\cdot)}\min_{x(\cdot)}\left(\ts{y,\ell}_{L_2}- \ts{\ell,x}_{L_2}+\intd{t_0}{t}f(x(s))ds\right)=
+$$
+$$
+=\max_{\ell(\cdot)}\min_{x(\cdot)}\intd{t_0}{t}\left[\ts{y(s),\ell(s)}- \ts{\ell(s),x(s)}+f(x(s))\right]ds=
+$$
+$$
+=\intd{t_0}{t}\max_{\ell(s)}\min_{x(s)}\left[\ts{y(s),\ell(s)}- \ts{\ell(s),x(s)}+f(x(s))\right]ds=
+$$
+$$
+=\intd{t_0}{t}\max_{\ell(s)}\left[\ts{y(s),\ell(s)}-\max_{x(s)}\left\{\ts{\ell(s),x(s)}-f(x(s))\right\} \right]ds=
+$$
+$$
+=\intd{t_0}{t}f^{**}(s)ds
+$$
+{\centering $\blacksquare$}
+\input{sopr}
 
