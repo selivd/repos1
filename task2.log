@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2009.12.1)  1 MAR 2010 19:20
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2009.12.1)  1 APR 2010 16:33
 entering extended mode
 **D:/Users/seliv/Desktop/гибридные*системы/repos1/task2.tex
 ("D:/Users/seliv/Desktop/гибридные системы/repos1/task2.tex"
@@ -287,13 +287,13 @@ Overfull \hbox (0.60507pt too wide) detected at line 8
 [] []
  []
 
-[5] [6]
-Overfull \hbox (14.72098pt too wide) in paragraph at lines 145--147
+[5] [6] [7]
+Overfull \hbox (14.72098pt too wide) in paragraph at lines 165--167
 []\T2A/cmr/m/n/12 Эти вы-ра-же-ния не яв-ля-ют-ся вы-пук-лы-ми по $\OML/cmm/m/i
 t/12 $\T2A/cmr/m/n/12 , что-бы мож-но бы-ло пе-ре-став-лять $[][] [][]$.
  []
 
-[7]) [8] ("D:\Users\seliv\Desktop\гибридные системы\repos1\task2.aux")
+) [8] ("D:\Users\seliv\Desktop\гибридные системы\repos1\task2.aux")
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -321,9 +321,9 @@ c/amsfonts/cm/cmr8.pfb><D:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts
 8.pfb><D:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts/symbols/msam10.p
 fb><D:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
 
-Output written on task2.pdf (8 pages, 180537 bytes).
+Output written on task2.pdf (8 pages, 182935 bytes).
 PDF statistics:
- 190 PDF objects out of 1000 (max. 8388607)
+ 193 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

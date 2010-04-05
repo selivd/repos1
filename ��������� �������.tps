@@ -4,7 +4,7 @@ Version=2
 
 [SessionInfo]
 ActiveTab=0
-FrameCount=3
+FrameCount=4
 ActiveFrame=2
 
 [Frame0]
@@ -32,8 +32,8 @@ cxCur=1095
 cxMin=10
 
 [Frame0_View0,0]
-Cursor.row=30
-Cursor.column=1
+Cursor.row=22
+Cursor.column=26
 TopSubLine=0
 
 [Frame1]
@@ -61,9 +61,9 @@ cxCur=1120
 cxMin=10
 
 [Frame1_View0,0]
-Cursor.row=216
-Cursor.column=12
-TopSubLine=210
+Cursor.row=158
+Cursor.column=2
+TopSubLine=174
 
 [Frame2]
 Columns=1
@@ -90,7 +90,36 @@ cxCur=1374
 cxMin=10
 
 [Frame2_View0,0]
-Cursor.row=190
-Cursor.column=3
-TopSubLine=170
+Cursor.row=58
+Cursor.column=63
+TopSubLine=33
+
+[Frame3]
+Columns=1
+Rows=1
+Flags=0
+ShowCmd=1
+MinPos.x=-1
+MinPos.y=-1
+MaxPos.x=-4
+MaxPos.y=-23
+NormalPos.left=88
+NormalPos.top=88
+NormalPos.right=1240
+NormalPos.bottom=628
+Class=CLatexEdit
+Document=draft.tex
+
+[Frame3_Row0]
+cyCur=493
+cyMin=10
+
+[Frame3_Col0]
+cxCur=1124
+cxMin=10
+
+[Frame3_View0,0]
+Cursor.row=0
+Cursor.column=0
+TopSubLine=0
 

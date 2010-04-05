@@ -9,7 +9,7 @@ $$
 
 \begin{propose}
 $$
-\conv_{x(\cdot}}\intd{t_0}{t} f(x(t))dt =\intd{t_0}{t}\conv_{x(t)} f(x(t)) dt 
+\conv_{x(\cdot)}\intd{t_0}{t} f(x(t))dt =\intd{t_0}{t}\conv_{x(t)} f(x(t)) dt 
 $$
 \end{propose}
 Примем 
@@ -41,7 +41,27 @@ $$
 {\centering $\blacksquare$}
 
 
-
+\begin{propose}
+$$
+\min_{\ell}\left[\ts{x,l}+ (\conv(y))(\ell)\right]=\min_{\ell}\left[ \ts{x,\ell} + y(\ell)\right]
+$$
+\end{propose}
+$$
+\min_{\ell}\left[\ts{x,\ell}+\max_{p}(\ts{p,\ell}-\max_{s}(\ts{p,s}-y(s)))\right]=
+$$
+$$
+=\min_{\ell}\max_{p}\min_{s}\left[\ts{x,l}+\ts{l,p}-\ts{p,s}+y(s)\right]=\left\{\min_{\ell}\max_{p}=\max_{p}\min_{\ell} \right\}=
+$$
+$$
+=\max_{p}\min_{\ell}\min_{s}\left[ \ts{\ell,x+p}-\ts{p,s}+y(s)\right]=\max_{p}\left[ \left\{\begin{aligned} &-\inf,\;p\neq -x\\& 0,\;p=-x \\ \end{aligned}\right. + \min_{s}(-\ts{p,s}+y(s))\right]=
+$$
+$$
+=\left\{\mbox{из первого min находим }\;p=-x\right\}=\min_{s}(-\ts{-x,s}+y(s))=
+$$
+$$
+=\min_{\ell}(\ts{x,\ell}+y(\ell))
+$$
+{\centering $\blacksquare$}
 
 %Далнейшие рассуждения относятся к задаче\eqref{eq:primer_sys}. Рассмотрим теперь выражение под conv($\cdot$).
 
