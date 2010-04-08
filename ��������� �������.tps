@@ -5,7 +5,7 @@ Version=2
 [SessionInfo]
 ActiveTab=0
 FrameCount=4
-ActiveFrame=2
+ActiveFrame=3
 
 [Frame0]
 Columns=1
@@ -32,8 +32,8 @@ cxCur=1095
 cxMin=10
 
 [Frame0_View0,0]
-Cursor.row=22
-Cursor.column=26
+Cursor.row=0
+Cursor.column=0
 TopSubLine=0
 
 [Frame1]
@@ -61,15 +61,15 @@ cxCur=1120
 cxMin=10
 
 [Frame1_View0,0]
-Cursor.row=158
-Cursor.column=2
+Cursor.row=0
+Cursor.column=0
 TopSubLine=174
 
 [Frame2]
 Columns=1
 Rows=1
-Flags=2
-ShowCmd=3
+Flags=0
+ShowCmd=1
 MinPos.x=-1
 MinPos.y=-1
 MaxPos.x=-4
@@ -82,23 +82,23 @@ Class=CLatexEdit
 Document=prim2p.tex
 
 [Frame2_Row0]
-cyCur=762
+cyCur=246
 cyMin=10
 
 [Frame2_Col0]
-cxCur=1374
+cxCur=936
 cxMin=10
 
 [Frame2_View0,0]
-Cursor.row=58
-Cursor.column=63
-TopSubLine=33
+Cursor.row=5
+Cursor.column=205
+TopSubLine=0
 
 [Frame3]
 Columns=1
 Rows=1
-Flags=0
-ShowCmd=1
+Flags=2
+ShowCmd=3
 MinPos.x=-1
 MinPos.y=-1
 MaxPos.x=-4
@@ -111,11 +111,11 @@ Class=CLatexEdit
 Document=draft.tex
 
 [Frame3_Row0]
-cyCur=493
+cyCur=762
 cyMin=10
 
 [Frame3_Col0]
-cxCur=1124
+cxCur=1374
 cxMin=10
 
 [Frame3_View0,0]
