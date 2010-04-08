@@ -227,37 +227,38 @@ $$
 \end{gathered}
 $$
 
-\begin{propose}
-$$
-\conv_{x(\cdot)}\intd{t_0}{t} f(x(t))dt =\intd{t_0}{t}\conv_{x(t)} f(x(t)) dt 
-$$
-\end{propose}
-Примем 
-$$
-\conv(f)=f^{**}
-$$
-Тогда 
-$$
-\left(\intd{t_0}{t} f(x(s))ds\right)^*(\ell(t))=\max_{x(\cdot)}\left( \ts{\ell,x}_{L_2}-\intd{t_0}{t}f(x(s))ds\right)
-$$
-$$
-\left(\intd{t_0}{t} f(x(t))dt\right)^{**}(y(t))=\max_{\ell(\cdot)}\left(\ts{y,\ell}_{L_2}-\max_{x(\cdot)}\left( \ts{\ell,x}_{L_2}-\intd{t_0}{t}f(x(s))ds\right)\right)=
-$$
-$$
-=\max_{\ell(\cdot)}\min_{x(\cdot)}\left(\ts{y,\ell}_{L_2}- \ts{\ell,x}_{L_2}+\intd{t_0}{t}f(x(s))ds\right)=
-$$
-$$
-=\max_{\ell(\cdot)}\min_{x(\cdot)}\intd{t_0}{t}\left[\ts{y(s),\ell(s)}- \ts{\ell(s),x(s)}+f(x(s))\right]ds=
-$$
-$$
-=\intd{t_0}{t}\max_{\ell(s)}\min_{x(s)}\left[\ts{y(s),\ell(s)}- \ts{\ell(s),x(s)}+f(x(s))\right]ds=
-$$
-$$
-=\intd{t_0}{t}\max_{\ell(s)}\left[\ts{y(s),\ell(s)}-\max_{x(s)}\left\{\ts{\ell(s),x(s)}-f(x(s))\right\} \right]ds=
-$$
-$$
-=\intd{t_0}{t}f^{**}(s)ds
-$$
-{\centering $\blacksquare$}
+%это появится далее
+%\begin{propose}
+%$$
+%\conv_{x(\cdot)}\intd{t_0}{t} f(x(t))dt =\intd{t_0}{t}\conv_{x(t)} f(x(t)) dt 
+%$$
+%\end{propose}
+%Примем 
+%$$
+%\conv(f)=f^{**}
+%$$
+%Тогда 
+%$$
+%\left(\intd{t_0}{t} f(x(s))ds\right)^*(\ell(t))=\max_{x(\cdot)}\left( \ts{\ell,x}_{L_2}-\intd{t_0}{t}f(x(s))ds\right)
+%$$
+%$$
+%\left(\intd{t_0}{t} f(x(t))dt\right)^{**}(y(t))=\max_{\ell(\cdot)}\left(\ts{y,\ell}_{L_2}-\max_{x(\cdot)}\left( \ts{\ell,x}_{L_2}-\intd{t_0}{t}f(x(s))ds\right)\right)=
+%$$
+%$$
+%=\max_{\ell(\cdot)}\min_{x(\cdot)}\left(\ts{y,\ell}_{L_2}- \ts{\ell,x}_{L_2}+\intd{t_0}{t}f(x(s))ds\right)=
+%$$
+%$$
+%=\max_{\ell(\cdot)}\min_{x(\cdot)}\intd{t_0}{t}\left[\ts{y(s),\ell(s)}- \ts{\ell(s),x(s)}+f(x(s))\right]ds=
+%$$
+%$$
+%=\intd{t_0}{t}\max_{\ell(s)}\min_{x(s)}\left[\ts{y(s),\ell(s)}- \ts{\ell(s),x(s)}+f(x(s))\right]ds=
+%$$
+%$$
+%=\intd{t_0}{t}\max_{\ell(s)}\left[\ts{y(s),\ell(s)}-\max_{x(s)}\left\{\ts{\ell(s),x(s)}-f(x(s))\right\} \right]ds=
+%$$
+%$$
+%=\intd{t_0}{t}f^{**}(s)ds
+%$$
+%{\centering $\blacksquare$}
 \input{sopr}
 
