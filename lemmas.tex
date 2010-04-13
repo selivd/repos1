@@ -1,0 +1,50 @@
+
+\begin{propose}
+$$
+h(A,B)=\max_{\|\ell\|\leq1}\mid\supfn{\ell}{A}-\supfn{\ell}{B}\mid
+$$
+\end{propose}
+
+Рассмотрим систему без переключений 
+$$
+\label{eq:topo_sys}
+\begin{cases}
+\dot x(t)=f(x,t)+v(t);\\
+x(t_0)=\mathcal{X}_0;\\
+x(t)\in\mathbb{R}^n, v(s)\in L_1^n[t_0,t_1];\\
+v(t)\in Q(t), \forall t\in[t_0,t_1], Q(t)\mbox{--выпуклое ограниченное множество}.
+\end{cases}
+$$
+
+Функция $v(t)$ -- неизвестная, $f(x,t)$ -- известная.
+Множество достижимости $\mathcal{X}_1=\mathcal{X}[t_1,t_0,\mathcal{X}_0]$ рассматривается как оценка места точек гарантированного попадания траекторий системы в момент $t_1$, это множество может быть пустым при некоторых условиях. 
+
+Рассмотрим отображение $F$ в пространсве $\Omega=\mathbb{R}^n$
+$$
+F:2^\Omega \rightarrow \Omega
+$$
+
+Определим класс подмножеств некоторого множества $X\subset\Omega$ 
+$$
+\mathfrak{M}_F(X) \overset{def}{=} \left\{ A\subset X\mid F(A)\neq \empty ;\forall B\subset A: F(B)=\empty\right\}
+$$
+то есть таких минимальных $A$, для которых $F(A)$ непусто.
+
+Определим отображение 
+$$
+\mathcal{F}(X\subset\Omega)\overset{def}{=}\cup_{\forall A\in\mathfrak{M}_F(X)}F(A) 
+$$
+Отождествим операцию поиска множества достижимости $\mathcal{X}[t_1,t_0,\mathcal{X}_0]$ c этим отображением $\mathcal{F}(\mathcal{X}_0)$.
+Тогда для $\mathcal{F}$ из свойств решения системы \eqref{eq:topo_sys} справедливы некоторые утверждения 
+\begin{itemize}
+\item $\forall w\in \Omega,A\in\mathfrak{M}_F(\Omega): \mathcal{F}(w+A)=w+F(A)$;\\
+\item $A$--выпуклые, ограниченные\\
+\end{itemize}
+
+
+
+%В частности, для одноточечного класса управлений $\mathcal{P}={u_1}$, если для некоторого минимального $\mathcal{X}_0$ выполнено $\intd{\tau}{t_1}Q(s)ds=\mathcal{X}_0+\intd{\tau}{t_1}u(s)ds,u\in\mathcal{P}$, то $\forall \tilde{\mathcal{X}_0}$
+
+
+
+%если  $\exists w:w=\intd{\tau}{t_1}u(s)ds,u\in \mathcal{P}[\tau,t_1]$, что  $\intd{\tau}{t_1}Q(s)ds=\mathcal{X}_0+w$, то $\mathcal{X}_1$ состоит из единственной точки. Тогда для $\forall \tilde{\mathcal{X}_0}\in\mathcal{X}_0,\tilde{\mathcal{X}_0}\neq\mathcal{X}_0:\mathcal{X}[t_1,t_0,\mathcal{X}_0]=\empty$
