@@ -26,25 +26,21 @@ $$
 
 Определим класс подмножеств некоторого множества $X\subset\Omega$ 
 $$
-\mathfrak{M}_F(X) \overset{def}{=} \left\{ A\subset X\mid F(A)\neq \empty ;\forall B\subset A: F(B)=\empty\right\}
+\mathfrak{M}_F(X) \overset{def}{=} \left\{ A\subset X\mid F(A)\neq \emptyset ;\forall B\subset A: F(B)=\emptyset\right\}
 $$
 то есть таких минимальных $A$, для которых $F(A)$ непусто.
 
 Определим отображение 
 $$
-\mathcal{F}(X\subset\Omega)\overset{def}{=}\cup_{\forall A\in\mathfrak{M}_F(X)}F(A) 
+\mathcal{F}(X\subset\Omega)\overset{def}{=}\cup\limits_{\forall A\in\mathfrak{M}_F(X)}F(A) 
 $$
 Отождествим операцию поиска множества достижимости $\mathcal{X}[t_1,t_0,\mathcal{X}_0]$ c этим отображением $\mathcal{F}(\mathcal{X}_0)$.
-Тогда для $\mathcal{F}$ из свойств решения системы \eqref{eq:topo_sys} справедливы некоторые утверждения 
+Тогда для $\mathcal{F}$ из свойств решения системы \eqref{eq:topo_sys} справедливы следующие утверждения 
 \begin{itemize}
-\item $\forall w\in \Omega,A\in\mathfrak{M}_F(\Omega): \mathcal{F}(w+A)=w+F(A)$;\\
+%\item $\forall w\in \Omega,A\in\mathfrak{M}_F(\Omega): \mathcal{F}(w+A)=w+F(A)$;\\
 \item $A$--выпуклые, ограниченные\\
+\item $\forall A,B\in\mathfrak{M}_F(\Omega),A\neq B \Rightarrow F(A)\neq F(B), \exists F^{-1}(x)=A\mid F(A)=x}$
+%\item Тогда из пунктов выше следует $\forall A\in\mathfrak{M}_F(\Omega)F(A-F(A)))=0\in\Omega$ и $A-F(A)=A_F$ -- некоторое множество, характеризующее отображение $F$ 
 \end{itemize}
 
-
-
-%В частности, для одноточечного класса управлений $\mathcal{P}={u_1}$, если для некоторого минимального $\mathcal{X}_0$ выполнено $\intd{\tau}{t_1}Q(s)ds=\mathcal{X}_0+\intd{\tau}{t_1}u(s)ds,u\in\mathcal{P}$, то $\forall \tilde{\mathcal{X}_0}$
-
-
-
-%если  $\exists w:w=\intd{\tau}{t_1}u(s)ds,u\in \mathcal{P}[\tau,t_1]$, что  $\intd{\tau}{t_1}Q(s)ds=\mathcal{X}_0+w$, то $\mathcal{X}_1$ состоит из единственной точки. Тогда для $\forall \tilde{\mathcal{X}_0}\in\mathcal{X}_0,\tilde{\mathcal{X}_0}\neq\mathcal{X}_0:\mathcal{X}[t_1,t_0,\mathcal{X}_0]=\empty$
+$\mathcal{X}_0:\mathcal{F}(\mathcal{X_0}$ 
