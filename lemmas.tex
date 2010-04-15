@@ -1,12 +1,12 @@
 
-\begin{propose}
-$$
-h(A,B)=\max_{\|\ell\|\leq1}\mid\supfn{\ell}{A}-\supfn{\ell}{B}\mid
-$$
-\end{propose}
+%\begin{propose}
+%$$
+%h(A,B)=\max_{\|\ell\|\leq1}\mid\supfn{\ell}{A}-\supfn{\ell}{B}\mid
+%$$
+%\end{propose}
 
 Рассмотрим систему без переключений 
-$$
+\begin{equation}
 \label{eq:topo_sys}
 \begin{cases}
 \dot x(t)=f(x,t)+v(t);\\
@@ -14,7 +14,7 @@ x(t_0)=\mathcal{X}_0;\\
 x(t)\in\mathbb{R}^n, v(s)\in L_1^n[t_0,t_1];\\
 v(t)\in Q(t), \forall t\in[t_0,t_1], Q(t)\mbox{--выпуклое ограниченное множество}.
 \end{cases}
-$$
+\end{equation}
 
 Функция $v(t)$ -- неизвестная, $f(x,t)$ -- известная.
 Множество достижимости $\mathcal{X}_1=\mathcal{X}[t_1,t_0,\mathcal{X}_0]$ рассматривается как оценка места точек гарантированного попадания траекторий системы в момент $t_1$, это множество может быть пустым при некоторых условиях. 
@@ -26,20 +26,61 @@ $$
 
 Определим класс подмножеств некоторого множества $X\subset\Omega$ 
 $$
-\mathfrak{M}_F(X) \overset{def}{=} \left\{ A\subset X\mid F(A)\neq \emptyset ;\forall B\subset A: F(B)=\emptyset\right\}
+\mathfrak{M}_F(X) \overset{def}{=} \left\{ A\subset X\mid F(A)\neq \emptyset, \forall B\subset A: F(B)=\emptyset\right\}
 $$
 то есть таких минимальных $A$, для которых $F(A)$ непусто.
+Для краткости введем обозначение для любого класса подмножеств $\mathfrak{K}\subseteq\mathfrak{M}_F(\Omega)$:
+$$
+[\mathfrak{K}]\overset{def}{=}\bigcup\limits_{\forall A\in\mathfrak{K}}A
+$$
+
 
 Определим отображение 
 $$
-\mathcal{F}(X\subset\Omega)\overset{def}{=}\cup\limits_{\forall A\in\mathfrak{M}_F(X)}F(A) 
+\mathcal{F}(X\subset\Omega)\overset{def}{=}\bigcup\limits_{\forall A\in\mathfrak{M}_F(X)}^{}F(A) 
 $$
+
+Пусть для некоторой точки $y\in\Omega$ существует не обязательно одно минимальное множество $A,B\in\mathfrak{M}_F(\Omega):F(A)=F(B)=y$.
+Определим обратную по отношению к $\mathcal{F}$ операцию
+$$
+G:2^{\Omega}\rightarrow 2^{2^{\Omega}},G(M\subset\Omega) \overset{def}{=} \bigcup_{\forall y\in M}\{A\in\mathfrak{M}_F(\Omega)\mid F(A)=y\},
+$$ 
+то есть для некоторого $M\subset\Omega: G(M)\subset\mathfrak{M}_F(\Omega)$ -- является классом подмножеств, отображение $F$ для любого подмножества из которого окажется в $M$. Кроме того, $G(M)$ является максимальным набором подмножеств, удовлетворяющих этому условию, поскольку некоторому $y\in M$ может удовлетворять несколько подмножеств и все они содержатся в $G(M)$. Тогда для каждого $y\in M$ можно выбрать по одному соответствующему представителю из $G(y)$ и полученный из этих представителей класс подмножеств $\mathfrak{K}^\alpha(M) \subseteq G(M)$ также будет удовлетворять условию для $M$:
+$$
+\bigcup_{\forall A\in\mathfrak{K}^{\alpha}(M)}F(A)=M,
+$$
+где $\alpha\in \mathcal{A}$ -- множество вариантов для составления таких классов подмножеств-представителей.
+
+Выполнены вложения
+$$
+\mathcal{X}_1=\bigcup_{\forall A\in \mathfrak{K}^\alpha(\mathcal{X}_1)}F(A)\subseteq \mathcal{F}([\mathfrak{K}^\alpha(\mathcal{X}_1)])\subseteq\mathcal{F}([G(\mathcal{X}_1])
+$$
+%
+%Далее, так как $\mathcal{X}_1$ является множеством достижимости для $\mathcal{X}_0$, то, очевидно, что $\mathcal{X}_0\subseteq [G(\mathcal{X}_1)]$.
+
+Также справедливо и следующее
+$$
+\forall y\in\mathcal{X}_1 \exists A\subseteq\mathcal{X}_0:F(A)=y \Rightarrow \exists \mathfrak{K}^\alpha(\mathcal{X}_1): \forall B\in \mathfrak{K}^\alpha: B\subseteq \mathcal{X}_0
+$$
+
+Значит, существует класс представителей $[\tilde{\mathfrak{K}^{\alpha}}(\mathcal{X}_1)]=\tilde{\mathcal{X}_0}\subseteq\mathcal{X}_0$ такой, что $\mathcal{F}(\tilde{\mathcal{X}_0})=\mathcal{F}(\mathcal{X}_0)$
+
+Более того, среди $\tilde{\mathfrak{K}^{\alpha}}(\mathcal{X}_1)$ можно найти по крайней мере один класс представителей $\exists \alpha^*, \mathfrak{N}=\tilde{\mathfrak{K}^{\alpha^*}}(\mathcal{X}_1)$, обладающий свойством $[\mathfrak{N}]\subset\mathcal{X}_0$ и такой, что  
+$$
+\mathcal{F}([\mathfrak{N}])=\bigcup_{\forall A\in \mathfrak{N}}F(A)=\mathcal{X}_1
+$$  
+Действительно, если бы существовало такое множество $B\subset [\mathfrak{N}]:\mathcal{F}(B)\setminus \mathcal{X}_1\neq\emptyset $ то приходим к противоречию: $\mathcal{X}_1\subset\mathcal{F}([\mathfrak{N}])\subseteq\mathcal{F}(\mathcal{X}_0)=\mathcal{X}_1$.
+
+%\subset\bigcup_{\forall A\in \mathfrak{K}^\alpha(\mathcal{X}_1)}A
+
+Если $\mathcal{F}(\mathcal{X}_0)$ -- взять как операцию вычисления множества достижимости для некоторого начального $\mathcal{X}_0$, то обратная операция $G(M)$ - это не совсем множество разрешимости, но $[G(M)]$ является таковым. 
+
 Отождествим операцию поиска множества достижимости $\mathcal{X}[t_1,t_0,\mathcal{X}_0]$ c этим отображением $\mathcal{F}(\mathcal{X}_0)$.
 Тогда для $\mathcal{F}$ из свойств решения системы \eqref{eq:topo_sys} справедливы следующие утверждения 
 \begin{itemize}
 %\item $\forall w\in \Omega,A\in\mathfrak{M}_F(\Omega): \mathcal{F}(w+A)=w+F(A)$;\\
 \item $A$--выпуклые, ограниченные\\
-\item $\forall A,B\in\mathfrak{M}_F(\Omega),A\neq B \Rightarrow F(A)\neq F(B), \exists F^{-1}(x)=A\mid F(A)=x}$
+\item $\forall A,B\in\mathfrak{M}_F(\Omega),A\neq B \Rightarrow F(A)\neq F(B), \exists F^{-1}(x)=A\mid F(A)=x$
 %\item Тогда из пунктов выше следует $\forall A\in\mathfrak{M}_F(\Omega)F(A-F(A)))=0\in\Omega$ и $A-F(A)=A_F$ -- некоторое множество, характеризующее отображение $F$ 
 \end{itemize}
 
