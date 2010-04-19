@@ -1,0 +1,47 @@
+\subsection{Пример 1а, $\rdim{1}$}
+%\begin{equation}
+%\label{eq:prim1a}
+\left\{
+\begin{aligned}
+	&\left[
+		\begin{aligned}
+				&\begin{equation}\label{eq:1a_1}
+									\dot x=u+v; 
+					\end{equation} \\
+				&\begin{equation}\label{eq:1a_2}
+									\dot x=u;
+					\end{equation}\\
+		\end{aligned}
+	 \right.\\
+	&u(t)\in[p_1,p_2]=\mathcal{P};\\
+	&v(t)\in[q_1,q_2]=\mathcal{Q};\\
+	&\mathcal{X}_0=[a_1,a_2], a_1<a_2;\\
+	&t\in[t_0,t_1];\\
+	&H=\{x=c\}.
+\end{aligned}
+\right.
+%\end{equation}
+
+Вычислим множество достижимости $\X1$ первого уравнения (системы) \eqref{eq:1a_1}
+Для $\X1$ имеем:
+$$
+\XX{t_1}=\left(\X0\overset{cdot}{-}\intd{t_1}{t_0}\mathcal{Q}(s)ds\right)+\intd{t_0}{t_1}\mathcal{P}(s)ds
+$$
+Пусть
+$$
+\mathcal{Q}(t_0,t_1)=\intd{t_0}{t_1}\mathcal{Q}(s)ds
+$$
+$$
+\mathcal{P}{t_0,t_1}=\intd{t_0}{t_1}\mathcal{P}(s)ds
+$$
+
+Для множества $C=\left(\X0\overset{cdot}{-}\mathcal{Q)(t_1,t_0)\right)$ имеем выражение
+$$
+\supfn{\ell}{C}=\conv\left[\supfn{\ell}{\X0}-\supfn{\ell}{\mathcal{Q}(t_1,t_0)}\right](\ell)
+$$
+
+Множество $C=\left(\X0\overset{cdot}{-}\mathcal{Q)(t_1,t_0)\right)$ при   $\mathcal{Q}(t_1}{t_0}=[\tilde{q}_1,\tilde{q}_2]$ находится как 
+$C=[a_1-\tilde{q}_1,a_2-\tilde{q}_2]$ и 
+$$
+\X1=[a_1-\tilde{q}_1+\tilde{p}_1,a_2-\tilde{q}_2+\tilde{p}_2];
+$$
