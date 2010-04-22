@@ -16,17 +16,21 @@
 \renewcommand{\contentsname}{Оглавление}
 \renewcommand{\figurename}{Рисунок}
 
-\begin{document}
-
-\newcommand{\cmnt}[1]{{\color{blue} #1}}
+\newcommand{\cmnt}[1]{{\color{blue}\bf #1}}
+\newcommand{\bigcmnt}[1]{ {  \cmnt{ Комментарий.}} #1 { \cmnt{Конец комментария.}} }
 \newcommand{\Ell}[1]{\mathcal{E}(#1)}
 \newcommand{\ts}[1]{\left\langle #1 \right\rangle}
 \newcommand{\intd}[2]{ \int\limits_{#1}^{#2} }
 \newcommand{\supfn}[2]{ \rho\left( #1 \mid #2 \right)}
+\newcommand{\supfnl}[1]{ \supfn{\ell}{#1}}
 \newcommand{\conv}{\mathrm{conv}}
 \newcommand{\norma}[1]{\mid #1 \mid}
 \newcommand{\rdim}[1]{\mathbb{R}^{#1}}
 \newcommand{\XX}{ \mathcal{X} }
+
+
+\begin{document}
+
 
 
 %\newcommand{\grad}{\bigtriangledown}
