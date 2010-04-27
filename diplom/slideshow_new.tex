@@ -1,0 +1,168 @@
+%\documentclass[pdf,colorBG,slideColor,total]{prosper}
+%\usepackage[cp1251]{inputenc}
+%\usepackage[centertags]{amsmath}
+%\usepackage{amsfonts}
+%\usepackage{amssymb}
+%\usepackage{amsthm}
+%\usepackage{graphicx}
+%\usepackage[T2A]{fontenc}
+%\usepackage[russian,english]{babel}
+%\usepackage{pscyr}
+%\usepackage{newlfont}
+%\usepackage{pstricks,pst-node}
+
+\documentclass[pdf,default,colorBG,slideColor,total]{prosper}
+
+\usepackage[centertags]{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage[T2A]{fontenc}
+\usepackage[cp1251]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{pscyr}
+\usepackage{newlfont}
+
+
+
+\begin{document}
+
+\title{Курсовая работа. \\ {\large "Построение областей достижимости для гибридных систем с линейной структурой на плоскости и в пространстве".}}
+\author{{\large }\\ \bigskip {\large научный руководитель: { \it ассистент}  Точилин П.А.}}
+\institution{МГУ им. М. В. Ломоносова \\ факультет ВМиК \\ кафедра
+системного анализа} \slideCaption{20 мая 2009 г.}
+
+\maketitle
+\begin{slide}[Dissolve]{\small Постановка задачи.}
+\scriptsize
+\begin{equation}
+\left[
+\begin{aligned}
+    \left\{
+    \begin{aligned}
+        &\dot x^{(1)} = A^{(1)}(t)x+B^{(1)}(t)u^{(1)}(t);\\
+        &x(t_0)\in\mathcal{E}(x_0,X_0)=\mathcal{X}^0;\\
+        &u(t)\in\mathcal{E}(p(t),P(t));\\
+    \end{aligned}
+    \right.\\
+    \left\{
+    \begin{aligned}
+        &\dot x^{(2)} = A^{(2)}(t)x+B^{(2)}(t)u^{(2)}(t);\\
+        &x(t_H)\in\mathcal{X}^{(1)}(t_H,t_0);\\
+        &u(t)\in\mathcal{E}(p(t),P(t));\\
+    \end{aligned}
+    \right.
+\end{aligned}
+\right.
+\label{mainsystem}
+\end{equation}
+
+Гиперплоскость переключения.
+$H=\{x\in\mathbb R^n\colon \langle x,c \rangle=\gamma\}$
+
+\end{slide}
+
+\begin{slide}[Replace]{\small Односторонняя проницаемость}
+
+Существенно, чтобы система удовлетворяла свойству односторонней проницаемости при переходе через плоскость $\mathcal{H}$, то есть
+чтобы система равенств
+\begin{equation}
+\left\{
+\begin{aligned}
+&\langle \dot x,c \rangle = 0;\\
+&\langle x,c \rangle - \gamma = 0
+\end{aligned}
+\right.
+\label{lbl_perehod}
+\end{equation}
+оставалась несовместной.
+
+\end{slide}
+
+\begin{slide}[Dissolve]{\small Множество достижимости для первой системы}
+Множество достижимости (внешнее)
+     $\mathcal{X}^l_{+}(t,t_0,\mathcal{E}(x0,X0)=\mathcal{E}(x_{+}(t,l),X_{+}(t,l)$
+
+Для матрицы
+\begin{equation}\label{ext_solve}
+\left\{
+\begin{aligned}
+    \frac{\partial X_+(t,t_0)}{\partial t}&=\pi(t)X_+(t) + \pi(t)^{-1}G(t,\tau)B(\tau)Q(\tau)B^T(\tau)G^T(t,\tau);\\
+    X_+(t_0,t_0)&=X_0.
+\end{aligned}
+\right.
+\end{equation}
+
+Для центра 
+  
+ \begin{equation}\label{center_ext_solve}
+ \left\{
+\begin{aligned}
+ \frac{\partial x_+(t,t_0)}{\partial t}&=A(t)x_+ + B(t)u_center(t);
+ x_+(t_0,t_0)=x_0;
+\end{aligned}
+\right.
+ \end{equation}    
+     
+     
+\end{slide}
+
+
+\begin{slide}[Dissolve]{\small Множество достижимости после пересечения}
+Множество пересечения  
+\begin{equation}\label{lbl_X_H}
+    \mathcal{X}_H(t)=\big(\bigcap_{|l|=1}\mathcal{E}(q(t),\:X_{+l}(t))\:\big)\bigcap H=\bigcap_{|l|=1}\big(\mathcal{E}(q(t),\:X_{+l}(t))\cap H\:\big)
+\end{equation}
+используется как начальное условие последующей системы, тогда для каждого начального направления $l_0$ мы получаем начиная с некото\-ро\-го момента времени касания $\tau_1$ эллипсоидальное отображение
+$$
+    \mathcal{X}_{+l}(t)\cap\mathcal{H}=\mathcal{E}(\tilde{q}(t-\tau_1),\tilde{Q}_l(t-\tau_1))
+$$
+и
+$$
+    \mathcal{X}_H(t)\subseteq \bigcap_{|l|=1}\mathcal{E}(\tilde{q}(t-\tau_1),\tilde{Q}_l(t-\tau_1)).
+$$
+
+Пусть $\tau\in [\tau_1, \tau_2]$, где $[\tau_1,\tau_2]$-отрезок времени, когда $\mathcal{X}_H(\tau)$ не пусто. Мы приходим к тому, что множество пересечения и начальное множество $\mathcal{X}_H(\tau)$ для второй системы в любой момент времени задается пересечением эллипсоидов, оно выпукло. Для внешней аппроксимации множества достижимости второй системы справедливо
+$$
+    \mathcal{X}^{(2)}_H(t,\tau,\mathcal{X}_H(\tau))=\bigcap_{|l|=1}{\mathcal{X}_+}^{(2)}(t,\tau,\mathcal{E}(\tilde{q}(\tau-\tau_1),\tilde{Q}_l(\tau-\tau_1)).
+$$
+
+\end{slide}
+
+\begin{slide}[Dissolve]{\small Алгоритм построения}
+
+Шаг1. Инициализация.
+    Задаются начальные условия, рассматриваемый диапазон $\psi_r$, начальное множество $x_0$, ограничение на управление $(v_2,\omega_2)^T$ и другие параметры.
+
+Шаг2. Расчет первоначальной трубки достижимости.
+    Определение множества пересечения с гиперплоскостью.
+
+Шаг3. Цикл пока не прошли весь интервал $\psi_r$.
+    Выбор соответствующей подсистемы уравнений для полученного множества пересечения.
+    Для расчета последующей фазы множества достижимости приходиться рассчитывать его как пересечение трубок, построенных на этих эллипсоидах. Для фиксированного момента времени $\tau$ имеем пересечение гиперплоскости $H^{(i)}$ и семейства эллипсоидов, касательных к точному множеству $\{\mathcal{E}\}_l(\tau)=\mathcal{H}\cap\mathcal{X}_+(\tau,t_0,x_0)$.
+    Для внешней эллипсоидальной оценки, находится эллипсоид, содержащий пересечение вырожденных эллипсоидов данного сечения $\exists \mathcal{E}_{++}(\tau)\supset \cap_l\{\mathcal{E}_l(\tau)\}$.
+    
+Шаг4. Расчет трубки достижимости для выбранной подсистемы на основании полученной оценки $\mathcal{E}_{++}(\tau)$.
+        Каждая трубка вычисляется независимо, можно распараллеливать.
+
+Шаг5. Переход на шаг3.
+
+Шаг6. Конец. Результат - набор из множеств достижимости для каждой из подсистем, в совокупности с ограничениями представляющих множество достижимости для данной гибридной системы.
+\end{slide}
+
+\begin{slide}[Replace]{\small Итоговое множество}
+
+\hbox to \textwidth{ \hfill
+\includegraphics[width = 7cm]{rs1.eps}
+\hfill }
+
+\end{slide}
+
+\begin{slide}[Dissolve]{\small Заключение}
+ 
+ В данной работе был произведен расчет внешней аппроксимации множества достижимости для гибридной системы размерности $n=3$, состоящей из 5 подсистем. Реализован распараллеливающий алгоритм, применяющий эвристический подход к уменьшению вы\-чи\-сли\-те\-льной сложности с помощью аппроксимации множеств пересечения на границе гиперплоскости.
+
+\end{slide}
+
+\end{document}
