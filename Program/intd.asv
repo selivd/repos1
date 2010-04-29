@@ -1,0 +1,13 @@
+function fintegral = intd( funhandle, tt)
+
+r(length(tt))=1;
+
+for i=1: (length(tt)-1)
+r(i)=quad(funhandle, tt(i),tt(i+1));
+
+sp=spline(tt,r);
+
+fintegral=@(t)(ppval(sp,
+
+end
+

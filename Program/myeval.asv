@@ -1,4 +1,4 @@
-function result = myeval(strexpr,argument, asarray )
+function result = myeval(strexpr,argument, isarray )
     result ='error';
     t=0;
     if (nargin == 1)
@@ -8,13 +8,12 @@ function result = myeval(strexpr,argument, asarray )
     end;
     
     if (nargin ==2)
-        if (ischar(strexpr))
+        if (ischar(strexpr)
             func = eval([ '@(t)(' strexpr ')']);
             result = func (argument);
         else 
             sp=spline(argument,strexpr);
             result=@(t)(ppval(sp,t));
-        end;
         return;
     end;
     
