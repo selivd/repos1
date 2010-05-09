@@ -1,8 +1,0 @@
-function result = supfn1( ell1, A1, isarr )
-    if (nargin==3)
-        
-    result= max( ell1.*A1' )';
-
-
-end
-
