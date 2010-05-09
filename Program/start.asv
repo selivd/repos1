@@ -98,11 +98,11 @@ for i = 1:length(alpha)
    
    hold on
    plot(Ctt,X1_1,Ctt,X1_2);
-   %plot([Ctt;Ctt],[X1_1,X1_2]');
+   plot([Ctt;Ctt],[X1_1,X1_2]');
    if t1<=t2
     CaH(j,:)=[t1_exact,t2_exact];
     j=j+1;
-    plot(CaH(j-1,:)',[H;H])
+    plot(CaH(j,:),[H,H])
    end;
    
 end

@@ -6,7 +6,7 @@ Version=4
 MainFile=diplom.tex
 UseBibTeX=0
 UseMakeIndex=0
-ActiveProfile=LaTeX => PDF
+ActiveProfile=LaTeX =>DVI=>PDF
 ProjectLanguage=
 ProjectDialect=
 

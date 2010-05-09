@@ -1,0 +1,485 @@
+% This text is proprietary.
+% It's a part of presentation made by myself.
+% It may not used commercial.
+% The noncommercial use such as private and study is free
+% Sep. 2005 
+% Author: Sascha Frank 
+% University Freiburg 
+% www.informatik.uni-freiburg.de/~frank/
+
+
+\documentclass[pdf,10pt,unicode]{beamer}
+\usepackage{pscyr}
+\usepackage{cmap}
+\usepackage[T2A]{fontenc}
+\usepackage[cp1251]{inputenc}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[english,russian]{babel}
+
+\usetheme{Warsaw}
+%\usetheme[numbers, totalnumbers, compress]{Statmod}
+
+\renewcommand{\refname}{Список литературы}
+\renewcommand{\contentsname}{Оглавление}
+\renewcommand{\figurename}{Рисунок}
+
+\newcommand{\cmnt}[1]{{\color{blue}\bf #1}}
+\newcommand{\bigcmnt}[1]{ {  \cmnt{ Комментарий.}} #1 { \cmnt{Конец комментария.}} }
+\newcommand{\Ell}[1]{\mathcal{E}(#1)}
+\newcommand{\ts}[1]{\left\langle #1 \right\rangle}
+\newcommand{\intd}[2]{ \int\limits_{#1}^{#2} }
+\newcommand{\supfn}[2]{ \rho\left( #1 \mid #2 \right)}
+\newcommand{\supfnl}[1]{ \supfn{\ell}{#1}}
+\newcommand{\conv}{\mathrm{conv}}
+\newcommand{\norma}[1]{\mid #1 \mid}
+\newcommand{\rdim}[1]{\mathbb{R}^{#1}}
+\newcommand{\XX}{ \mathcal{X} }
+
+\newtheorem{define}{Определение}
+\newtheorem{propose}{Утверждение}
+
+
+\begin{document}
+
+\title[Построение множества достижимости для гибридной системы с одним преключением с неопределённостью]
+{{\center {\small Магистерская диссертация на тему:}} {\center Построение множества достижимости для гибридной системы с одним преключением с неопределённостью}}
+%\subtitle{\normalsize }  
+%\title{Построение множества достижимости для гибридной системы с одним преключением с неопределённостью}  
+\author{ \\ Выполнил : Селиверстов Д.С.\\ \hfill  Научный руководитель: к.ф.-м.н. Точилин П.А.}
+
+\institute[МГУ]
+{
+Московский Государственный университет им. М.В. Ломоносова\\
+Кафедра системного анализа
+}
+
+\date{Апрель 2010} 
+
+\frame{\titlepage} 
+
+
+\section{Постановка задачи} 
+
+%%%%%%%%%%%%%%%%%%%%%%%% Постановка задачи  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+
+\frametitle{Модель гибридной системы} 
+\begin{equation}
+\left\{
+\begin{aligned}
+&\left[
+ \begin{aligned}
+    &\left\{
+		    \begin{aligned}
+		        &\dot x^{(1)} = A^{(1)}(t)x^{(1)}+B^{(1)}(t)u^{(1)}(t)+C^{(1)}(t)v(t);\\
+		        &x(t_0)\in\mathcal{E}(x_0,X_0)=\mathcal{X}^0;\\
+		        &u^{(1)}(t)\in\mathcal{E}(p^{(1)}(t),P^{(1)}(t))\subset\mathcal{P}[t_0,t_1];\\
+		        &v^{(1)}(t)\in\mathcal{E}(w^{(1)}(t),W^{(1)}(t))\subset\mathcal{V}[t_0,t_1];\\
+		    \end{aligned}
+    \right.\\
+    \\
+    &\left\{
+		    \begin{aligned}
+		        &\dot x^{(2)} = A^{(2)}(t)x^{(2)}+B^{(2)}(t)u^{(2)}(t)+C^{(2)}(t)f(t)^{(2)};\\
+		        &x(\tau)\in\mathcal{X}^{(1)}(\tau,t_0)\cap H;\\
+		        &u^{(2)}(t)\in\mathcal{E}(p^{(2)}(t),P^{(2)}(t))\subset\mathcal{P}[t_0,t_1];\\
+		        &v^{(2)}(t)\in\mathcal{E}(w^{(2)}(t),W^{(2)}(t))\subset\mathcal{V}[t_0,t_1];\\
+		    \end{aligned}
+    \right.
+	\end{aligned}
+\right.
+\\
+&H=\{x\in\mathbb R^n\colon \ts{x,c}=\gamma\}\mbox{--- гиперплоскость переключения};\\
+%&A(t)\in \mathbb{R}^{n\times n},\,B(t)\in \mathbb{R}^{n\times m},\,C(t)\in \mathbb{R}^{n\times k};\;A(t),B(t),C(t) \in  L_1[t_0,t_1];\\
+&\tau:\;\ts{x^{(1)}(\tau),c}-\gamma=0,\;\tau\in[t_0,t_1]
+\end{aligned}
+\right.
+\label{eq:mainsystem}
+\end{equation}
+
+
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%% трансверсальность %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame} \frametitle{Условие на переключение}
+
+При переключении гибридная система должна удовлетворять условию односторонней проницаемости (трансверсальности), что равносильно выполнению системы соотношений: 
+% то есть чтобы при переходе через плоскость $H$ в момент $\tau$ система
+\begin{equation}
+\left\{
+\begin{aligned}
+	&\left[
+		\begin{aligned}
+			&\ts{\dot x,c}\neq 0;\\
+			&\ts{x,c} - \gamma \neq 0\\
+		\end{aligned}
+	\right.\\
+	&\mbox{sign}(\ts{\dot x^{(1)}(\tau),c})=\mbox{sign}(\ts{\dot x^{(2)}(\tau),c}).
+\end{aligned}
+\right.
+\label{eq:perehod}
+\end{equation}
+
+Это означает, что любая траектория гибридной системы не может касаться гиперплоскости, но пересекает эту плоскость только один раз.
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 																															 %	
+% здесь слайд с пояснительным рисуноком о трансверсальности,	   %
+% но если уместится, можно на том же, что нагляднее					 		 %	
+%																																 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Множество достижимости ( определение )%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame{  \frametitle{Множество достижимости}
+
+\begin{define}
+Множеством достижимости $\mathcal {X}[t,t_0]$  для задачи \eqref{eq:mainsystem} называется
+$$
+\mathcal {X}[t]=\big\{x^* \mid\exists u_1(\cdot)\in\mathcal{P}^{(1)},\exists u_2(\cdot)\in\mathcal{P}^{(2)}:
+$$
+$$
+\forall v_1(\cdot)\in\mathcal{V}^{(1)},\forall v_2(\cdot)\in\mathcal{V}^{(2)}:
+$$
+$$
+x(t_0,t_1,x^*)\in\mathcal{X}_0, x(t,t_0,x^*)\cap H \neq \emptyset \big\}
+$$
+
+\end{define}
+}
+
+\section{Поиск решения}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Множество достижимости ( как ищем ) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% я описываю сначала решение на языке множеств, потому что предполагаю, что так понятнее. 
+% Подсекции "Применение методов многозначного анализа" и "Применение методов выпуклого анализа" можно переставить
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Здесь мы объясняем как оно устроено  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\subsection{Применение методов многозначного анализа}
+
+\frame{   \frametitle{Множество достижимости до переключения}
+
+$$
+V_1[t_0,t]=\left\{ \intd{t_0}{t}v_1(s)ds \mid \forall v_1(\cdot)\in\mathcal{V}^1[t_0,t_1]\right\}  
+$$
+
+$$
+\mathcal{C}[t]=\mathcal{X}_0\dot-V_1[t,t_0]\;\; \mbox{-- множество гарантированного попадания}
+$$
+$$
+p^\alpha(\cdot)\in \mathcal{P}^{(1)}: \;\;\;\; \mathcal{C}^\alpha_H[\tau]= \left\{ (\mathcal{C}[\tau]+p^\alpha(t_0,\tau)) \cap H \right\}
+$$
+
+$$
+T^\alpha=\left\{\tau\mid \mathcal{C}^\alpha_H[\tau]\neq\emptyset \right\}\overset{\underset{\mbox{(трансверсальность)}}{}}{=}[\tau^\alpha_1,\tau^\alpha_2]
+$$
+
+
+}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% после переключения  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{ \frametitle{Множество достижимости при переключении }
+
+$$
+\mathcal{P}_2[t_0,t_1]=\left\{\intd{t_0}{t_1}p_2(s)ds\mid \forall p_2(\cdot)\in \mathcal{P}^{(2)}\right\}
+$$
+
+$$
+\mathcal{X}^\alpha_2[t_1]=\bigcap_{v_2\in \mathcal{V}_2}\bigcup_{\tau\in T^\alpha}(\mathcal{C}^\alpha_H[\tau]+v_2(\tau,t_1)+\mathcal{P}_2[\tau,t_1])
+$$
+
+$$
+\mathcal{X}^{(2)}[t_1]=\bigcup_{p^\alpha\in \mathcal{P}_1}\mathcal{X}^\alpha_2[t_1]
+$$
+
+}
+
+\frame{ \frametitle{Множество достижимости после переключения }
+$$
+x(t_1)=G_2(\tau,t_1)x(\tau)+\intd{\tau}{t_1}G_2(t_1,s)B_2(s)u_2(s)ds+\intd(\tau){t_1}G_2(t,s)C_2(s)v(s)ds
+$$
+
+$$
+V_2[t_0,t]=\left\{ \intd{t_0}{t}v_2(s)ds \mid \forall v_2(\cdot)\in\mathcal{V}^2[t_0,t_1]\right\}  
+$$
+
+$$
+\xi(\tau)\overset{def}{=}G_2(\tau,t_1)x(\tau)+\intd{t_1}{\tau}G_2(t_1,s)B_2(s)u_2(s)ds
+$$
+
+{\center Появление фазовых ограничений.}
+
+$$
+Z(\tau)=\{\xi(\tau)\mid  \left(\xi(\tau)+V_2[t,\tau]\right)\cap H \subset \mathcal{C}^\alpha_H[\tau] \},\; \tau\in T^\alpha
+$$
+
+}
+
+\frame{ \frametitle{Решение задачи с фазовыми ограничениями}
+
+Задача на поиск множества достижимости при фазовых ограничениях, но уже без помехи.
+$$
+\mathcal{X}^\alpha_2[t_1]=\{x(t_1) \mid  \exists u_2: G(\tau,t_1)x(t_1)+\intd{t_1}{\tau}B_2(s)u_2(s)ds \in Z(\tau), \forall \tau\in T^\alpha\}
+$$
+
+Функция цены при вычислении ограничений
+$$
+V(t,x)=\min_{u_2}\left(d^2( x(\tau,t,x), \mathcal{C}^\alpha_H)+\intd{\tau^\alpha_1}{\tau^\alpha_2}d^2 (x(s,u_2(\cdot)),Z(s)) ds\right)
+$$
+$$
+V(t,x)=\max\big\{\intd{\tau}{t}\ts{w(t,\tau,\ell),x}ds - \intd{\tau}{t}\supfn{w(s,\tau,ell)}{B_2(s)\mathcal{P}^2(s)}ds-
+$$
+$$
+-\intd{\tau}{t}\supfn{\lambda(s)}{Z(s)}ds\mid \;\ts{\ell,\ell}=1,\;\lambda(\cdot)\in V[\tau,t]\big\}
+$$
+}
+
+
+
+
+\subsection{Применение методов выпуклого анализа}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% функция цены (начальный вид) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%слайд
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame{ \frametitle{Функция цены, исходный вид}
+
+$$
+V(t,x)=\min_{u_1,u_2}\max_{v_1,v_2}\min_{\tau}\left\{ d^2(x_0{\mid_{x(t)=x}},\mathcal{X}_0) + \left(\ts{x(\tau),c}-\gamma\right)^2 \right\}
+$$
+
+$$
+u_1(\cdot)\in\mathcal{P}^{(1)}[t_0,t_1],\;u_2(\cdot)\in\mathcal{P}^{(1)}[t_0,t_1],
+$$
+
+$$
+v_1(\cdot)\in\mathcal{V}^{(1)}[t_0,t_1],\;v_2(\cdot)\in\mathcal{V}^{(2)}[t_0,t_1],
+$$
+
+$$
+\tau\in [t_0,t_1]
+$$
+
+%$$
+%H=\{x\mid \ts{x(\tau),c}-\gamma\right)\} 
+%$$
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% функция цены (решение) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%слайд
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame{ \frametitle{ Нелинейность по времени и теорема о минимаксе}
+
+Для перехода к опорным функциям требуется менять местами порядок минимумов и максимумов, но
+функционал вида 
+$$
+T(\tau,\Psi(\cdot))=\intd{t}{\tau}\Psi(s)ds 
+$$
+является нелинейным по $\tau$. Используя класс функций ограниченной вариации $\phi(w)\in V[t_0,t_1] $ 
+преобразуем к виду 
+$$
+T(\phi(w),\Psi(\cdot))=\intd{t_0}{t}  d\phi(w) \int\limits_t^{w}\Psi(w)ds.
+$$
+Теперь  функционал $T(\phi(\cdot),\Psi(\cdot))$ является линейным по $\phi(\cdot)$ и можно воспользоваться теоремой о минимаксе.
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame{ \frametitle{Функция цены, преобразования}
+
+$$
+S(t_0,t_1)=\intd{t_0}{t_1}\left\{  G^T_2(w,t)G^T_1(t_0,w)\ell(w) + \mu(w) G_2^T(w,t)c \right\}\,d\phi(w), 
+$$
+
+$$
+S_1(t_0,t_1)=\intd{t_0}{t_1}\left\{ G^T_1(t_0,w)  \ell(w) \right\}\,d\phi(w),
+$$
+
+$$
+K(\ell,\mu,\mathcal{X}_0)=\intd{t_0}{t} \left[\frac{\mu(w)^2}{4} + \rho(\ell(w)\mid\mathcal{X}_0) + \frac{\|\ell(w)\|^2}{4} \right]\,d\phi(w)
+$$
+
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{ \frametitle{Функция цены, конечное выражение}
+
+$$
+ V(t,x)=\min_{\phi(\cdot)} \max_{\ell(\cdot)}\max_{\mu(\cdot)} \bigg\{  S^T(t_0,t)x - \intd{t_0}{t} \rho(S_1(s,t)\mid B_1(s)\mathcal{P}_1(s))\,ds - 
+$$
+$$
+   - \intd{t_0}{t} \rho(S(t_0,s)\mid B_2(s)\mathcal{P}_2(s))\,ds - \mbox{conv}\big\{ K(\ell,\mu,\mathcal{X}_0) -
+$$ 
+$$
+ -\intd{t_0}{t}\rho(-S_1(s,t)\mid C_1(s)\mathcal{V}_1(s))\,ds-\intd{t_0}{t}\rho(-S(t_0,s)\mid C_2(s)\mathcal{V}_2(s)) \,ds   \big\}\bigg\}
+$$
+
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%
+%\section{Примеры}
+%
+%
+%\subsection{Пример 1, $\rdim{1}$}
+%\frame{ \frametitle{Пример 1, постановка}
+%
+%\begin{equation}
+%\label{eq:prim1}
+%\left\{
+%\begin{aligned}
+%	&\left[
+%		\begin{aligned}
+%				&\dot x=2u+v;\\
+%				&\dot x=u;\\
+%		\end{aligned}
+%	 \right.\\
+%	&u\in[0,1];\\
+%	&v\in[0,1];\\
+%	&\mathcal{X}_0=\{x\in[-2,-1]\};\\
+%	&t\in[0,4];\\
+%	&H=\{x=0\}.
+%\end{aligned}
+%\right.
+%\end{equation}
+%
+%}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Иллюстрация результатов %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%слайд
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%
+%\subsection{Пример 2, $\rdim{1}$}
+%
+%\frame{ \frametitle{Пример 2, постановка}
+%
+%
+%\begin{equation}
+%\label{eq:prim2}
+%\left\{
+%\begin{aligned}
+%&\left[
+%	\begin{aligned}
+%			&\dot x=u;\\
+%			&\dot x=2u+v;\\
+%	\end{aligned}
+%\right.\\
+%&u\in[0,1];\\
+%&v\in[0,1];\\
+%&\mathcal{X}_0=\{x\in[-2,-1]\};\\
+%&t\in[0,4];\\
+%&H=\{x=0\}.
+%\end{aligned}
+%\right.
+%\end{equation}
+%
+%}
+%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Иллюстрация результатов %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%слайд
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{В заключение }
+
+
+\frame{ \frametitle{Выводы}
+
+%взято из введениия
+В данной работе рассмотрены два подхода к решению задачи достижимости: 
+\begin{itemize}
+\item При помощи функций цены и методов выпуклого анализа
+\item C помощью методов многозначного анализа.
+\end{itemize} 
+
+В первом случае множества достижимости представлены в виде множеств уровней (множеств Лебега) для специальных функций, а во втором методе указанные множества построены в явном виде, за счет применения операций с выпуклыми компактами. 
+%Рассмотрены два примера в одномерном фазовом пространстве.
+
+Решение данной задачи можно рассматривать как первый шаг к построению теории достижимости при неопределенности для гибридных систем с кусочно-линейной структурой в классах программных или позиционных управлений. 
+
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{ \frametitle{Список литературы}
+
+\begin{thebibliography}{99}
+
+\bibitem{ABK_hyb_sys} {\it Куржанский~А.Б., Варайя~П.} Задачи динамики и
+управления в гибридных системах // Труды международного семинара
+“Теория управления и теория обобщенных решений уравнений
+Гамильтона-Якоби”. Екатеринбург: Изд-во Уральского университета,
+2005. c.26--33.
+
+\bibitem{ABK_upr_i_nabl} {\it Куржанский~А.Б.} Управление и наблюдение в
+условиях неопределенности. М.: Наука, 1977.
+
+\bibitem{solve_article} {\it Куржанский~А.Б., Точилин~П.А.} Слабо
+инвариантные множества гибридных систем // Дифференциальные
+уравнения. 2008. т.~44, N11.
+
+\bibitem{Pshenichnyi} {\it Пшеничный~Б.Н.} Выпуклый анализ и
+экстремальные задачи. М.: Наука, 1980.
+
+\bibitem{Rokafellar} {\it Рокафеллар~Р.} Выпуклый анализ. М.: Мир, 1973.
+
+% остальное не уместилось
+
+%%
+%%\bibitem{Branicky} {\it Branicky~M.S., Borkar~V.S., Mitter~S.M.} A
+%%unified framework for hybrid control: model and optimal control
+%%theory. // IEEE transactions on automatic control, 43/1 p.31--45,
+%%1998.
+%%
+%%\bibitem{ABK_ellipse_for_reach_under_state_constraints} {\it
+%%Kurzhanski~A.B., Varaiya~P.} Ellipsoidal techniques for
+%%reachability under state constraints.// SIAM Journal on Control.
+%%2003. V.45. N.4. p.1369--1394.
+%%
+%%\bibitem{ABK_internal_approx} {\it Kurzhanski~A.B., Varaiya~P.}
+%%Ellipsoidal techniques for reachability analysis. Internal
+%%approximation // System and Control Letters. 2000. V.41.
+%%p.201--211.
+%%
+%%\bibitem{ABK_int_i_ext_approx} {\it Kurzhanski~A.B., Varaiya~P.}
+%%Ellipsoidal techniques for reachability analysis. Part I: External
+%%approximations. Part II: Internal approximations. Box-valued
+%%constraints // Optimization methods and software. 2002. V.17.
+%%p.177--237.
+%%
+%%\bibitem{Liberzon} {\it Liberzon~D.} Switching in systems and control. Boston: Birkh\"{a}user, 2003.
+%%
+%%\bibitem{Shumacher} {\it Van~der~Schaft~A., Schumacher~H.} An introduction to hybrid
+%%dynamical systems. Lecture Notes in Control and Information
+%%Sciences. N251. Springer, 2000.
+ 
+\end{thebibliography}
+
+
+}
+
+\end{document}
+

@@ -1,29 +1,5 @@
-%\begin{propose}
-%$$
-%\mbox{Conv}_{\ell}\intd{t_0}{t} f(\ell(s),s)ds=\intd{t_0}{t} \mbox{Conv}_{\ell(s)} f(\ell(s),s) ds
-%$$
-%\end{propose}
-%
-%ѕо определению выпуклой оболочки 
-%$$
-%\forall F_1(s),F_2(s)\in \mbox{Conv}\{\mathcal{F}\} \Rightarrow \alpha F_1(t)+(1-\alpha)F_2(t)\in \mbox(Conv)\{\mathcal{F}\}
-%$$
-%ѕусть $F_1(s)=\intd{t_0}{t}f(\ell_1(s),s)ds$,  $F_2(s)=\intd{t_0}{t}f(\ell_2(s),s)ds$, $\ell_1(s),\ell_2(s)\in \mathcal{L}$.
-%“огда 
-%$$
-%\alpha F_1(t)+(1-\alpha)F_2(t)=\alpha\intd{t_0}{t}f(\ell_1(s),s)ds+(1-\alpha)\intd{t_0}{t}f(\ell_2(s),s)ds=
-%$$
-%$$
-%=\intd{t_0}{t}\left[\alpha f(\ell_1(s),s)+(1-\alpha)f(\ell_2(s),s)\right]ds=\intd{t_0}{t}\mbox{Conv}_{\ell(s)}\{f(\ell(s),s)\}ds 
-%$$
-%{\centering $\blacksquare$}
-
 
 Ѕез умалени€ общности примем, что $\alpha=\ts{x(t_0),c}<\gamma$, тогда при $\alpha<0\;\Rightarrow t<\tau$ и при  $\alpha>0 \Rightarrow t>\tau$
-
-%\cmnt{ƒалее € сталкиваюсь с проблемой вычислени€ conv. ѕолучаетс€, что если conv загон€ть под интеграл по ds, то остаетс€ неделимый $K(\ell,\mu)=\intd{w_0}{w}(\cdots)$. ≈сли двигатьс€ по пути разделени€ временных инервалов $T_{<},T_{>}$, есть вариант помен€ть местами $conv ( \intd{t_0}{t}\intd{w_0}{w}(\cdots)+K) = \intd{w_0}{w}conv( \intd{t_0}{t}(\cdots)+\ldots )$. “огда есть надежда работать конкретно с каждыsм $\ell(w)$, а $\intd{t_0}{t}G_2(t_0,w)G_1(w,t)ds\rightarrow f(w)$, так как $G_1(s,t),G_2(s,t)$--известны, может быть, это будет разумно.  » если раздел€ть по отрезкам времени, где $S(s,t)>0$, то делать это уже по $w$, а не по $s$ (там, где вычисл€ем conv). —ейчас хочу дописать, что получитс€. ƒругой вариант - вычисление сопр€женной функции.}
-  
-
 
 
 
@@ -44,3 +20,105 @@ $$
 
 
 
+\bigcmnt{ ћен€ смущает вот что: $C=\XX_0\dot {-} \mathcal{Q}(t_1,t_0)$ -- это часть траекторий из $\XX_0$, а $\mathcal{P}$ --  это фактически то, куда п€тно $C$ может быть направлено. ≈сли мы далее вычитаем из $\XX_H$ некоторое случайное множество $\mathcal{Q}_2$, которое по размеру больше чем $C$, то получаетс€, что гарантированной оценки не будет. “о есть € предполагаю, что вычисление гарантированной оценки должно быть таким:
+$$ 
+\XX_1[t_1]=\bigcap\limits_{\forall\tau_H}\left(\XX_0\dot-\mathcal{Q}_1(\tau,t_0)\dot-\mathcal{Q}_2(t_1,\tau)\right)+\mathcal{P}_1(t_0,\tau)+\mathcal{P}_2(\tau,t_1),
+$$
+а здесь € фактически буду вычисл€ть 
+$$
+\XX_1[t_1]=\bigcap\limits_{\forall\tau_H}\left[\left(\XX_0\dot-\mathcal{Q}_1(\tau,t_0)\right)+\mathcal{P}_1(t_0,\tau)\right]\dot-\mathcal{Q}_2(t_1,\tau)+\mathcal{P}_2(\tau,t_1)
+$$
+
+ѕравда, как выше показано в случае $\rdim{1}$, $\XX_0\dot {-} \mathcal{Q}_1 + \mathcal{P}_1 = \XX_0 + \mathcal{P}_1 \dot {-} \mathcal{Q}_1$, но это верно при условии непустой геометрической разности дл€ левого выражени€. }
+
+
+
+
+%
+%
+%
+%\subsection{Subsection no.1.1  }
+%\frame{ 
+%Without title somethink is missing. 
+%}
+%
+%
+%\section{Section no. 2} 
+%\subsection{Lists I}
+%\frame{\frametitle{unnumbered lists}
+%\begin{itemize}
+%\item Introduction to  \LaTeX  
+%\item Course 2 
+%\item Termpapers and presentations with \LaTeX 
+%\item Beamer class
+%\end{itemize} 
+%}
+%
+%\frame{\frametitle{lists with pause}
+%\begin{itemize}
+%\item Introduction to  \LaTeX \pause 
+%\item Course 2 \pause 
+%\item Termpapers and presentations with \LaTeX \pause 
+%\item Beamer class
+%\end{itemize} 
+%}
+%
+%\subsection{Lists II}
+%\frame{\frametitle{numbered lists}
+%\begin{enumerate}
+%\item Introduction to  \LaTeX  
+%\item Course 2 
+%\item Termpapers and presentations with \LaTeX 
+%\item Beamer class
+%\end{enumerate}
+%}
+%\frame{\frametitle{numbered lists with pause}
+%\begin{enumerate}
+%\item Introduction to  \LaTeX \pause 
+%\item Course 2 \pause 
+%\item Termpapers and presentations with \LaTeX \pause 
+%\item Beamer class
+%\end{enumerate}
+%}
+%
+%\section{Section no.3} 
+%\subsection{Tables}
+%\frame{\frametitle{Tables}
+%\begin{tabular}{|c|c|c|}
+%\hline
+%\textbf{Date} & \textbf{Instructor} & \textbf{Title} \\
+%\hline
+%WS 04/05 & Sascha Frank & First steps with  \LaTeX  \\
+%\hline
+%SS 05 & Sascha Frank & \LaTeX \ Course serial \\
+%\hline
+%\end{tabular}}
+%
+%
+%\frame{\frametitle{Tables with pause}
+%\begin{tabular}{c c c}
+%A & B & C \\ 
+%\pause 
+%1 & 2 & 3 \\  
+%\pause 
+%A & B & C \\ 
+%\end{tabular} }
+%
+%
+%\section{Section no. 4}
+%\subsection{blocs}
+%\frame{\frametitle{blocs}
+%
+%\begin{block}{title of the bloc}
+%bloc text
+%\end{block}
+%
+%\begin{exampleblock}{title of the bloc}
+%bloc text
+%\end{exampleblock}
+%
+%
+%\begin{alertblock}{title of the bloc}
+%bloc text
+%\end{alertblock}
+%}

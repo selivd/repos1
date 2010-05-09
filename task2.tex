@@ -1,9 +1,10 @@
 \documentclass[a4paper,12pt]{article}
 %\usepackage[T2A]{fontenc} % это для русского языка
+\usepackage{pscyr}
+\usepackage{cmap} % Для поиска в пдф
 \usepackage[cp1251]{inputenc}
 %\usepackage[utf8]{inputenc}
 \usepackage[english,russian]{babel} % для переносов
-\usepackage{cmap} % Для поиска в пдф
 \usepackage{mvkrep}
 \usepackage[dvips]{graphicx}
 \graphicspath{{images/}}
@@ -27,7 +28,7 @@
 \newcommand{\norma}[1]{\mid #1 \mid}
 \newcommand{\rdim}[1]{\mathbb{R}^{#1}}
 \newcommand{\XX}{ \mathcal{X} }
-
+\newcommand{\FileAndName}[1]{\cmnt{ Файл #1.tex: } \input{#1}}
 
 \begin{document}
 
@@ -37,10 +38,10 @@
 %\markright{\underline{Оглавление}}
 
 %\input{thetitle}
-%\input{postanovka}
-%\input{primer}
-%\input{prim2p}
-%\input{lemmas¦}
-\input primer1a
+\FileAndName{postanovka}
+\FileAndName{teoriya}
+\FileAndName{prim2p}
+\FileAndName{lemmas}
+\FileAndName{primer1a}
 \end{document} 
 
