@@ -1,5 +1,5 @@
 clear X0 A1 B1 C1 A2 B2 C2 P1class P2class tt q11 q12 q21 q22 p11 p12 p21 p21
-clear C1set pp11 pp12 pp21 pp22 X0set PP1 PP2 CaH Cind 
+clear C1set pp11 pp12 pp21 pp22 X0set PP1 PP2 CaH Cind config
 
 
 X0={'-2+0*t','-1+0*t'};
@@ -15,10 +15,10 @@ C2={'1+0*t'};
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 P1class={'0+0*t','1.5+0*t'};
-V1class={'0+0*t','0.5+0*t'};
+V1class={'0+0*t','0.3+0*t'};
 
 P2class={'0+0*t','1+0*t'};
-V2class={'0+0*t','1+0*t'};
+V2class={'0+0*t','0.3+0*t'};
 
 tt=0:0.1:4;
 
@@ -61,8 +61,10 @@ PP1=[ -supfn1(-1,[y1,y2]),supfn1(1,[y1,y2])];
 
 dir = 1;
 
-alpha=0:0.1:1;
+alpha=[0.4,0.6,0.75];
 j=1;
+
+close(gcf);
 
 for i = 1:length(alpha)
    pp_i=  alpha(i)*PP1(Cind,1)+(1-alpha(i))*PP1(Cind,2) ;
@@ -99,11 +101,15 @@ for i = 1:length(alpha)
    
 end
 
-config.CaH{1:length(CaH)}=H;
+
+for i=1:size(CaH,1) 
+    config.CaH{i}=H;
+end
 config.tau=CaH;
 config.P2class=P2class;
 config.V2class=V2class;
 config.tt=tt;
+config.H=H;
 second_step(config);
 
 
