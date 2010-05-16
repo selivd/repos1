@@ -3,13 +3,16 @@ clear C1set pp11 pp12 pp21 pp22 X0set PP1 PP2 CaH Cind
 
 
 X0={'-2+0*t','-1+0*t'};
+% еще неиспользуются 
 A1={'0+0*t'};
-B1={'2+0*t'};
+B1={'1+0*t'}; %B1={'2+0*t'};
 C1={'1+0*t'};
 
 A2={'0+0*t'};
-B2={'2+0*t'};
+B2={'1+0*t'}; %B2={'2+0*t'};
 C2={'1+0*t'};
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 P1class={'0+0*t','1.5+0*t'};
 V1class={'0+0*t','0.5+0*t'};
@@ -24,14 +27,10 @@ H=0;
 q11=myeval(V1class{1});
 q12=myeval(V1class{2});
 
-q21=myeval(V2class{1},tt,'')';
-q22=myeval(V2class{2},tt,'')';
 
 p11=myeval(P1class{1});
 p12=myeval(P1class{2});
 
-p21=myeval(P2class{1});
-p22=myeval(P2class{2});
 
 f1=myeval(X0{1});
 f2=myeval(X0{2});
@@ -59,13 +58,6 @@ y2=pp12(tt)';
 %Разброс 1 прямое время
 PP1=[ -supfn1(-1,[y1,y2]),supfn1(1,[y1,y2])];
 
-pp21=integr(p21,tt);
-pp22=integr(p22,tt);
-y1=pp21(tt)';
-y2=pp22(tt)';
-
-%Разброс 2 прямое время
-PP2=[ -supfn1(-1,[y1,y2]),supfn1(1,[y1,y2])];
 
 dir = 1;
 
@@ -100,9 +92,18 @@ for i = 1:length(alpha)
    plot(Ctt,X1_1,Ctt,X1_2);
    %plot([Ctt;Ctt],[X1_1,X1_2]');
    if t1<=t2
-    CaH(j,:)=[t1_exact,t2_exact];
+    CaH(j,:)=[t1_exact,t2_exact]; %#ok<SAGROW>
     j=j+1;
     plot(CaH(j-1,:)',[H;H])
    end;
    
 end
+
+config.CaH{1:length(CaH)}=H;
+config.tau=CaH;
+config.P2class=P2class;
+config.V2class=V2class;
+config.tt=tt;
+second_step(config);
+
+

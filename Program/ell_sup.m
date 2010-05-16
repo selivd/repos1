@@ -1,4 +1,4 @@
-function rez = ell_sup(L, arg1,args )
+function rez = ell_sup(L, arg1, ... )
 % ell_sup(L,Q), ell_sup(L,q,Q), ell_sup(L,ellipsoid)
 % support function for ellipsoid in L direction 
 
@@ -14,8 +14,7 @@ elseif( nargin ==2 )
         [q,Q]=parameters(arg1);
     end;
 elseif(nargin ==1)
-    ' wrong arguments'
-    return ;
+    error(' too few arguments');
 end;
 
 rez = q'*L + sqrt( L'*Q*L );
@@ -23,16 +22,16 @@ return;
 
 
 if (size(Q,1)~=size(Q,2))
-    ' not square matrix '
+    error(' not square matrix ');
     return;
 end;
 
 if( size(q,1)~=1 || size(q,2)~=size(Q,1))
-    'wrong size of q'
+    error('wrong size of q');
     return;
 end;
 if ( size(L)~=size(q) )
-    'wrong size of L'
+    error('wrong size of L');
     return;
 end;
 
