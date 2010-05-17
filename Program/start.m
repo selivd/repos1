@@ -15,7 +15,7 @@ C2={'1+0*t'};
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 P1class={'0+0*t','1.5+0*t'};
-V1class={'0+0*t','0.3+0*t'};
+V1class={'0+0*t','0.1+0*t'};
 
 P2class={'0+0*t','1+0*t'};
 V2class={'0+0*t','0.3+0*t'};
@@ -61,7 +61,7 @@ PP1=[ -supfn1(-1,[y1,y2]),supfn1(1,[y1,y2])];
 
 dir = 1;
 
-alpha=[0.4,0.6,0.75];
+alpha=[0.4,0.7];
 j=1;
 
 close(gcf);
@@ -110,6 +110,6 @@ config.P2class=P2class;
 config.V2class=V2class;
 config.tt=tt;
 config.H=H;
-second_step(config);
-
+data = second_step(config);
+visualize(data);
 

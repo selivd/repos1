@@ -23,6 +23,7 @@ pp2=integr(p2,tt);
 %Разброс 2 прямое время
 %PP2=[ -supfn1(-1,[y1,y2]),supfn1(1,[y1,y2])];
 
+t_step=tt(2)-tt(1);
 alphX2=[];
 output.taus=[];
 for cah_index=1:length(CaHset)
@@ -30,24 +31,46 @@ for cah_index=1:length(CaHset)
     CaHt=Tauset(cah_index,:);
     [OK,mintau2]=getMinTau2(pp2,qq1,qq2,CaHt(1),CaHt(2),t1);
     if ~OK ,continue,end;
-    t_step=tt(2)-tt(1);
     tau2s=mintau2:t_step:CaHt(2);
     taus=[];
     for t2i=tau2s
-       [OK,t1i]=getTau1FromTau2(pp2,qq1,qq2,CaHt(1),mintau2,t1);
+       [OK,t1i]=getTau1FromTau2(pp2,qq1,qq2,CaHt(1),t2i,t1);
        if ~OK,continue,end;
        taus=[taus;t1i,t2i]; %#ok<AGROW>
        plot(t1i,Xh,'or',t2i,Xh,'og');
     end
+    %xi(tau_i,s)
+    curr_tt=CaHt(1):t_step:tt(end);
+    x1i=[]; x2i=[];
+    x1i(size(taus,1),length(curr_tt))=NaN;
+    x2i(size(taus,1),length(curr_tt))=NaN;
     
-    x1i(size(1,taus))=NaN;
-    x2i(size(1,taus))=NaN;
-    for i=1:size(1,taus)
-        t2i=taus(i,2);
-        x1i(i)=H+qq2(t1)-qq2(t2i)+pp1(t1)-pp1(t2i);
-        x2i(i)=H+qq2(t1)-qq2(t2i)+pp1(t1)-pp1(t2i);
+    for i=1:size(taus,1)
+        tau1=taus(i,1);
+        tau2=taus(i,2);
+ 
+        tj=tau1;
+        for j=1:length(curr_tt)
+            tjm1=tj;
+            tj=curr_tt(j);
+            if (tj<=tau1)
+                x1i(i,j)=H;
+                x2i(i,j)=H;
+                continue;
+            end;
+            
+            if (tj<tau2)
+                x1i(i,j)=H;
+            else
+                if(j==1), x1i(i,j)=H;
+                else x1i(i,j)=max(x1i(i,j-1)+qq2(tj)-qq2(tjm1)+pp1(tj)-pp1(tjm1),H);end;
+            end;
+            x2i(i,j)=H+qq1(tj)-qq1(tau1)+pp2(tj)-pp2(tau1);
+        end
+        fx1i{i}=myeval(x1i(i,:),curr_tt);
+        fx2i{i}=myeval(x2i(i,:),curr_tt);
     end;
-    alphX2=[alphX2;{x1i},{x2i}]; %#ok<AGROW>
+    alphX2=[alphX2;{fx1i},{fx2i},{curr_tt}]; %#ok<AGROW>
     output.taus=[output.taus,{taus}];
 end
 output.X2=alphX2;
