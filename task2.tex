@@ -11,7 +11,10 @@
 \usepackage{amssymb,amsmath}
 \usepackage{geometry}
 \usepackage[usenames]{color} % для выделения слов разными цветами в тексте
-%\usepackage{eskdpz}
+
+\usepackage{mathtext} % это если нужны русские буквы в формулах
+
+
 
 \geometry{a4paper,top=2cm,bottom=2cm,left=2cm,right=2cm}
 \renewcommand{\refname}{Список литературы}
@@ -27,9 +30,12 @@
 \newcommand{\supfnl}[1]{ \supfn{\ell}{#1}}
 \newcommand{\conv}{\mathrm{conv}}
 \newcommand{\norma}[1]{\mid #1 \mid}
+\newcommand{\nrm}[1]{\|#1\|}
 \newcommand{\rdim}[1]{\mathbb{R}^{#1}}
 \newcommand{\XX}{ \mathcal{X} }
 \newcommand{\FileAndName}[1]{\cmnt{ Файл #1.tex: } \input{#1}}
+\newcommand{\defref}[1]{(Опр.\ref{#1})}
+\newcommand{\chk}{\color{red} проверить}
 
 \begin{document}
 
@@ -39,13 +45,16 @@
 %\markright{\underline{Оглавление}}
 
 \input{title}
-%\FileAndName{intro}
 \FileAndName{annotation}
+\tableofcontents
+\FileAndName{intro}
 \FileAndName{postanovka}
-%\FileAndName{teoriya}
-%\FileAndName{prim2p}
+\FileAndName{teoriya}
+%\FileAndName{sopr}
+\FileAndName{prim2p}
 %\FileAndName{lemmas}
-%\FileAndName{primer1a}
-%\FileAndName{bibl}
+\FileAndName{primer1a}
+\FileAndName{bibl}
+\label{pagecount}
 \end{document} 
 

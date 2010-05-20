@@ -1,7 +1,8 @@
-function [OK, out] = fSignIntervals(arg , interval )
+function [OK, out,zeros] = fSignIntervals(arg , interval )
 fun=0;
 OK=0;
 out=[];
+zeros=[];
 
 if isa(arg,'function_handle')
     fun=1;
@@ -19,6 +20,7 @@ il2=[index,index(end)];
 res=xor(il1,il2);
 res=res(2:end);
 points=find(res);
+zeros=interval(points);
 
 start=1;
 fin=length(interval);
@@ -29,12 +31,14 @@ end;
 out{end+1}=interval(start:fin);
 
 if fun == 0 return;end;
+zeros=[];
 fi=points;
 si=fi+1;
 for i=1:length(points)
     x=fzero(arg,[interval(fi(i)),interval(si(i))]);
     out{i}=[out{i},x];
     out{i+1}=[x,out{i+1}];
+    zeros=[zeros,x];
 end;
 
 

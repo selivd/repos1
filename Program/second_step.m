@@ -12,13 +12,19 @@ t1=tt(end);
 
 q1=myeval(V2class{1});
 q2=myeval(V2class{2});
-qq1=integr(q1,tt);
-qq2=integr(q2,tt);
+y1=q1(tt)';
+y2=q2(tt)';
+QQ=[ -supfn1(-1,[y1,y2]),supfn1(1,[y1,y2])];
+qq1=integr(myeval(QQ(:,1),tt),tt);
+qq2=integr(myeval(QQ(:,2),tt),tt);
 
 p1=myeval(P2class{1});
 p2=myeval(P2class{2});
-pp1=integr(p1,tt);
-pp2=integr(p2,tt);
+y1=p1(tt)';
+y2=p2(tt)';
+PP=[ -supfn1(-1,[y1,y2]),supfn1(1,[y1,y2])];
+pp1=integr(myeval(PP(:,1),tt),tt);
+pp2=integr(myeval(PP(:,2),tt),tt);
 
 %Разброс 2 прямое время
 %PP2=[ -supfn1(-1,[y1,y2]),supfn1(1,[y1,y2])];
@@ -76,6 +82,11 @@ end
 output.X2=alphX2;
 output.tt=tt;
 
+output.qq21=qq1;
+output.qq22=qq2;
+output.pp21=pp1;
+output.pp22=pp2;
+
 end
 
 function [OK,minTau] = getMinTau2(fuInt,fq1Int,fq2Int,tau1,tau2,t1)
@@ -120,6 +131,7 @@ if (flag~=1)
     return;
 end;
 OK=true;
+
 
 end
 

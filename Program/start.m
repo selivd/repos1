@@ -1,6 +1,7 @@
 clear X0 A1 B1 C1 A2 B2 C2 P1class P2class tt q11 q12 q21 q22 p11 p12 p21 p21
 clear C1set pp11 pp12 pp21 pp22 X0set PP1 PP2 CaH Cind config
 
+clear
 
 X0={'-2+0*t','-1+0*t'};
 % еще неиспользуются 
@@ -14,15 +15,17 @@ C2={'1+0*t'};
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-P1class={'0+0*t','1.5+0*t'};
-V1class={'0+0*t','0.1+0*t'};
+P1class={'0.4*cos(t*pi)','1.5+0.6*sin(t*pi)'};
+V1class={'0*t','0.2+0.1*sin(t*pi)'};
 
-P2class={'0+0*t','1+0*t'};
-V2class={'0+0*t','0.3+0*t'};
+P2class={'0.3+sin(t*pi).^2','0.5*cos(t*pi).^2'};
+V2class={'0*t-0.1*sqrt(t)','0*t+0.1*sqrt(t)'};
+
 
 tt=0:0.1:4;
 
 H=0;
+
 
 q11=myeval(V1class{1});
 q12=myeval(V1class{2});
@@ -61,7 +64,7 @@ PP1=[ -supfn1(-1,[y1,y2]),supfn1(1,[y1,y2])];
 
 dir = 1;
 
-alpha=[0.4,0.7];
+alpha=0.4:0.05:1;
 j=1;
 
 close(gcf);
@@ -77,7 +80,11 @@ for i = 1:length(alpha)
    if ( isempty(t_i)) continue, end;
    ff=myeval(supval,Ctt);
    t1_exact=fzero(ff,[Ctt(1),Ctt(end)]);
-   
+        [OK,intpm,zeros]=fSignIntervals(ff,tt);
+        if ~OK, error('ошибка');end;
+        
+        plot_y1=ff(intpm{1});
+        plot_x1=intpm{1};
    
    t1=tt(t_i);
    
@@ -87,24 +94,38 @@ for i = 1:length(alpha)
    ff=myeval(supval,Ctt);
    t2_exact=fzero(ff,[Ctt(1),Ctt(end)]);
    
+        [OK,intpm,zeros]=fSignIntervals(ff,tt);
+        if ~OK, error('ошибка');end;
+ 
+        plot_y2=ff(intpm{1});
+        plot_x2=intpm{1};
+   
    
    t2=tt(t_i);
    
    hold on
-   plot(Ctt,X1_1,Ctt,X1_2);
+   %линии 1,2 до гиперплоскости
+   plot(plot_x1,plot_y1,plot_x2,plot_y2)
    %plot([Ctt;Ctt],[X1_1,X1_2]');
    if t1<=t2
     CaH(j,:)=[t1_exact,t2_exact]; %#ok<SAGROW>
     j=j+1;
-    plot(CaH(j-1,:)',[H;H])
+    % CaH на гиперплоскости
+    plot(CaH(j-1,:)',[H;H],'LineWidth',2,'color','b')
+   
+   
    end;
    
 end
 
+plot(CaH(1,:)',[H;H],'LineWidth',3,'color','k')
+plot(CaH(end,:)',[H;H],'LineWidth',3,'color','k')
+plot([tt(1) tt(end)],[H H],'b');
 
 for i=1:size(CaH,1) 
     config.CaH{i}=H;
 end
+
 config.tau=CaH;
 config.P2class=P2class;
 config.V2class=V2class;

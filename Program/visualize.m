@@ -2,6 +2,8 @@ function  visualize( data )
 % X2,tt
 
 X2=data.X2;
+qq2=data.qq22;
+pp2=data.pp22;
 
 for alph=1:size(X2,1)
     curr_tt=X2{alph,3};
@@ -14,18 +16,30 @@ for alph=1:size(X2,1)
         
         plot(curr_tt,y1,'g','LineWidth',2);
         plot(curr_tt,y2,'k','LineWidth',2);
+        
+        
+        t1=curr_tt(end);
+        z=findZfromx2(y2(end),pp2,qq2,curr_tt);
+        
+        
+        
+        %plot(curr_tt,z(curr_tt),'LineWidth',2,'color','y');
+        
+        for j=1:2:length(curr_tt)
+            tx=curr_tt(j);
+          %  plot( [tx tx], [y2(j) z(tx)],'LineWidth',2,'color','y');
+        end;
+        %plot([curr_tt(end) curr_tt(end)], [y2(end),z(curr_tt(end))] ,'k');
     end;
 end
 
 end
 
-% function [x1s,x2s]=Xalph(s,tau1,tau2,x1,x2,pp1,qq2,tt)
-% if (s>tau2)
-%     x1s = x1 - ( qq2(s)-qq2(tau2) ) - ( pp1(s)-pp1(tau2) );
-%     x2s = x2 - ( qq1(s)-qq1(tau2) ) - ( pp2(s)-pp2(tau2) );
-% else
-%     
-%     
-%      
-% end
-%     
+function z=findZfromx2(x2,pp2,qq2,curr_tt)
+
+        t1=curr_tt(end);
+        for j=1:length(curr_tt)
+            z(j)=x2+pp2(curr_tt(j))-pp2(t1)+qq2(curr_tt(j))-qq2(t1);
+        end;
+        z=myeval(z,curr_tt);
+end
