@@ -15,7 +15,7 @@
     \right.\\
     &\left\{
 		    \begin{aligned}
-		        &\dot x^{(2)} = A^{(2)}(t)x^{(2)}+B^{(2)}(t)u^{(2)}(t)+C^{(2)}(t)v(t)^{(2)};\\
+		        &\dot x^{(2)} = A^{(2)}(t)x^{(2)}+B^{(2)}(t)u^{(2)}(t)+C^{(2)}(t)v^{(2)}(t);\\
 		        &x(\tau)\in\mathcal{X}^{(1)}(\tau,t_0)\cap H;\\
 		    \end{aligned}
     \right.
@@ -50,21 +50,21 @@
 \begin{define}
 Множеством достижимости $\XX[t_1,t_0,\XX_0]$  системы линейных диф\-фе\-рен\-циаль\-ных уравнений в момент $t_1$ называется 
 $$
-\XX[t_1,t_0,\XX_0]=\{x_1\mid\exists u(\cdot):\;\forall v(\cdot), \exists x_0\in \in\mathcal{X}_0 : x(t_1,t_0,x_0)=x_1\},
-$$ где $x(\cdot,t,x)$ -- траектория системы при фиксированных $u(\cdot),v(\cdot)$ и начальном условии x(t)=x. $\XX_0$ -- начальное множество в момент времени $t_0$.
+\XX[t_1,t_0,\XX_0]=\{x_1\mid\exists u(\cdot):\;\forall v(\cdot), \exists x_0 \in\mathcal{X}_0 : x(t_1,t_0,x_0)=x_1\},
+$$ где $x(\cdot,t,x)$ -- траектория системы при фиксированных $u(\cdot),v(\cdot)$ и начальном условии $x(t)=x$. $\XX_0$ -- начальное множество в момент времени $t_0$.
 \label{def:XX1}
 \end{define}
 
 \begin{define}
 Множеством достижимости $\XX[t_1,t_0,\XX_0]$ для гибридной системы \eqref{eq:mainsystem} называется
 $$
-\XX[t_1,t_0,\XX_0]=\{x_1 \mid\exists u^{(1)}(\cdot)\in\mathcal{P}^{(1)},u^{(2)}(\cdot)\in\mathcal{P}^{(1)}:
+\XX[t_1,t_0,\XX_0]=\{x_1 \mid\exists u^{(1)}(\cdot)\in\mathcal{P}^{(1)},u^{(2)}(\cdot)\in\mathcal{P}^{(2)}:
 $$
 $$
-\forall v^{(1)}(\cdot)\in \mathcal{V}^{(1)} ,v^{(2)}(\cdot)\in \mathcal{V}^{(1)}: \exists x_0\in\mathcal{X}_0:
+\forall v^{(1)}(\cdot)\in \mathcal{V}^{(1)} ,v^{(2)}(\cdot)\in \mathcal{V}^{(2)}: \exists x_0\in\mathcal{X}_0:
 $$
 $$
-x(t_1,t_0,x_0,)=x_1, \exists \tau: x(\tau,t_0,x_0)\cap H \neq \emptyset, t_1\ge\tau > t_0  \},
+x(t_1,t_0,x_0)=x_1, \exists \tau: x(\tau,t_0,x_0)\cap H \neq \emptyset, t_1\ge\tau > t_0  \},
 $$ где $x(\tau,t,x_0)$ -- траектория гибридной системы при фиксированном управлении $u^{(1,2)}$ и помехе $v^{(1,2)}$.
 \label{def:XX2}
 \end{define}
