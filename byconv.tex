@@ -1,0 +1,155 @@
+\subsection{Построение множества методами многозначного анализа}
+
+Перейдем к поиску решения задачи \eqref{eq:mainsystem} c помощью оценивания множеств методами многозначного анализа.
+
+В отличие от первого подхода, где мы нашли функцию, полностью характеризующую наше решение сразу для двух систем уравнений и условия на переключение, сейчас мы будем рассматривать каждый этап по отдельности.
+
+\subsubsection{Множество достижимости  до переключения}
+\label{par_conv1}
+Для системы дифференциальных уравнений 
+\begin{equation}
+\left\{
+		    \begin{aligned}
+		        &\dot x^{(1)} = A^{(1)}(t)x^{(1)}+B^{(1)}(t)u^{(1)}(t)+C^{(1)}(t)v^{(1)}(t);\\
+		        &x(t_0)\in\mathcal{E}(x_0,X_0)=\mathcal{X}_0;\\
+		        &u^{(1)}(t)\in\mathcal{E}(p^{(1)}(t),P^{(1)}(t))=\mathcal{P}^{(1)}[t_0,t_1];\\
+						&v^{(1)}(t)\in\mathcal{E}(w^{(1)}(t),W^{(1)}(t))=\mathcal{V}^{(1)}[t_0,t_1];\\
+		    \end{aligned}
+\right.
+\label{eq:mainsys_p1}
+\end{equation}
+требуется найти множество достижимости по \defref{def:XX1}. 
+
+Это эквивалентно следующей задаче. Пусть нам даны множества $\XX_0[t]$--исходное множество,$\mathcal{P}(t)$--множество управлений, $\mathcal C(t)$-- множество помех, $X_0$,$\mathcal P(t)$,$\mathcal C(t)$ - выпуклые. Гарантированное множество достижимости находится как
+$$
+\XX[t]=\left(\XX_0[t]\dot-\mathcal C(t) \right) + \mathcal P(t).
+$$
+Здесь операция $\dot-$ понимается в смысле
+\begin{define}
+Геометрической разностью выражения $C=A\dot-B$ называется множество $C=\{c\mid c+B\subseteq A$
+\end{define}
+
+Решение задачи Коши для системы \eqref{eq:mainsys_p1}
+$$
+x(t)=G(t_0,t_1)x_0+\intd{t_0}{t_1}G(t_1,s)B(s)u(s)ds+\intd{t_0}{t_1}C(s)v(s)ds
+$$
+где $x(t)$ -- траектория системы, определяется выбранным управлением $u(\cdot)$ и неизвестной реализацией помехи $v(\cdot)$.
+Тогда гарантированная оценка множества достижимости имеет решение в виде
+$$
+\XX[t]=\left(G(t_0,t_1)\XX_0\dot-\intd{t_0}{t_1}G(t_1,s)\VV(s)ds\right)+\intd{t_0}{t_1}G(t_1,s)B(s)\PP(s)ds
+$$
+
+Поскольку напрямую решать данные интегралы от множеств затруднительно, прибегнем к аппарату эллипсоидальных оценивания \mycite{ABK_upr_i_nabl,ABK_internal_approx,ABK_int_i_ext_approx}. Мы можем оценить искомое множество  через внешние и внутренние эллипсодальные оценки. Так что 
+$$
+\XX[t]\subseteq \bigcap_\ell\Ell(q^\ell_+(t),Q^\ell_+(t));
+$$
+$$
+\XX[t]\supseteq \bigcup_\ell\Ell(q^\ell_-(t),Q^\ell_-(t)),
+$$
+где $\ell$ -- вектор, в направлении которого оценивающий эллипсоид касается искомого множества, $\Ell(q^ell_+(t),Q^\ell_+(t))$ -- внешняя эллипсоидальная оценка, $\Ell(q^\ell_-(t),Q^\ell_-(t)$ -- внутренняя эллипсоидальная оценка.
+Поскольку ограничения на начальные условия, управление, помеху в задаче \eqref{eq:mainsys_p1} выражены эллипсоидами, выпуклыми компактами, то само $\XX[t]$ -- также будет выпуклым \mycite{ABK_int_i_ext_approx} и справедливо
+$$
+\bigcup_{\forall \ell}\Ell(q^\ell_-(t),Q^\ell_-(t))=\XX[t]=\bigcap_{\forall \ell}\Ell(q^\ell_+(t),Q^\ell_+(t)),
+$$
+где пересечение и объединение берутся по всем возможным направлениям  $\ell\in\rdim{n}$.
+
+Параметры внутренней эллипсоидальной оценки $\Ell(q_-(t),Q_-(t))$ берутся из уравнения
+\begin{equation}
+\begin{gathered}\dot Q_-(t)=A(t)Q_-(t)+Q_-(t)A^T(t)+Q^{-\frach}_-(t)S(t)P^{\frach}(t)B(t)+B(t)P^{\frach}(t)B^T(t)S^T(t)Q^{\frach}_-(t)-\\
+-\pi(t)Q_-(t)-\pi^{-1}(t)C(t)W(t)C^t(t),\\
+\dot q_-(t)=A(t)q(t)+B(t)p(t)+C(t)w(t),
+\end{gathered}
+\end{equation}
+где $S(t)$,$\pi(t)$ удовлетворяют соотношениям
+$$
+S(t)P^{\frach}(t)B^T(t)\ell(t)=Q^{\frach}_-(t)\ell(t)\lambda(t),\quad\ell(t)=G^(t,t_0)\ell_0,\;\ell_0\in\rdim{n},
+$$
+$$
+\pi(t)=\frac{ \ts{\ell(t),C(t)W(t)C^T(t)\ell(t)}^{\frach}} {\ts{\ell(t),Q_-(t)\ell(t)}^{\frach}},
+$$
+$$
+\lambda(t)=\frac{ \ts{\ell(t),B(t)P(t)B^T(t)\ell(t)}^{\frach} }  { \ts{\ell(t),Q_-(t)\ell(t)}^{\frach} }
+$$
+
+Параметры внешней эллипсоидальной оценки $\Ell(q_+(t),Q_+(t))$ находятся из
+\begin{equation}
+\begin{gathered}
+\dot Q_+=A(t)Q_-(t)+Q_-(t)A^T(t) + \pi(t)Q_+(t)+\pi^{-1}(t)B(t)P(t)B^T(t) - \\ -Q^{\frach}_+(t)S(t)W^{\frach}(t)C^T(t)-C(t)W^{\frach}(t)S^T(t)Q^{\frach}_+(t),
+\end{gathered}
+\end{equation}
+где
+$$
+S(t)W^{\frach}(t)C^T(t)\ell(t)=\lambda(t)Q^{\frach}(t)\ell(t),
+$$
+$$
+\pi=\frac{ \ts{\ell(t),B(t)P(t)B^T(t)\ell(t)}^{\frach}}  { \ts{\ell(t),Q_+(t)\ell(t)}^{\frach}},
+$$
+$$
+\lambda(t)=\frac{\ts{\ell(t),C(t)W(t)C^T(t)\ell(t)}^{\frach}}  { \ts{\ell(t),Q_+(t)\ell(t)}^{\frach} }
+$$
+
+Итак, c помощью эллипсоидальных оценок мы можем вычислить сколь угодно точную оценку множества достижимости $\XX^{(1)}[t,t_0,\XX_0]$ (по \defref{def:XX1}) для любого момента времени $t$ и начального условия $\XX_0$.
+
+Необходимо отметить, что $\XX[t,t_0]$ образовано двумя множествами:
+$\left(G(t_0,t_1)\XX_0\dot-\intd{t_0}{t_1}G(t_1,s)\VV(s)\right)$ -- обеспечивает множество гарантированного попадания, а другое, $\intd{t_0}{t_1}G(t_1,s)B(s)\PP(s)$ --  желаемое смещение первого множества.
+Кроме того, может оказаться, что начиная с некоторого $\tau>t$, $\XX[t,t_0]$  окажется пустым, если $\left(\XX_0[t]\dot-\mathcal C(t) \right)$ выродится.
+Соответственно, расчет для второй системы необходимо выполнять не с начальным множеством $\XX^{(1)}[t,t_0,\XX_0]\cap H(c,\gamma)$, а $\left(G(t_0,t_1)\XX_0\dot-\intd{t_0}{t_1}G(t_1,s)\VV(s)ds+\phi^\alpha\right)\cap H(c,\gamma)$,
+где $\phi^\alpha=\intd{t_0}{t_1}G(t_1,s)B(s)p^\alpha(s)ds,\quad p^\alpha(\cdot)\in\PP(\cdot)$.
+Поэтому, в дальнейшем, мы будем искать множество достижимости второй системы для фиксированного $p^\alpha(\cdot)$.
+
+
+
+\subsubsection{Пересечение с гиперплоскостью}
+\newcommand{\CaH}{C^\alpha_H}
+\newcommand{\phia}{\phi^\alpha}
+\newcommand{\TTa}{\mathcal{T}^\alpha}
+Рассмотрим теперь вычисление множеств, образованных пересечением множества достижимости первой системы с гиперплоскостью $H(c,\gamma)=\{x\mid \ts{x,c}=\gamma\}$. 
+Пусть 
+$$
+\begin{gathered}
+С(s)\defeq\left(G(t_0,t_1)\XX_0\dot-\intd{t_0}{t_1}G(t_1,s)\VV(s)ds\right),\\
+\phia(t)\defeq\intd{t_0}{t}G(t_1,s)B(s)p^\alpha(s)ds,\\
+\CaH(s)\defeq\left(C(s)+\phia(s)\right)\cap H\\
+\TTa\defeq\{\tau\mid \CaH(\tau)\neq\emptyset\}
+\end{gathered}
+$$
+Мы предполагаем условие односторонней трансверсальности выполненным, поэтому можем утверждать, что множество $\CaH(\TTa)$ -- односвязное.
+Вслучае невыполнения условий трансверсальности \picref{pic:transv}, множество $\CaH(\TTa)$ может быть несвязным, в этом случае дальнейший анализ существенно затруднится.
+\labtwinimage{transv1}{transv2}{8}{Выполнение и невыполнение условий трансверсальности}{pic:transv}
+
+В пункте \ref{par_conv1} мы нашли оценку множества достижимости с помощью эллипсоидальных оценок.
+Вычислим теперь $\CaH(\tau)$
+
+\begin{propose}[\mycite{ABK_hyb_sys}]
+Пусть эллипсоид $\mathcal{E}(q,Q)$ и гиперплоскость $\mathcal{H}=\{x\in\mathbb{R}^n:\;\langle x,c\rangle=\gamma\}$ таковы, что
+$\mathcal{E}\cap\mathcal{H}\neq \emptyset$. Тогда $\mathcal{E}(q,Q)\cap\mathcal{H} = \mathcal{E}(\tilde{q},\tilde{Q})$ - вырожденный эллипсоид
+(т.е. $\tilde{Q}=\tilde{Q}^T\geqslant0,\;det(\tilde{Q})=0$).
+\end{propose}
+{\it Доказательство.} Пусть $T\in\mathbb{R}^{n\times n}$ - такая невырожденная матрица, что $Tc=e_1$, где $e_1=(1,0,\ldots,0)$. Используя замену переменных
+$x=T'y$ и $q=T'p$, преобразуем множество $\mathcal{E}(q,Q)\cap\mathcal{H}$:
+
+$$
+\begin{aligned}
+\mathcal{E}(q,Q)\cap\mathcal{H}&=\{x\in\mathbb{R}^n:\langle x-q,Q^{-1}(x-q)\rangle \leqslant1,\langle x,c \rangle=\gamma\}=\\
+&T'\{y=(\gamma,z)',z\in\mathbb{R}^{n-1}:\langle z-\tilde{q},\tilde{Q}(z-\tilde{q})\rangle \leqslant 1\}
+\end{aligned}
+$$
+$$
+TQ^{-1}T'=\left(\begin{array}{ccc} a & c' \\ c & D \end{array} \right),\;D\in\mathbb{R}^{(n-1)\times(n-1)},p=\left(\begin{array}{ccc} p_1 \\ \tilde{p} \end{array}\right),\tilde{p}\in\mathbb{R}^{n-1}
+$$
+$$
+\tilde{q}=\tilde{p}-D^{-1}(\gamma-p_1)c\;,\;A=\frac{D}{1-(\gamma-p_1)^2(a-\langle c,\;D^{-1}c\rangle)}
+$$
+И проверкой подстановки
+$$
+\tilde{q}=T'\left(\begin{array}{ccc} \gamma \\ \tilde{q} \end{array} \right),\tilde{Q}=T'\left(\begin{array}{ccc} 0 & 0\\ 0 & A^{-1} \end{array} \right)T
+$$
+завершаем доказательство утверждения.
+Нам важно найти не столько вырожденный эллипсоид $\Ell(\tilde q,\tilde Q)$, сколько его пересечение с гиперплоскостью.
+Легко видеть, что это будет эллипсоид с размерностью на единцу меньше, его параметры находятся как $q_H=\gamma D^{-1}c$, $Q_H=A^{-1}$. Вектор $q_H$ указывает смещение эллипсоида относительно опущенного на плоскость перпендикуляра, выпущенного из центра пересекаемого эллипсоида \picref{pic:ellips_ints_H}.
+
+\labimage{ellips_ints_H}{8}{Пересечение эллипсоида с плоскостью}{pic:ellips_ints_H}
+
+Таким образом, для момента времени $\tau\in\TTa$ мы получили семейство эллипсоидов размерности на единицу меньше, расположенные на плоскости $H$, которые, в свою очередь оценивают искомое сечение множества пересечения, которое остается выпуклым. Это семейство внутренних и внешних оценок также можно оценивать новыми оценками, с целью уменьшить количество дальнейших вычислений.
+
+

@@ -20,10 +20,11 @@
 \renewcommand{\refname}{Список литературы}
 \renewcommand{\contentsname}{Оглавление}
 \renewcommand{\figurename}{Рисунок}
+%\renewcommand{\proofname}{Доказательство.}
 
 \newcommand{\cmnt}[1]{{\color{blue}\bf #1}}
 \newcommand{\bigcmnt}[1]{ {  \cmnt{ Комментарий.}} #1 { \cmnt{Конец комментария.}} }
-\newcommand{\Ell}[1]{\mathcal{E}(#1)}
+\newcommand{\chk}{\color{red} проверить}
 \newcommand{\ts}[1]{\left\langle #1 \right\rangle}
 \newcommand{\intd}[2]{ \int\limits_{#1}^{#2} }
 \newcommand{\supfn}[2]{ \rho\left( #1 \mid #2 \right)}
@@ -32,11 +33,17 @@
 \newcommand{\norma}[1]{\mid #1 \mid}
 \newcommand{\nrm}[1]{\|#1\|}
 \newcommand{\rdim}[1]{\mathbb{R}^{#1}}
+\newcommand{\Ell}{\mathcal{E}}
 \newcommand{\XX}{ \mathcal{X} }
+\newcommand{\PP}{ \mathcal{P} }
+\newcommand{\CC}{ \mathcal{C} }
+\newcommand{\VV}{ \mathcal{V} }
 \newcommand{\FileAndName}[1]{\cmnt{ Файл #1.tex: } \input{#1}}
 \newcommand{\defref}[1]{(Опр.\ref{#1})}
-\newcommand{\chk}{\color{red} проверить}
-\newcommand{\mycite}[1]{ \cite{#1}  } 
+\newcommand{\picref}[1]{(рис.\ref{#1})}
+\newcommand{\mycite}[1]{ \cite{#1} }
+\newcommand{\frach}{\ensuremath{\frac{1}{2}}}
+\newcommand{\defeq}{\overset{def}=}
 
 \begin{document}
 
@@ -46,13 +53,18 @@
 \input{title}
 \FileAndName{annotation}
 \tableofcontents
+\newpage
 \FileAndName{intro}
+\newpage
 \FileAndName{postanovka}
 \FileAndName{teoriya}
+\FileAndName{byconv}
+%
 %\FileAndName{sopr}
-\FileAndName{prim2p}
+%\FileAndName{prim2p}
 %\FileAndName{lemmas}
-\FileAndName{primer1a}
+%\FileAndName{primer1a}
+\newpage
 \FileAndName{bibl}
 
 \label{pagecount}
