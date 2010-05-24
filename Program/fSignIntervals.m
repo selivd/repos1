@@ -1,4 +1,6 @@
 function [OK, out,zeros] = fSignIntervals(arg , interval )
+%[OK, out,zeros] = fSignIntervals(arg , interval )
+
 fun=0;
 OK=0;
 out=[];

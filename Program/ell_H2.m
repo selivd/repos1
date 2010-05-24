@@ -1,11 +1,11 @@
 
-e1=ellipsoid([0;0],[1,1.5;1.5,4]);
+e1=ellipsoid([0;0],[2,2;2,4]);
 [q,Q1]=parameters(e1);
 
 iQ1=inv(Q1);
 iQ1_half=sqrtm(iQ1);
 Q1_half=sqrtm(Q1);
-gamma=0.5;
+gamma=0.75;
 iQ1
 
 A22=iQ1(2:end,2:end);

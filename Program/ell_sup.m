@@ -1,4 +1,5 @@
-function rez = ell_sup(L, arg1, ... )
+function rez = ell_sup(L, arg1 )
+%
 % ell_sup(L,Q), ell_sup(L,q,Q), ell_sup(L,ellipsoid)
 % support function for ellipsoid in L direction 
 
