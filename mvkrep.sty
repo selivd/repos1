@@ -33,12 +33,12 @@
 \newcommand{\authdefn}[2]{\begin{define}[#1] #2 \end{define}}
 \newcommand{\authlabprop}[3]{\begin{propose}[#1] #2 \label{#3} \end{propose}}
 \newcommand{\authprop}[2]{\begin{propose}[#1] #2 \end{propose}}
-\newcommand{\labimage}[4]{\begin{figure}[h]%
+\newcommand{\labimage}[4]{\begin{figure}[htbp!]%
 \centerline{\includegraphics[width=#2cm]{#1}}\caption{#3}\label{#4}%
 \end{figure}}
 \newcommand{\image}[3]{\begin{figure}[h]%
 \centerline{\includegraphics[width=#2cm]{#1}}\caption{#3}\end{figure}}
-\newcommand{\labtwinimage}[5]{\begin{figure}[h]%         
+\newcommand{\labtwinimage}[5]{\begin{figure}[htbp!]%         
 \centerline{\includegraphics[width=#3cm]{#1}\hspace{1cm} %
 \includegraphics[width=#3cm]{#2}}\vspace{1cm}\caption{#4}\label{#5}%
 \end{figure}}
