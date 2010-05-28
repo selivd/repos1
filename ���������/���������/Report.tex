@@ -1,0 +1,505 @@
+\documentclass[12pt,titlepage]{article}
+\usepackage{graphicx,color}
+\usepackage{cmap}
+\usepackage[CP1251]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{euscript}
+\usepackage{multicol}
+\usepackage{latexsym}
+\usepackage{mvkrep}
+\textwidth=180mm
+\oddsidemargin=-5mm
+\textheight=230mm
+\voffset=-15mm
+\hoffset=-5mm
+\newtheorem{theorem}{Теорема}[section]
+\newtheorem{definition}{Определение}
+\newtheorem{proposal}{Утверждение}
+\newtheorem{lemma}{Лемма}
+\newtheorem{corollary}{Следствие}
+\newcommand{\dimRi}{\mbox{ \it{I \hspace*{-0.3cm}R}}}
+\newcommand{\dimR}{\mathbb{R}}
+\newcommand{\dR}{\mathbb{R}}
+\newcommand{\dP}{\mathbb{P}}
+\newcommand{\dE}{\mathbb{E}}
+\newcommand{\dD}{\mathbb{D}}
+\newcommand{\eqv}{\Leftrightarrow}
+\newcommand{\eqvq}{\quad \Leftrightarrow \quad}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\rra}{\longrightarrow}
+\newcommand{\sq}{\Rightarrow}
+\newcommand{\sqq}{\quad \Rightarrow \quad}
+\newcommand{\np}{\newpage}
+\newcommand{\nd}{\noindent}
+\newcommand{\bk}{\bigskip}
+\newcommand{\eq}{equation}
+\newcommand{\bfs}{\bfseries}
+\newcommand{\e}{\varepsilon}
+%\newcommand{\E}{\EuScript{E}}
+\newcommand{\E}{\mathcal{E}}
+\newcommand{\p}{\partial}
+\newcommand{\x}{x_1}
+\newcommand{\xx}{x_2}
+\newcommand{\lm}{\lambda}
+\newcommand{\om}{\omega}
+\newcommand{\al}{\alpha}
+\newcommand{\sg}{\sigma}
+\newcommand{\li}[2]{\int\limits_{#1}^{#2}}
+\newcommand{\si}[2]{\sum\limits_{#1}^{#2}}
+\newcommand{\bg}{\begin}
+\newcommand{\fr}{\frac{1}{2}}
+\newcommand{\XX}{\mathcal{X}}
+\numberwithin{equation}{section}
+
+
+\begin{document}
+
+\thispagestyle{empty}
+
+\centerline{Московский Государственный Университет
+им.М.В.Ломоносова} \centerline{\normalsize{Факультет
+вычислительной математики и кибернетики}}
+\centerline{\normalsize{Кафедра системного анализа}}
+
+\vspace*{25ex}
+ \centerline{\LARGE{ Отчет по заданию }}
+ \vspace*{1ex}
+\centerline{\LARGE{ компьютерного практикума}}
+\vspace*{5ex}
+\centerline{\LARGE{ \bf{`` Построение внешней и внутренней }}}
+\centerline{\LARGE{ \bf{ эллипсоидальных оценок }}}
+\centerline{\LARGE{ \bf{ множества достижимости}}}
+\centerline{\LARGE{ \bf{ для линейной управляемой системы}}}
+\centerline{\LARGE{ \bf{ с неопределенностью ''}}}
+
+
+ \vspace*{22ex}
+
+\hfill\large{{Студент магистратуры}}\hspace{2cm}
+
+\vspace*{1ex}
+ \rightline{\large{{\sl Селиверстов Д.С.
+ }}}
+
+\vspace*{1ex}
+
+\hfill\large{{Преподаватель:}}\hspace{2cm}
+
+\vspace*{1ex}
+  \rightline{\large{{\sl Востриков И. В.}}}
+
+\vspace*{15ex}
+\begin{table}[b]
+\begin{center}
+\large
+Москва\\
+2010г.
+\end{center}
+\end{table}
+\tableofcontents
+\sloppy
+\newpage
+
+\section{Постановка задачи}
+
+Рассматривается линейная управляемая система
+
+\bg{\eq} \left\{
+\bg{array}{l}
+\dot{x}(t) = A(t)x(t) + B(t)u(t) + C(t)v(t), t \in [t_0; t_1],\\
+x(t) \in \dimR^n, \quad A(t) \in \dimR^{n \times n},\\
+u(t) \in L_{\infty}[t_0;t_1], u(t) \in \dimR^m,u(t) \in \E(p(t), P(t)), B(t) \in \dimR^{n \times m},\\
+v(t) \in \E(q(t), Q(t)), C(t) \in \dimR^{n \times k},\\
+x(t_0) \in \E(x_0, X_0)=\XX_0,x_0 \in \dimR^n, \quad X_0 \in \dimR^{n \times n},\\
+q(t) \in \dimR^k, \quad Q(t) \in \dimR^{k \times k},\\
+p(t) \in \dimR^m, \quad P(t) \in \dimR^{m \times m},\\
+A(t), B(t), C(t), Q(t), q(t), P(t), p(t) \: \mbox{--- непрерывны},\\
+X_0, P(t), Q(t)\:\mbox{--- симметричные, положительно определенные}
+\end{array}
+\right.
+\label{orig_sys}
+\end{\eq}
+
+Требуется построить внешнюю и внутреннюю аппроксимацию множества достижимости.
+
+\newpage
+
+\section{Теоретические обоснования}
+
+\subsection{Основные определения и свойства}
+
+\bg{definition}
+Множество $\{ x \in \dimR^n \mid \langle x-q, Q^{-1}(x-q) \rangle \le 1 \}$, где Q --- симметрическая, положительно определенная матрица, называется {\bf эллипсоидом} c центром в точке $q\in \dimR^n$ и матрицей $Q\in \dimR^{n \times n}$. Обозначение: $\E(q,Q)$.
+\end{definition}
+
+\bg{definition}
+{\bf Опорной функцией} множества $M \subset \dimR^n$ называется $\rho(l~\mid~M) = \sup\limits_{ x \in M } \langle l, x \rangle$.
+\end{definition}
+
+Опорной функцией эллипсоида $\E(q,Q)$ является $\rho(l~\mid~\E(q,Q)) = \langle l,q \rangle + \langle l, Ql \rangle^{\frac{1}{2}}$.
+
+\bg{proposal}
+Пусть $A \in \dimR^{n \times n}$ --- невырожденная матрица. Тогда $A\E(q,Q) = \E(Aq, AQA')$.
+\end{proposal}
+{\bf Доказательство:} Пусть $\langle x-q, Q^{-1}(x-q) \rangle \le 1$. Тогда обозначим точки множества $A\E(q,Q)$ как $y = Ax$. Получим $\langle x-q, Q^{-1}(x-q) \rangle \le 1 \eqv \langle A^{-1}(Ax-Aq), Q^{-1}A^{-1}(Ax-Aq) \rangle \le 1 \eqv \langle Ax-Aq, (A^{-1})'Q^{-1}A^{-1}(Ax-Aq) \rangle \le 1 \eqv \langle y-Aq, (AQA')^{-1}(y-Aq) \rangle \le 1. \qquad \Box$
+
+\bg{proposal}
+Рассмотрим эллипсоиды $\E_i = \E(0,Q_i), \: i = \overline{1,n}$, и эллипсоиды $\E_- = \E(0,Q_-), \E_+ = \E(0,Q_+)$, где
+$$ Q_- = Q_*^TQ_*, \quad Q_* = S_1Q_1^{1/2} + \ldots + S_nQ_n^{1/2}, $$ $$ S_i^TS_i = S_iS_i^T = I \: \forall i = \overline{1,n}; $$
+$$ Q_+ = \left( p_1 + \ldots + p_n \right) \left( \frac{Q_1}{p_1} \ldots \frac{Q_n}{p_n} \right), \quad p_1, \ldots p_n \ne 0. $$
+
+Тогда верно следующее включение:
+$$ \E_- \subseteq \E_1 + \ldots + \E_n \subseteq \E_+. $$
+\end{proposal}
+
+{\bf Доказательство:} 1) Рассмотрим опорную функцию множества $\E_-$:
+
+$$ \rho^2(l~\mid~\E_-) = \sum\limits_{i=1}^n \langle l, Q_i l \rangle + \sum\limits_{i \ne j} \langle S_iQ_i^{1/2}l, S_jQ_j^{1/2}l \rangle \le $$ $$ \le \sum\limits_{i=1}^n \langle l, Q_i l \rangle + \sum\limits_{i \ne j} \langle S_iQ_i^{1/2}l, S_iQ_i^{1/2}l \rangle^{\frac{1}{2}} \langle S_jQ_j^{1/2}l, S_jQ_j^{1/2}l \rangle^{\frac{1}{2}} = $$ $$ = \sum\limits_{i=1}^n \langle l, Q_i l \rangle + \sum\limits_{i \ne j} \langle l, Q_il \rangle^{\frac{1}{2}} \langle l, Q_jl \rangle^{\frac{1}{2}} = \left( \sum\limits_{i=1}^n \langle l, Q_i l \rangle^{\frac{1}{2}} \right)^2 = $$ $$ = \rho^2(l~\mid~\E_1 + \ldots + \E_n) \sqq \E_- \subseteq \E_1 + \ldots + \E_n. $$
+
+Равенство при этом достигается при $S_iQ_i^{\frac{1}{2}}l = \lm_iS_1Q_1^{\frac{1}{2}}l, \: \lm_i > 0, \quad \forall i = \overline{1,n}$.
+
+2) Рассмотрим опорную функцию множества $\E_+$:
+
+$$ \rho^2(l~\mid~\E_+) = \sum\limits_{i=1}^n \langle l, Q_i l \rangle + \sum\limits_{i \ne j} \frac{p_i}{p_j}\langle l, Q_jl \rangle \ge $$ $$ \left\{ \frac{p_i}{p_j}\langle l, Q_jl \rangle + \frac{p_j}{p_i}\langle l, Q_il \rangle \ge 2\langle l, Q_jl \rangle^{\frac{1}{2}} \langle l, Q_il \rangle^{\frac{1}{2}} \right\} $$ $$ \ge \sum\limits_{i=1}^n \langle l, Q_i l \rangle + \sum\limits_{i \ne j}\langle l, Q_jl \rangle^{\frac{1}{2}} \langle l, Q_il \rangle^{\frac{1}{2}} = \left( \sum\limits_{i=1}^n \langle l, Q_i l \rangle^{\frac{1}{2}} \right)^2 = $$ $$ = \rho(l~\mid~\E_1 + \ldots + \E_n) \sqq \E_1 + \ldots + \E_n \subseteq \E_+.$$
+
+Равенство при этом достигается при $p_i = \langle l, Q_i l \rangle^{\frac{1}{2}}.  \qquad \Box$
+
+\bk
+\noindent
+{\bf Замечание:} В случае ненулевых центров исходных эллипсоидов $q_i$ центры обеих оценок будут совпадать и находятся по формуле $\sum\limits_{i=1}^n q_i$.
+
+\begin{definition}
+    {\bf Геометрической разностью} двух множеств ${A, B \subset\mathbb R^n}$ называется
+    множество всех векторов ${A\dot-B} = \left\{x \in \dimR^n ~\mid~ \forall b \in B \quad x + b \in A \right\}$.
+\end{definition}
+
+Опорная функция геометрицеской разности множеств равна
+овыпукленной разности опорных функций исходных множеств.
+(Овыпукленная функция является меньше исходной, при этом среди
+всех выпуклых функций меньших исходной она является максимальной).
+$$\rho(l~|~A\dot-B) = conv(\rho(l~|~A) - \rho(l~|~B)).$$
+
+Геометрическая разность двух эллипсоидов может не быть
+эллипсоидом. Попробуем аппроксимировать геометрическую разность
+эллипсоидом.
+
+Пусть даны эллипсодиы ${\mathcal E_1(q_1, Q_1)}$ и ${\mathcal
+E_2(q_2, Q_2)}$. Центр аппроксимирующего эллипсоида будет равен
+${q_- = q_1 - q_2}$. Для внутренней оценки будем искать матрицу в
+виде
+$${Q_- = (p_1 - p_2)\left(\frac1{p_1}Q_1 -
+\frac1{p_2}Q_2\right).}$$
+
+$$(\rho(l~|\mathcal E_-)
+- \left<l, q_-\right>)^2 = \left<l, Q_-l\right> = \left<l,
+Q_1l\right> + \left<l, Q_2l\right> - \frac{p_2}{p_1}\left<l,
+Q_1l\right> - \frac{p_1}{p_2}\left<l, Q_2l\right>\le $$
+$$\le\left<l, Q_1l\right> + \left<l, Q_2l\right> - 2\left<l,
+Q_1l\right>^{1/2}\left<l, Q_2l\right>^{1/2} =$$
+$$ = (\left<l, Q_1l\right>^{1/2} - \left<l, Q_2l\right>^{1/2} )^2=
+(\rho(l~|~\mathcal E_1) - \rho(l~|~\mathcal E_2) - \left<l, q_1 -
+q_2\right>)^2 \Rightarrow$$
+$$\Rightarrow\rho(l~|~\mathcal E_-) \le (\rho(l~|~\mathcal E_1) - \rho(l~|~\mathcal E_2))$$
+
+При переходе к неравенству воспользовались тем, что среднее
+арифметическое больше или равно среднего геометрического.
+Равенство достигается, при ${p_i = \left<l, Q_il\right>^{1/2}}$.
+
+Мы получили, что ${\rho(l~|~\mathcal E_-)}$ является выпуклой
+функцией меньше или равной чем $(\rho(l~|~\mathcal E_1) -
+\rho(l~|~\mathcal E_2))$, а $conv(\rho(l~|~\mathcal E_1) -
+\rho(l~|~\mathcal E_2))$ является максимальной выпуклой функцией
+меньше исходной, следовательно
+$$\rho(l~|~\mathcal E_-) \le conv(\rho(l~|~\mathcal E_1) - \rho(l~|~\mathcal E_2) = \rho(l~|~\mathcal E_1 \dot - \mathcal E_2).$$
+
+%$$ = (\rho(l~|~\mathcal E_1\dot-\mathcal E_2)-
+%\left<l, q_1 - q_2\right>)^2.$$
+
+Для внешней оценки выберем матрицу $${Q_+ = Q_*^TQ_*}$$$$Q_* =
+S_1Q_1^{1/2} - S_2Q_2^{1/2},$$ где $S_i$ --- ортогональные
+матрицы. В таком случае получим
+$$(\rho(l~|\mathcal E_+) - \left<l, q_-\right>)^2  = \left<l, Q_+l\right> = \left<l, Q_1l\right> - 2\left<S_1Q_1^{1/2}l, S_2Q_2^{1/2}l\right> + \left<l, Q_2l\right>\ge$$
+$$\ge\left<l, Q_1l\right> - 2||S_1Q_1^{1/2}l||\cdot||S_2Q_2^{1/2}l|| + \left<l, Q_2l\right>=$$
+$$ = \left<l, Q_1l\right> - 2\sqrt{\left<l, Q_1^{1/2}S_1^TS_1Q_1^{1/2}l\right>\cdot\left<l, Q_2^{1/2}S_2^TS_2Q_2^{1/2}l\right>}+ \left<l, Q_2l\right> =$$
+$$=(\rho(l~|~\mathcal E_1) - \rho(l~|~\mathcal E_2) - \left<l, q_1 - q_2\right>)^2 \ge (conv\{\rho(l~|~\mathcal
+E_1) - \rho(l~|~\mathcal E_2)\} - \left<l, q_1 - q_2\right>)^2
+=$$$$ = (\rho(l~|~\mathcal E_1\dot-\mathcal E_2) - \left<l, q_1 -
+q_2\right>)^2.$$
+
+Первое неравенство является неравенством Коши-Буняковского, а в
+последнем неравенстве воспользовались тем, что овыпукленная
+функция меньше исходной.
+
+Т.е. получили две оценки исходного множества, удовлетворяющие
+вложенности $${\mathcal E_- \subseteq \mathcal E_1 \dot-\mathcal
+E_2\subseteq \mathcal E_+}$$
+
+
+
+
+
+
+\begin{definition}
+    {\bf Полурасстоянием Хаусдорфа} между двумя множествами $A$, $B$
+    называют $${h_+(A, B) = \inf\{\varepsilon:A\subseteq B +
+    B_\varepsilon(0)\}};$$ $${h_-(A, B) = h_+(B, A)}.$$
+\end{definition}
+
+\bg{definition}
+{\bf Расстоянием по Хаусдорфу} называют $${h(A, B) = \max(h_-, h_+)}.$$
+\end{definition}
+
+\bg{definition}
+{\bf Множеством достижимости} системы (\ref{orig_sys}) называется множество
+$$ \XX[t_1,t_0,\XX_0] = \left\{ x_1 \mid \exists u(\cdot): \forall v(\cdot): \exists x_0: x(t_1,t_0,x_0)=x_1\right\}. $$
+\end{definition}
+
+
+\bk
+
+Множество достижимости системы (\ref{orig_sys})удовлетворяет следующим {\bf эволюционным уравнениям}:
+
+$$\lim_{\sigma\rightarrow0}\sigma^{-1}h_+\left\{\XX[t+\sigma],\right.$$
+\bg{\eq}
+\left.((I+\sigma A(t))\XX[t] + \sigma B(t)\mathcal E(p(t), P(t)))\dot-\sigma(C(t)\mathcal E(-q(t), Q(t))\right\} = 0.
+\label{evol+}
+\end{\eq}
+
+
+$$\lim_{\sigma\rightarrow0}\sigma^{-1}h_-\left\{\XX[t+\sigma],\right.$$
+\bg{\eq}
+\left.((I+\sigma A(t))\XX[t] \dot-\sigma C(t)\mathcal E(-q(t), Q(t))) + \sigma B(t)\mathcal E(p(t), P(t))\right\} = 0.
+\label{evol-}
+\end{\eq}
+
+\bg{\eq}
+\XX_0 = \E(x_0, X_0).
+\label{evol_init}
+\end{\eq}
+
+\bg{theorem}
+Максимальное по включению решение задачи Коши (\ref{evol+}),(\ref{evol_init}) совпадает с минимальным по включению решением задачи Коши (\ref{evol-}),(\ref{evol_init}) и совпадает с искомым альтернированным интегралом Понтрягина $W[t]$ при условии его непустоты.
+\end{theorem}
+
+
+
+\subsection{Внутренние оценки множества достижимости}
+
+Для нахождения внутренней оценки множества достижимости воспользуемся задачей Коши (\ref{evol+}),(\ref{evol_init}). Обозначим внутреннюю оценку $\XX_-[t] = \E(x_-(t),X_-(t))$. Так как $W_-[t] \subseteq W[t]$, то в силу (\ref{evol+}) получаем
+
+$$\XX_-[t+\sigma] \subseteq \XX[t+\sg] \subseteq ((I+\sigma A(t))\XX[t] + \sigma B(t)\mathcal E(p(t), P(t)))\dot-$$$$\dot-\sigma C(t)\mathcal E(-q(t), Q(t)) + B_{\e}(0), \: \e = o(\sg).$$
+
+Из этого уравнения можно получить соотношение для нахождения внутренней оценки множества достижимости (которое уже не обязательно будет максимальным по включению):
+
+$$ \XX_-[t+\sigma] \subseteq ((I+\sigma A(t))\XX_-[t] + \sigma B(t)\mathcal E(p(t), P(t)))\dot-\sigma C(t)\mathcal E(-q(t), Q(t)).$$
+
+В итоге получаем:
+
+$$ \E(x_-(t+\sg),X_-(t+\sg)) \subseteq ((I+\sigma A(t))\E(x_-(t),X_-(t)) + \sigma B(t)\mathcal E(p(t), P(t)))\dot- $$
+\bg{\eq}
+\dot-\sigma C(t)\mathcal E(-q(t), Q(t)).
+\label{E-}
+\end{\eq}
+
+Теперь построим $\E(w_-(t-\sg),W_-(t-\sg))$ согласно способам, приведенным в утверждениях 2 и 4. Получим
+
+$$ \E(q_1(t),Q_1(t)) \:\mbox{--- оценка суммы первых двух слагаемых в правой части:}\: $$
+$$ q_1(t) = (I + \sg A(t))x_-(t) + \sg B(t) p(t), $$
+$$ Q_1(t) = Q_*^TQ_*, \:\mbox{где}\:$$
+$$ Q_* = X_-^{\fr}(I + \sg A(t)) + \sg S(t)P^\fr(t)B^T(t), \quad S(t) \:\mbox{--- ортогональная матрица.}\: $$
+
+Тогда
+
+\bg{\eq}
+w_-(t-\sg) = q_1(t) + \sg C(t) q(t);
+\label{x_centre}
+\end{\eq}
+
+\bg{\eq}
+X_-(t+\sg) = (1 - \dfrac{p_2(t)}{p_1(t)})\left( \frac{Q_1(t)} - \frac{p_1(t)}{p_2(t)}\sg^2 C(t)Q(t)C^T(t) \right).
+\label{X_matrix}
+\end{\eq}
+
+Разумно потребовать, чтобы аппроксимирующий эллипсоид касался множества достижимости в заданном направлении $l(t)$.Для этого необходимо потребовать выполнение следующих условий:
+
+\bg{\eq}
+\sigma S P^\fr B^T l = \lambda X_-^\fr(t)(I + \sigma A^T(t))l, \quad \lm > 0;
+\end{\eq}
+
+\bg{\eq}
+\bg{array}{l}
+p_1 = \langle l, Q_1 l \rangle^\fr,\\
+p_2 = \sg \langle l, CQC^T l \rangle^\fr.
+\end{array}
+\end{\eq}
+
+Фиксируем направление $l(t+\sg)$, в котором оценка $\E(x_-(t+\sg),X_-(t+\sg))$ будет касаться точного множества $\XX[t+\sg]$. Получим
+
+\bg{\eq}
+S(t) P(t)^\fr B^T(t) l(t+\sg) = \mu_\sg(t) X_-^\fr(t)(I + \sigma A^T(t))l(t+\sg), \quad \mu_\sg(t) = \frac{\lm(t)}{\sg};
+\label{cond1}
+\end{\eq}
+
+$$ \:\mbox{Здесь}\: \lm(t) = \frac{\sg\left\| S(t) P(t)^\fr B^T(t) l(t+\sg) \right\|}{\left\| X_-^\fr(t)(I + \sigma A^T(t)) l(t+\sg) \right\|}. $$
+
+\bg{\eq}
+\bg{array}{l}
+p_1 = \langle l(t+\sg), Q_1(t) l(t+\sg) \rangle^\fr,\\
+p_2 = \sg \langle l(t+\sg), C(t)Q(t)C^T(t) l(t+\sg) \rangle^\fr.
+\end{array}
+\label{cond2}
+\end{\eq}
+
+Обозначая $\frac{p_2(t)}{p_1(t)} = \sg \pi_\sg(t)$ и преобразовывая, получаем:
+
+\bg{\eq}
+\dot x_-(t) = A(t)w_-(t) + \sg B(t) p(t) + \sg C(t) q(t),\\
+x_-(t_0) = x_0;
+\end{\eq}
+
+\bg{\eq}
+\bg{array}{r}
+\dot X_-(t) = A(t)X_-(t) + X_-(t)A^T(t) + \pi(t) X_-(t) + \pi^{-1}(t)C(t)Q(t)C^T(t) + \\
++ X_-^\fr(t)S(t)P^\fr(t) B^T(t) + B(t)P^\fr(t)S^T(t)X_-^\fr(t),\\
+X_-(t_0) = X_0.
+\end{array}
+\label{evolX-}
+\end{\eq}
+
+Матрица $S(t)$ при этом находится из уравнения
+
+\bg{\eq}
+S(t) P(t)^\fr B^T(t) l(t) = \mu(t) X_-^\fr(t)l(t), \quad \mu(t) = \lim\limits_{\sg \ra 0} \mu_\sg(t).
+\end{\eq}
+Пусть $ Sx=\lm y $. Тогда представим $x, y$ в виде $x=U_1e_1V_1, y=U_2e_2V_2,$ где $U_1,U_2$-унитарные матрицы, $e_1,e_2$~--вектора, $V_1,V_2$~-- скаляры. Тогда $S=U_2U_1$.  
+
+\bg{\eq}
+\pi(t) = \lim\limits_{\sg \ra 0} \pi_\sg(t) = \frac{\langle l(t), C(t)Q(t)C^T(t) l(t) \rangle^\fr}{\langle l(t), X_-(t) l(t) \rangle^\fr},
+\end{\eq}
+
+\noindent
+так как $Q_1(t) \ra X_-(t)$ при $\sg \ra 0$, что следует из построения $Q_1(t)$.
+
+\bk
+
+\bk
+
+Построим уравнение динамики кривой $l(t)$. Предположим, что аппроксимация $X_-[t+\sg]$ касается точного множества $X[t+\sg]$ вдоль направления $l(t+\sg)$. Значит
+
+$$ \rho(l(t + \sigma)~\mid~X_-[t+\sigma]) = \rho(l(t+\sigma)~\mid~\XX[t+\sigma]) = $$ $$ = \rho(l(t+\sg)~\mid~(I+\sigma A(t))\XX[t] + \sigma B(t)\mathcal E(p(t), P(t))\dot-\sigma C(t)\mathcal E(-q(t), Q(t)))$$
+
+\noindent
+с точностью до $o(\sg)$.
+
+Для внутренней оценки имеем
+$$\rho(l(t + \sigma)~\mid~X_-[t+\sigma]) \le \\$$
+$$\le \rho(l(t+\sg)~\mid~(I+\sigma A(t))X_-[t] + \sigma B(t)\mathcal E(p(t), P(t))) - $$
+\bg{\eq}
+- \rho(l(t+\sg)~\mid~\sigma C(t)\mathcal E(q(t), Q(t)))
+\label{rho}
+\end{\eq}
+
+Известно, что
+\bg{\eq}
+\rho(l~\mid~A\dot-B) = conv(\rho(l~\mid~A) - \rho(l~\mid~B)) \le \rho(l~\mid~A) - \rho(l~\mid~B).
+\end{\eq}
+
+Равенство в (\ref{rho}) достигается в том и только том случае, когда $h(l(t+\sg)) \equiv (conv \quad h)(l(t+\sg))$, где
+$$ h(l(t+\sg)) = \rho(l(t+\sg)~\mid~(I+\sigma A(t))X_-[t] + \sigma B(t)\mathcal E(-p(t), P(t))) - $$ $$ - \rho(l(t+\sg)~\mid~\sigma C(t)\mathcal E(-q(t), Q(t))). $$
+
+Если же это не выполняется, то внутренняя оценка множества будет вырождаться. Значит, внутренняя оценка существует не всегда.
+
+Найдем зависимость для $l(t)$ такую, чтобы вдоль нее осуществлялось касание. Действуем ''по индукции''. Пусть в момент $t_0$ выполнено $\rho(l_0\mid X_-(t_0)=\rho(l_0\mid \XX(t_0))$.
+Тогда положим, что в некоторый момент $t$ также обеспечивается касание и $\rho(l(t)\mid X_(t))=\rho(l(t)\mid \XX(t))$. Из эволюционного уравнения находим, что $\XX(t+\sg)=(I + \sg A(t))\XX(t) + \ldots$. Тогда, находя опорную функцию $\rho(l(t+\sg)\mid \XX(t+\sg)) = \rho( l(t+\sg)\mid (I + \sg A(t))\XX(t)) + \rho(l(t+\sg)\mid (\ldots))$, заметим, что поскольку $\rho(l(t)\mid X_(t))=\rho(l(t)\mid \XX(t)$, то $\rho( (I+\sg A^T(t)l(t+\sg)\mid \XX(t))=\rho(l(t)\mid \XX(t))$, тогда находим, что 
+$$ (I+\sg A^T(t))l(t+\sg)=l(t), $$ откуда следует 
+$$ \frac{dl}{dt}(t)=-A^T(t), l(t_0)=l_0. $$ 
+
+\bk
+
+Тогда при условии выполнения $h(l(t+\sg))=(conv h)(l(t+\sg))$ будут существовать ''тугие'' эллипсоидальные оценки.
+
+
+\subsection{Внешние оценки множества достижимости}
+
+Построения внешней эллипсоидальной оценки множества разрешимости проводится аналогично внутренней. Для этого воспользуемся уже задачей Коши (\ref{evol-}),(\ref{evol_init}):
+
+\bg{\eq}
+\dot x_+(t) = A(t)x_+(t) + \sg B(t) p(t) + \sg C(t) q(t),\\
+x_+(t_0) = x_0;
+\end{\eq}
+
+\bg{\eq}
+\bg{array}{r}
+\dot X_+(t) = A(t)X_+(t) + X_+(t)A^T(t) + \pi(t) X_+(t) + \pi^{-1}(t)B(t)P(t)B^T(t) - \\
+- X_+^\fr(t)S(t)Q^\fr(t) C^T(t) - C(t)Q^\fr(t)S^T(t)X_+^\fr(t),\\
+X_+(t_0) = X_0.
+\end{array}
+\label{evolX+}
+\end{\eq}
+
+Матрица $S(t)$ при этом находится из уравнения
+
+\bg{\eq}
+S(t) Q(t)^\fr C^T(t) l(t) = \mu(t) X_+^\fr(t)l(t), \quad \mu(t) = \frac{\left\| X_+^\fr(t) l(t) \right\|}{\left\| S(t)Q^\fr(t)C(t) l(t) \right\|}.
+\end{\eq}
+
+\bg{\eq}
+\pi(t) = \frac{\langle l(t), B(t)P(t)B^T(t) l(t) \rangle^\fr}{\langle l(t), X_+(t) l(t) \rangle^\fr},
+\end{\eq}
+
+Обозначим, аналогично предыдущему пункту,
+
+$$ h(l(t+\sg)) = \rho(l(t+\sg)~\mid~(I+\sigma A(t))X_+[t] + \sigma B(t)\mathcal E(p(t), P(t))) - $$ $$ - \rho(l(t+\sg)~\mid~\sigma C(t)\mathcal E(-q(t), Q(t))). $$
+
+Тогда при выполнении условия $(conv \quad h)(l(t+\sg)) = h(l(t+\sg))$ касание внешней аппроксимации и реального множества происходит вдоль \glqq хорошей \grqq кривой $l^*(t)$, являющейся решением задачи Коши
+
+\bg{\eq}
+\left\{\bg{array}{l}
+\dot l^*(t) = -A^T(t)l^*(t)\\
+l^*(t_0) = l_0.
+\end{array} \right.
+\end{\eq}
+
+Если наложенное выше условие не выполняется, внешняя оценка может вырождаться.
+
+{\bf Замечание:}
+
+В уравнениях как для внутренних, так и для внешних оценок присутствуют функции $\pi(t)$ и $\pi^{-1}(t)$, которые могут обратиться в нуль. Для избежания этого необходимо изменить входные параметры системы.
+Можно, например, поставить на главной диагонали достаточно маленькие значения, что не исказит результат, но уберет вырожденность. 
+
+\section{Иллюстрация работы программы}
+Рассмотрена модель механической колебательной системы в вязкой среде с возвратной силой:
+\begin{equation}
+\left\{
+\begin{aligned}
+m_1\ddot{y}_1(t) &= -(k_1+k_2)y_1(t)+k_2y_2(t)-\mu_1 \dot{y}_1(t)-v_1y_1(t)\\
+m_2\ddot{y}_2(t) &= k_2y_1(t)-(k_2+k_3)y_2(t)+k_3y_3(t)-\mu_2 \dot{y}_2(t)-v_2y_2(t)\\
+\cdots\\
+m_{N-1}\ddot{y}_{N-1}(t) &= k_{N-1}y_{N-2}(t)-(k_{N-1}+k_N)y_{N-1}(t)+k_Ny_N(t)-\mu_{N-1}\dot{y}_{N-1}(t)-v_{N-1}y_{N-1}(t)\\
+m_N\ddot{y}_N(t) &= -k_Ny_{N-1}(t)+k_Ny_N(t)-\mu_N\dot{y}_N(t)-v_Ny_N(t)+u(t)\\
+\end{aligned}
+\right.
+\label{eq:task_sys}
+\end{equation}
+
+Размерность механической системы --~$\mathbb{R}^4$, соответственно для  матрицы уравнений будет 8 фазовых переменных. 
+Коэффициенты $k_i, \mu_i, v_i$ вычисляются по формуле $0.4\cdot rand(0,1) + 0.6$.
+Неопределенность, накладывается только на координаты скорости, то есть на первые 4 фазовые переменные, первые производные.
+
+\labimage{8static}{10}{Проекция на статическую плоскость, 8 эллипсоидов, внешняя, внутренняя оценка}{pic:static}
+\labtwinimage{8dynamic_ea}{8dynamic_ia}{7}{Проекция на динамическую плоскость,внешняя и внутренняя оценка}{pic:dynamic}
+\labimage{3d_ea}{10}{Проекция в 3D, внешняя оценка}{pic:3d}
+
+Из иллюстраций можно заметить, что внутренние оценки вырождаются в какой-то момент времени. Это происходит из-за того, что $h(l)$  не совпадает со своим овыпуклением.
+
+\section{Выводы}
+Рассмотренный в работе аппарат эллипсоидальных оценок позволяет строить аппроксимации множества достижимости для систем линейных дифференциальных уравнений с 
+эллипсоидальными ограничениями на управление и на помеху. Множество достижимости в данном случае получается в классе позиционных управлений $u(t,x)$. Помимо, замечены некоторые особенности алгоритма внутренних оценок, состоящие в том, что они в некоторый момент времени вырождаются, когда попадают в область ''плохих направлений''.
+
+
+
+
+\end{document}  
