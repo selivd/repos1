@@ -9,10 +9,17 @@ hold on;
 
 ell=(i./max(i)).^2;
 ell=1;
-u=[-0.4,0,0.4,-1,1];
+u=[-0.4,0,0.1,1];
 
-V=FValueFun(Q0,sig1,sig2,0.4,u(1),u(5));
-tt=-4:0.01:4;
+tt=-4:0.02:4;
+for i=1:5
+    Z=findZZ(ell,sig1,sig2,u(i));
+    yy=Z(tt);
+    plot(tt,yy);
+end;
+
+V=FValueFun(Q0,sig1,sig2,0.4,u(5),u(1));
+tt=-4:0.02:4;
 X=tt;
 Y=tt;
 Z=[];CC=[];

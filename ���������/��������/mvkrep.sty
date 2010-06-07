@@ -1,0 +1,69 @@
+\@addtoreset{equation}{section}
+\renewcommand{\thesection}{\arabic{section}.}
+\renewcommand{\thesubsection}{\thesection\arabic{subsection}}
+\renewcommand{\theequation}{\thesection\arabic{equation}}
+\newcommand{\eref}[1]{(\ref{#1})}
+\newtheorem{propose}{Утверждение}
+\newcommand{\pref}[1]{{\bf Утв. \ref{#1}}}
+\renewcommand{\thepropose}{\arabic{propose}.}
+\newtheorem{define}{Определение}
+\newcommand{\dref}[1]{{\bf Опр. \ref{#1}}}
+\renewcommand{\thedefine}{\arabic{define}.}
+\newcommand{\pcite}[2]{\cite[стр. #2]{#1}}
+\newcommand{\sref}[1]{{\bf разд. \ref{#1}}}
+\renewcommand{\figurename}{{bf Рис.}}
+\newcommand{\fref}[1]{{(см. \bfРис. \ref{#1}})}
+\renewcommand{\@makecaption}[2]{%
+\vspace{\abovecaptionskip}%
+\sbox{\@tempboxa}{{\scriptsize {\bf#1.} #2}}
+\ifdim \wd\@tempboxa >\hsize
+{\scriptsize {\bf#1.} #2\par}
+\else
+\global\@minipagefalse
+\hbox to \hsize {\hfil {\scriptsize {\bf#1.} #2}\hfil}%
+\fi
+\vspace{\belowcaptionskip}}
+\newcommand{\labform}[2]{\begin{equation} #1 \label{#2} \end{equation}}
+\newcommand{\form}[1]{\begin{equation} #1 \end{equation}}
+\newcommand{\labdefn}[2]{\begin{define} #1 \label{#2} \end{define}}
+\newcommand{\defn}[1]{\begin{define} #1 \end{define}}
+\newcommand{\labprop}[2]{\begin{propose} #1 \label{#2} \end{propose}}
+\newcommand{\prop}[1]{\begin{propose} #1 \end{propose}}
+\newcommand{\authlabdefn}[3]{\begin{define}[#1] #2 \label{#3} \end{define}}
+\newcommand{\authdefn}[2]{\begin{define}[#1] #2 \end{define}}
+\newcommand{\authlabprop}[3]{\begin{propose}[#1] #2 \label{#3} \end{propose}}
+\newcommand{\authprop}[2]{\begin{propose}[#1] #2 \end{propose}}
+\newcommand{\labimage}[4]{\begin{figure}[htbp!]%
+\centerline{\includegraphics[width=#2cm]{#1}}\caption{#3}\label{#4}%
+\end{figure}}
+\newcommand{\image}[3]{\begin{figure}[h]%
+\centerline{\includegraphics[width=#2cm]{#1}}\caption{#3}\end{figure}}
+\newcommand{\labtwinimage}[5]{\begin{figure}[htbp!]%         
+\centerline{\includegraphics[width=#3cm]{#1}\hspace{1cm} %
+\includegraphics[width=#3cm]{#2}}\vspace{1cm}\caption{#4}\label{#5}%
+\end{figure}}
+\newcommand{\twinimage}[4]{\begin{figure}[h]%
+\centerline{\includegraphics[width=#3cm]{#1}\hspace{1cm} %
+\includegraphics[width=#3cm]{#2}}\vspace{1cm}\caption{#4}\end{figure}}
+\newcommand{\labtripleimage}[6]{\begin{figure}[h]%
+\centerline{\includegraphics[width=#4cm]{#1}\hspace{1cm} %
+\includegraphics[width=#4cm]{#2}}\vspace{1cm}
+\centerline{\includegraphics[width=#4cm]{#3}}\vspace{1cm}\caption{#5}%
+\label{#6}\end{figure}}
+\newcommand{\tripleimage}[6]{\begin{figure}[h]%
+\centerline{\includegraphics[width=#4cm]{#1}\hspace{1cm} %
+\includegraphics[width=#4cm]{#2}}\vspace{1cm}
+\centerline{\includegraphics[width=#4cm]{#3}}\vspace{1cm}\caption{#5}%
+\end{figure}}
+\newcommand{\labsection}[2]{\section{#1}\label{#2}}
+\newcommand{\labsubsection}[2]{\subsection{#1}\label{#2}}
+\newcommand{\labsubsubsection}[2]{\subsubsection{#1}\label{#2}}
+\newcommand{\fiximage}{\vspace*{0.01cm}}
+\unitlength=1mm
+\textwidth=15.5cm
+\textheight=23cm
+\oddsidemargin=0cm
+\topmargin=0cm
+\binoppenalty=10000
+\relpenalty=10000
+\righthyphenmin=2

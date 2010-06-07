@@ -1,0 +1,263 @@
+\documentclass[a4paper,12pt]{article}
+%\usepackage[T2A]{fontenc} % это для русского языка
+%\usepackage{pscyr}
+\usepackage{cmap} % Для поиска в пдф
+\usepackage[cp1251]{inputenc}
+%\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel} % для переносов
+\usepackage{mvkrep}
+\usepackage[dvips]{graphicx}
+\graphicspath{{/}}
+\usepackage{amssymb,amsmath}
+\usepackage{geometry}
+\usepackage[usenames]{color} % для выделения слов разными цветами в тексте
+%\usepackage{afterpage}
+%\usepackage{mathtext} % это если нужны русские буквы в формулах
+
+
+
+\geometry{a4paper,top=2cm,bottom=2cm,left=2cm,right=2cm}
+\renewcommand{\refname}{Список литературы}
+\renewcommand{\contentsname}{Оглавление}
+\renewcommand{\figurename}{Рисунок}
+%\renewcommand{\proofname}{Доказательство.}
+
+\newcommand{\cmnt}[1]{}%{\color{blue}\bf #1}}
+\newcommand{\bigcmnt}[1]{ {  \cmnt{ Комментарий.}} #1 { \cmnt{Конец комментария.}} }
+\newcommand{\chk}{\color{red} проверить}
+\newcommand{\ts}[1]{\left\langle #1 \right\rangle}
+\newcommand{\intd}[2]{ \int\limits_{#1}^{#2} }
+\newcommand{\supfn}[2]{ \rho\left( #1 \mid #2 \right)}
+\newcommand{\supfnl}[1]{ \supfn{\ell}{#1}}
+\newcommand{\conv}{\mathrm{conv}}
+\newcommand{\norma}[1]{\mid #1 \mid}
+\newcommand{\nrm}[1]{\|#1\|}
+\newcommand{\rdim}[1]{\ensuremath{\mathbb{R}^{#1}}}
+\newcommand{\Ell}{\ensuremath{\mathcal{E}}}
+\newcommand{\ELL}[1]{\ensuremath{ \mathcal{E}(#1)}}
+\newcommand{\XX}{\ensuremath{ \mathcal{X}} }
+\newcommand{\PP}{\ensuremath{ \mathcal{P}} }
+\newcommand{\CC}{\ensuremath{ \mathcal{C}} }
+\newcommand{\VV}{\ensuremath{ \mathcal{V}} }
+\newcommand{\QQ}{\ensuremath{ \mathcal{Q}} }
+%\newcommand{\FileAndName}[1]{%\cmnt{ Файл #1.tex: } \input{#1}}
+\newcommand{\defref}[1]{(Опр.\ref{#1})}
+\newcommand{\picref}[1]{ рис.\ref{#1}}
+\newcommand{\epicref}[1]{ (Рис.\ref{#1})}
+\newcommand{\mycite}[1]{ \cite{#1} }
+\newcommand{\frach}{\ensuremath{\frac{1}{2}}}
+\newcommand{\defeq}{\overset{def}=}
+\newcommand{\dpart}[2]{\frac{\partial {#1}}{\partial {#2}}}
+
+\begin{document}
+
+%\newcommand{\grad}{\bigtriangledown}
+%\markright{\underline{Оглавление}}
+
+\input{title}
+
+%\tableofcontents
+
+
+\section{Постановка задачи}
+
+{\bf \large I}
+\noindent
+Рассматривается стационарное уравнение 
+\begin{equation}
+\mathcal{A}C(\cdot)+f(x)=0,
+\label{eq:task1}
+\end{equation}
+в области 
+\begin{equation}
+x\in \Omega = \{-\infty < x < \infty\}
+\label{eq:task1Dx}
+\end{equation}
+
+с граничными условиями
+\begin{equation}
+C(t,x)\mid_{x\to\pm\infty}\to 0.
+\label{eq:task1cond}
+\end{equation}
+
+Здесь 
+$$ \mathcal{A}=\dpart{}{x}\left(K\dpart{}{x}\right)+u\dpart{}{x}-\sigma(x),$$
+$$ K=const,\quad u=const,$$
+$$ f=Q\delta(x),$$
+$$ \sigma(x)=\left\{\begin{aligned} &1,\quad x\in I\\ &\epsilon,\quad x \notin I\\ \end{aligned}\right. $$
+$$I=[0,\ell]$$
+
+Необходимо найти функцию $C(x),$ удовлетворяющую уравнению \eqref{eq:task1}, условиям \eqref{eq:task1cond} в области \eqref{eq:task1Dx}.
+
+
+\noindent
+{\bf \large II}
+
+
+Рассматривается функционал 
+\labform{J(Q_1,Q_2)=C_1(x'')+C_2(x''),}{eq:task2}
+где $C_1,\:C_2$ есть решение задачи \eqref{eq:task1} со значениями $Q=Q_1,\:u=u_1>0$ и $Q=Q_2, u=u_2<0,$ и условие
+\labform{Q_1+Q_2\ge Q_0>0.}{eq:task2cond}
+Здесь $x''>0,\ell<\norma{x''}.$ Необходимо 
+\begin{enumerate}
+\item Найти $Q_i$, доставляющее минимум функционалу \eqref{eq:task2} при условии \eqref{eq:task2cond}.
+\item Вычислить функцию цены $V(x',x'')=\min_{Q_1,Q_2}\{J(Q_1,Q_2)\mid \eqref{eq:task2cond} \}.$
+\end{enumerate}
+
+
+\section{Теоретические обоснования}
+ 
+Необходимо решить уравнение \eqref{eq:task1} со следующими особенностями: 
+\begin{itemize}
+\item правая часть---$\delta$-функция
+\item коэффициент $\sigma(x)$ --- ступенчатая функция.
+\end{itemize}
+
+Приведем уравнение \eqref{eq:task1} к виду 
+$$
+C''(x)+\frac{u}{K}C'(x)-\frac{\sigma}{K}(x)C(x)=-\frac{Q}{K}\delta(x);
+$$
+и переобозначим коэффициенты как $\frac{u}{K}\rightsquigarrow \omega$, $\frac{\sigma}{K}\rightsquigarrow \{\sigma_1,\sigma_2\}$,\\$\frac{Q}{K}\rightsquigarrow \tilde{Q}$, где $\tilde{\sigma}(x)=\frac{\sigma}{K}=\sigma_1, x\in I$,$\frac{\sigma}{K}=\sigma_2, x\notin I$.
+
+\labform{Z''(x)+\omega Z'(x) - \tilde{\sigma}(x)Z(x)=-\tilde{Q}}{eq:task1eq}
+Поскольку функция $\sigma(x)$--ступенчатая, здесь уместно рассмотреть решение на каждом подынтервале непрерывности $\sigma(x).$ Рассмотрим эти подынтервалы:
+\begin{equation}
+\left\{
+\begin{aligned}
+ &Z_1''(x)+\omega Z_1'(x)-\sigma_2 Z_1(x)=-\tilde{Q}\delta(x),\quad x\in(-\infty,0)\\
+ &Z''_2(x)+\omega Z'_2(x)-\sigma_1 Z_2(x)=-\tilde{Q}\delta(x),\quad x\in [0,\ell]\\
+ &Z''_3(x)+\omega Z'_3(x)-\sigma_2 Z_3(x)=0,\quad x\in [\ell,\infty],\\
+ &Z(x)=Z_1(x)\cup Z_2(x) \cup Z_3(x),\\
+ &Z\in \mathcal C^1(-\infty,\infty).
+\end{aligned}
+\right.
+\end{equation}
+Мы обозначили переменной $Z(x)$ решение для $C(x)$.
+На каждом шаге мы получили простое дифференциальное уравенние второго порядка с постоянными  коэффициентами. Выпишем общее решение для каждого из этих уравнений.
+\begin{equation}
+\left\{
+\begin{aligned}
+ &Z_1(x)=C_1\exp^{\lambda_{11} x}+C_2\exp^{\lambda_{12} x}\\
+ &Z_2(x)=C_3\exp^{\lambda_{21} x}+C_4\exp^{\lambda_{22} x}\\
+ &Z_3(x)=C_5\exp^{\lambda_{11} x}+C_6\exp^{\lambda_{12} x}\\
+ &Z\in \mathcal C^1(-\infty,\infty).
+\end{aligned}
+\right.
+\end{equation}
+где 
+$$
+\begin{aligned}
+\lambda_{11}&=-\frac{\omega}{2}+\sqrt{\frac{\omega^2}{4}+\sigma_2}\le 0, \lambda_{12}=-\frac{\omega}{2}-\sqrt{\frac{\omega^2}{4}+\sigma_2}\ge 0\\
+\lambda_{21}&=-\frac{\omega}{2}+\sqrt{\frac{\omega^2}{4}+\sigma_1}\le 0, \lambda_{22}=-\frac{\omega}{2}-\sqrt{\frac{\omega^2}{4}+\sigma_1}\ge 0
+\end{aligned}
+$$
+Вспоминая условие \eqref{eq:task1cond}, из  $Z(x)\mid_{x\to -\infty}\to 0$ следует $C_2=0.$ Аналогично, для $Z_3(x)$ имеем $C_5=0$. Для произвольного $\ell\to \infty$ мы также справедливо требуем выполнения $Z(x)\to 0, x=\ell\to\infty\Rightarrow C_3=0$. Так как функция $Z(x)$-- непрерывная,то 
+$C_1=C_4$ и $C_1\exp^{\lambda_{22}\ell}=C_6\exp^{\lambda_{12}\ell}.$ Откуда находим $C_6=C_1\exp^{ (\lambda_{22}-\lambda_{12})\ell}.$ Тогда решения примут вид
+$$
+\left\{
+\begin{aligned}
+ &Z_1(x)=C_1\exp^{\lambda_{11} x}\\
+ &Z_2(x)=C_1\exp^{\lambda_{22} x}\\
+ &Z_3(x)=C_1\exp^{ (\lambda_{22}-\lambda_{12})\ell}\exp^{\lambda_{12} x}\\
+ &Z\in \mathcal C^1(-\infty,\infty).
+\end{aligned}
+\right.
+$$
+Осталось найти $C_1$. 
+
+Рассмотрим теперь уравнение с правой частью. Возьмем некоторое $\epsilon>0,\epsilon\to 0$ и проинтегрируем
+уравнение \eqref{eq:task1eq}
+$$
+\intd{x-\epsilon}{x+\epsilon} Z''(x) + \omega(Z\mid^{x+\epsilon}_{x-\epsilon}-\epsilon(\sigma_1(Z(x+\epsilon)-Z(x))+\sigma_2(Z(x)-Z(x-\epsilon)))=-\tilde{Q},
+$$
+получим
+$$
+Z_2'(x+0)-Z_1'(x-0)=-\tilde{Q}
+$$
+
+и тогда приходим к
+$$C_1(\lambda_{22}-\lambda_{11})=-\tilde{Q},$$
+откуда 
+$$
+C_1=\dfrac{Q}{\sqrt{\frac{u^2}{4}+4K\sigma_1}+\sqrt{\frac{u^2}{4}+4K\sigma_2}}
+$$
+Общий множитель $Q$ можно вынести из $Z_1(x),Z_2(x),Z_3(x)$.
+Запишем решение
+\begin{equation}
+C(x)=\dfrac{Q}{\sqrt{\frac{u^2}{4}+4K\sigma_1}+\sqrt{\frac{u^2}{4}+4K\sigma_2}}\cdot
+\left\{
+\begin{aligned}
+ &\exp^{(-\frac{u}{2K}+\sqrt{\frac{u^2}{4K^2}+\sigma_2}) x},\quad x\in(-infty,0)\\
+ &\exp^{(-\frac{u}{2K}-\sqrt{\frac{u^2}{4K^2}+\sigma_1}) x},\quad x\in[0,\ell]\\
+ &\exp^{ (\sqrt{\frac{u^2}{4K^2}+\sigma_2}-\sqrt{\frac{u^2}{4K^2}+\sigma_1})\ell}\exp^{(-\frac{u}{2K}-\sqrt{\frac{u^2}{4K^2}+\sigma_2}) x},\quad x\in(\ell,\infty)\\
+\end{aligned}
+\right.
+\label{eq:solve}
+\end{equation}
+$$
+=Q*\tilde{Z}(x)
+$$
+
+\section{Функция цены}
+
+
+Рассматривается функционал 
+\labform{J(Q_1,Q_2)=C_1(x'')+C_2(x''),}{eq:task22}
+где $C_1,\:C_2$ есть решение задачи \eqref{eq:task1} со значениями $Q=Q_1,\:u=u_1>0$ и $Q=Q_2, u=u_2<0,$ и условие
+\labform{Q_1+Q_2\ge Q_0>0.}{eq:task22cond}
+Здесь $x''>0,\ell<\norma{x''}.$ Необходимо 
+\begin{enumerate}
+\item Найти $Q_i$, доставляющее минимум функционалу \eqref{eq:task22} при условии \eqref{eq:task22cond}.
+\item Вычислить функцию цены $V(x',x'')=\min_{Q_1,Q_2}\{J(Q_1,Q_2)\mid \eqref{eq:task2cond} \}.$
+\end{enumerate}
+
+Поскольку полученное решение \eqref{eq:solve} представимо в виде
+$$
+C_i(x)=Q_i*\tilde{Z}(x,u_i)
+$$
+
+то задача \eqref{eq:task22} и вычисление функция цены  сводится к задаче линейного программирования.
+Действительно, для минимизации \eqref{eq:task22} имеем условия
+$b^T=[Z(x'',u_1), Z(x'',u_2)]$, $A^T=[1 1]$, $u^T=[Q_1,Q_2]$  и постановка задачи линейного программирования запишется как
+\begin{equation}
+\left\{
+\begin{aligned}
+&b^Tu\to \min\\
+&A^Tu\ge Q_0\\
+&u\ge 0\\
+\end{aligned}
+\right.
+\label{eq:lin}
+\end{equation}
+
+Для функции цены $V(x',x'')=\min_{Q_1,Q_2}\{J(Q_1,Q_2)\mid \eqref{eq:task2cond} \}$ постановка отличается только выражением $b^T=[Z(x',u_1), Z(x'',u_2)].$
+Для двумерной задачи решение находится просто.
+Пусть $Q_2=Q_0-Q_1+x,x\ge0.$ Тогда ищем $Q_1\le 0:(b_1-b_2)Q_1+b_2x+b_2Q_0 \to \min.$ Поскольку всегда выполнено $b_2\ge 0,$ то выбор оптимального набора $\{Q_1,Q_2\}$ определяется знаком $(b_1-b_2).$
+
+Таким образом наша задача решена.
+
+\section{Численный эксперимент}
+Реализация алгоритмов была выполнена в среде Matlab 7.8. Произведено вычисление функции цены задачи \eqref{eq:task22} с параметрами системы 
+$$
+\begin{aligned}
+&K=1,Q_0=1, \\
+&\sigma(x) = \left\{\begin{aligned} &\sigma_1=1, x\in I \\&\sigma_2=0.1,x\notin I\\ \end{aligned}\right.,\\  &\ell=0.4\\
+&x\in [-4,4]
+\end{aligned}
+$$
+что проиллюстрировано на \picref{Vx1x2}
+
+\labimage{vx1x2}{12}{Поверхность уровней функции цены для задачи \eqref{eq:task22}}{Vx1x2} 
+
+Решение задачи \eqref{eq:task1} при различных параметрах ветра $u$ проиллюстрировано на \picref{Cxu}
+
+\labimage{Cxu}{12}{Распределение концентрации при различных параметрах ветра $u$}{Cxu}
+\section{Заключение}
+Проведенное в данной работе исследование уравнений, описывающих распространение аэрозолей в атмосфере позволяет наглядно оценить некоторые характерные особенности данного процесса. Кроме этого Была найдена стратегия, минимизирующая концентрацию вещества в заданных точках, что позволяет проанализировать зависимости допустимой концентрации вещества и близости источников выброса. Хотя было рассмотрено достаточно простая модель, тем не меннее, опыт такого анализа вполне можно применить для более сложных моделей.
+
+
+\begin{thebibliography}{9}
+\bibitem{OKR}{А.Б.~Куржанский} Лекции по математическим моделям окружающей среды. 
+\end{thebibliography}
+\end{document} 
+
