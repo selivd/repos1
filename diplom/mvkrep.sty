@@ -13,16 +13,16 @@
 \newcommand{\sref}[1]{{\bf разд. \ref{#1}}}
 \renewcommand{\figurename}{{bf –ис.}}
 \newcommand{\fref}[1]{{(см. \bf–ис. \ref{#1}})}
-\renewcommand{\@makecaption}[2]{%
-\vspace{\abovecaptionskip}%
-\sbox{\@tempboxa}{{\scriptsize {\bf#1.} #2}}
-\ifdim \wd\@tempboxa >\hsize
-{\scriptsize {\bf#1.} #2\par}
-\else
-\global\@minipagefalse
-\hbox to \hsize {\hfil {\scriptsize {\bf#1.} #2}\hfil}%
-\fi
-\vspace{\belowcaptionskip}}
+%\renewcommand{\@makecaption}[2]{%
+%\vspace{\abovecaptionskip}%
+%\sbox{\@tempboxa}{{\scriptsize {\bf#1.} #2}}
+%\ifdim \wd\@tempboxa >\hsize
+%{\scriptsize {\bf#1.} #2\par}
+%\else
+%\global\@minipagefalse
+%\hbox to \hsize {\hfil {\scriptsize {\bf#1.} #2}\hfil}%
+%\fi
+%\vspace{\belowcaptionskip}}
 \newcommand{\labform}[2]{\begin{equation} #1 \label{#2} \end{equation}}
 \newcommand{\form}[1]{\begin{equation} #1 \end{equation}}
 \newcommand{\labdefn}[2]{\begin{define} #1 \label{#2} \end{define}}
@@ -60,10 +60,10 @@
 \newcommand{\labsubsubsection}[2]{\subsubsection{#1}\label{#2}}
 \newcommand{\fiximage}{\vspace*{0.01cm}}
 \unitlength=1mm
-\textwidth=15.5cm
-\textheight=23cm
-\oddsidemargin=0cm
-\topmargin=0cm
-\binoppenalty=10000
-\relpenalty=10000
-\righthyphenmin=2
+%\textwidth=15.5cm
+%\textheight=23cm
+%\oddsidemargin=0cm
+%\topmargin=0cm
+%\binoppenalty=10000
+%\relpenalty=10000
+%\righthyphenmin=2

@@ -133,3 +133,150 @@ $$
 %найдем все  $Z(\tau)=\{\xi^*[\tau]\mid \mbox{выполнено \eref{eq:bounds}}$, 
 %
 %Пусть для некоторого $\tau\in\TTa$ выполнено $\QQ[\tau]+\xi^*\cap H \subset \CaH$. Представим $\QQ[\tau]=c+\cup_{i} (B_i+b_i),$ где $c+b_i\in\QQ : b_i \perp H$, $B_i=(\QQ-b_i)\cap H$. Мы представили множество $\QQ$ в виде множества $\{B_i\}$ параллельных гиперплоскости $H$ слоев и соответствующего ему множества смещений $\b_i$.
+
+
+\begin{frame} \frametitle{Условие на переключение}
+
+При переключении гибридная система должна удовлетворять условию односторонней проницаемости (трансверсальности), что равносильно выполнению системы соотношений: 
+% то есть чтобы при переходе через плоскость $H$ в момент $\tau$ система
+\begin{equation}
+\left\{
+\begin{aligned}
+	&\left[
+		\begin{aligned}
+			&\ts{\dot x,c}\neq 0;\\
+			&\ts{x,c} - \gamma \neq 0\\
+		\end{aligned}
+	\right.\\
+	&\mbox{sign}(\ts{\dot x^{(1)}(\tau),c})=\mbox{sign}(\ts{\dot x^{(2)}(\tau),c}).
+\end{aligned}
+\right.
+\label{eq:perehod}
+\end{equation}
+
+Это означает, что любая траектория гибридной системы не может касаться гиперплоскости, но пересекает эту плоскость только один раз.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% после переключения  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\frame{ \frametitle{Множество достижимости при переключении }
+%
+%$$
+%\mathcal{P}_2[t_0,t_1]=\left\{\intd{t_0}{t_1}p_2(s)ds\mid \forall p_2(\cdot)\in \mathcal{P}^{(2)}\right\}
+%$$
+%
+%$$
+%\mathcal{X}^\alpha_2[t_1]=\bigcap_{v_2\in \mathcal{V}_2}\bigcup_{\tau\in T^\alpha}(\mathcal{C}^\alpha_H[\tau]+v_2(\tau,t_1)+\mathcal{P}_2[\tau,t_1])
+%$$
+%
+%$$
+%\mathcal{X}^{(2)}[t_1]=\bigcup_{p^\alpha\in \mathcal{P}_1}\mathcal{X}^\alpha_2[t_1]
+%$$
+%
+%}
+
+%$$
+%\mathcal{P}_2[t_0,t_1]=\left\{\intd{t_0}{t_1}p_2(s)ds\mid \forall p_2(\cdot)\in \mathcal{P}^{(2)}\right\}
+%$$
+
+%$$
+%\mathcal{X}^\alpha_2[t_1]=\bigcap_{v_2\in \mathcal{V}_2}\bigcup_{\tau\in T^\alpha}(\mathcal{C}^\alpha_H[\tau]+v_2(\tau,t_1)+\mathcal{P}_2[\tau,t_1])
+%$$
+%
+%$$
+%\mathcal{X}^{(2)}[t_1]=\bigcup_{p^\alpha\in \mathcal{P}_1}\mathcal{X}^\alpha_2[t_1]
+%$$
+
+
+%$$
+%\xi(\tau)=G_2(\tau,t_1)x^*+\intd{t}{\tau}G_2(\tau,s)B_2(s)u_2(s)ds
+%$$
+
+%
+%x(t_1)=G_2(\tau,t_1)x(\tau)+\intd{\tau}{t_1}G_2(t_1,s)B_2(s)u_2(s)ds+\intd(\tau){t_1}G_2(t,s)C_2(s)v(s)ds
+%$$
+%
+%$$
+%V_2[t_0,t]=\left\{ \intd{t_0}{t}v_2(s)ds \mid \forall v_2(\cdot)\in\mathcal{V}^2[t_0,t_1]\right\}  
+%$$
+%
+%
+%{\center Появление фазовых ограничений.}
+%
+%$$
+%Z(\tau)=\{\xi(\tau)\mid  \left(\xi(\tau)+V_2[t,\tau]\right)\cap H \subset \mathcal{C}^\alpha_H[\tau] \},\; \tau\in \TTa
+%$$
+
+$$
+V(t,x)=\min_{u_2}\left(d^2( x(\tau,t,x), \mathcal{C}^\alpha_H)+\intd{\tau^\alpha_1}{\tau^\alpha_2}d^2 (x(s,u_2(\cdot)),Z(s)) ds\right)
+$$
+$$
+V(t,x)=\max\big\{\intd{\tau}{t}\ts{w(t,\tau,\ell),x}ds - \intd{\tau}{t}\supfn{w(s,\tau,ell)}{B_2(s)\mathcal{P}^2(s)}ds-
+$$
+$$
+-\intd{\tau}{t}\supfn{\lambda(s)}{Z(s)}ds\mid \;\ts{\ell,\ell}=1,\;\lambda(\cdot)\in V[\tau,t]\big\}
+$$
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% функция цены (начальный вид) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%слайд
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame{ \frametitle{Функция цены, исходный вид}
+
+$$
+V(t,x)=\min_{u_1,u_2}\max_{v_1,v_2}\min_{\tau}\left\{ d^2(x_0{\mid_{x(t)=x}},\mathcal{X}_0) + \left(\ts{x(\tau),c}-\gamma\right)^2 \right\}
+$$
+
+$$
+u_1(\cdot)\in\mathcal{P}^{(1)}[t_0,t_1],\;u_2(\cdot)\in\mathcal{P}^{(1)}[t_0,t_1],
+$$
+
+$$
+v_1(\cdot)\in\mathcal{V}^{(1)}[t_0,t_1],\;v_2(\cdot)\in\mathcal{V}^{(2)}[t_0,t_1],
+$$
+
+$$
+\tau\in [t_0,t_1]
+$$
+
+%$$
+%H=\{x\mid \ts{x(\tau),c}-\gamma\right)\} 
+%$$
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% функция цены (решение) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%слайд
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame{ \frametitle{ Нелинейность по времени и теорема о минимаксе}
+
+Для перехода к опорным функциям требуется менять местами порядок минимумов и максимумов, но
+функционал вида 
+$$
+T(\tau,\Psi(\cdot))=\intd{t}{\tau}\Psi(s)ds 
+$$
+является нелинейным по $\tau$. Используя класс функций ограниченной вариации $\phi(w)\in V[t_0,t_1] $ 
+преобразуем к виду 
+$$
+T(\phi(w),\Psi(\cdot))=\intd{t_0}{t}  d\phi(w) \int\limits_t^{w}\Psi(w)ds.
+$$
+Теперь  функционал $T(\phi(\cdot),\Psi(\cdot))$ является линейным по $\phi(\cdot)$ и можно воспользоваться теоремой о минимаксе.
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame{ \frametitle{Функция цены, преобразования}
+
+$$
+S(t_0,t_1)=\intd{t_0}{t_1}\left\{  G^T_2(w,t)G^T_1(t_0,w)\ell(w) + \mu(w) G_2^T(w,t)c \right\}\,d\phi(w), 
+$$
+
+$$
+S_1(t_0,t_1)=\intd{t_0}{t_1}\left\{ G^T_1(t_0,w)  \ell(w) \right\}\,d\phi(w),
+$$
+
+$$
+K(\ell,\mu,\mathcal{X}_0)=\intd{t_0}{t} \left[\frac{\mu(w)^2}{4} + \rho(\ell(w)\mid\mathcal{X}_0) + \frac{\|\ell(w)\|^2}{4} \right]\,d\phi(w)
+$$
+
+}
